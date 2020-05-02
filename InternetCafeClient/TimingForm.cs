@@ -28,7 +28,7 @@ namespace InternetCafeClient
 
         private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Bạn không được phép tắt");
+            MessageBox.Show("Bạn không được phép tắt", "Thông báo");
             e.Cancel = true;
         }
 
@@ -38,7 +38,16 @@ namespace InternetCafeClient
             communicate.Show();
             
         }
+        private void foodPicBox_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            order.Show();
+        }
 
+        private void logoutPicBox_Click(object sender, EventArgs e)
+        {
+
+        }
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Nhắn tin", messPicBox);

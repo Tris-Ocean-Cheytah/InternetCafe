@@ -181,6 +181,7 @@
             this.logoutPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoutPicBox.TabIndex = 10;
             this.logoutPicBox.TabStop = false;
+            this.logoutPicBox.Click += new System.EventHandler(this.logoutPicBox_Click);
             this.logoutPicBox.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter_1);
             // 
             // foodPicBox
@@ -194,6 +195,7 @@
             this.foodPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.foodPicBox.TabIndex = 9;
             this.foodPicBox.TabStop = false;
+            this.foodPicBox.Click += new System.EventHandler(this.foodPicBox_Click);
             this.foodPicBox.MouseEnter += new System.EventHandler(this.foodPicBox_MouseEnter);
             // 
             // messPicBox
