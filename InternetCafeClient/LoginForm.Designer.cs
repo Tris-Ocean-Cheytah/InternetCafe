@@ -40,20 +40,19 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.loginButton);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(138, 78);
+            this.panel2.Location = new System.Drawing.Point(122, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(313, 202);
+            this.panel2.Size = new System.Drawing.Size(350, 231);
             this.panel2.TabIndex = 19;
             // 
             // loginButton
             // 
             this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.loginButton.Location = new System.Drawing.Point(109, 137);
+            this.loginButton.Location = new System.Drawing.Point(129, 152);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(90, 31);
             this.loginButton.TabIndex = 19;
@@ -65,7 +64,7 @@
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.CausesValidation = false;
-            this.textBox2.Location = new System.Drawing.Point(66, 88);
+            this.textBox2.Location = new System.Drawing.Point(86, 103);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -77,7 +76,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(66, 32);
+            this.textBox1.Location = new System.Drawing.Point(86, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(178, 20);
             this.textBox1.TabIndex = 17;

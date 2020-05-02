@@ -15,8 +15,43 @@ namespace InternetCafeClient
         public TimingForm()
         {
             InitializeComponent();
-            Rectangle res = Screen.PrimaryScreen.Bounds;
-            this.Location = new Point(res.Width - Size.Width);
+            this.StartPosition = FormStartPosition.Manual;
+            foreach (Screen scrn in Screen.AllScreens)
+            {
+                if (scrn.Bounds.Contains(this.Location))
+                {
+                    this.Location = new Point(scrn.Bounds.Right - this.Width + 7, scrn.Bounds.Top);
+                    return;
+                }
+            }
+        }
+
+        private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Bạn không được phép tắt");
+            e.Cancel = true;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Communicate communicate = new Communicate();
+            communicate.Show();
+            
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Nhắn tin", messPicBox);
+        }
+
+        private void foodPicBox_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Gọi đồ ăn", foodPicBox);
+        }
+
+        private void pictureBox2_MouseEnter_1(object sender, EventArgs e)
+        {
+            toolTip1.Show("Đăng xuất", logoutPicBox);
         }
     }
 }
