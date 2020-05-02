@@ -1,6 +1,6 @@
 ﻿namespace InternetCafeClient
 {
-    partial class Form1
+    partial class TimingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimingForm));
             this.SuspendLayout();
             // 
-            // Form1
+            // TimingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 401);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.ClientSize = new System.Drawing.Size(312, 570);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "TimingForm";
+            this.RightToLeftLayout = true;
+            this.Text = "Timing";
             this.ResumeLayout(false);
 
         }
@@ -44,4 +50,3 @@
         #endregion
     }
 }
-

@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class Form1 : Form
+    public partial class TimingForm : Form
     {
-        public Form1()
+        public TimingForm()
         {
             InitializeComponent();
+            Rectangle res = Screen.PrimaryScreen.Bounds;
+            this.Location = new Point(res.Width - Size.Width);
         }
     }
 }
