@@ -46,9 +46,15 @@ namespace InternetCafeClient
 
         private void logoutPicBox_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
+        private void messPicBox_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Nhắn tin", messPicBox);
         }
@@ -58,7 +64,7 @@ namespace InternetCafeClient
             toolTip1.Show("Gọi đồ ăn", foodPicBox);
         }
 
-        private void pictureBox2_MouseEnter_1(object sender, EventArgs e)
+        private void logoutPicBox_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Đăng xuất", logoutPicBox);
         }

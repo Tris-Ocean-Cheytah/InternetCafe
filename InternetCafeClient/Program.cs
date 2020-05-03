@@ -16,7 +16,7 @@ namespace InternetCafeClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new clientLoginForm());
+            Application.Run(new LoginForm());
         }
     }
 }

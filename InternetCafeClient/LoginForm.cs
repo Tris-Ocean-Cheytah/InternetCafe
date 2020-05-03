@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class clientLoginForm : Form
+    public partial class LoginForm : Form
     {
-        public clientLoginForm()
+        public LoginForm()
         {
             InitializeComponent();
-            panel2.BackColor = Color.FromArgb(150, Color.Black);
+            panel2.BackColor = Color.FromArgb(210, Color.Black);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             TopMost = true;
