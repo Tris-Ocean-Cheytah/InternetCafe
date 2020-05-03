@@ -16,9 +16,6 @@ namespace InternetCafeClient
         {
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(210, Color.Black);
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
-            TopMost = true;
         }
 
         private void loginButton_Click_1(object sender, EventArgs e)

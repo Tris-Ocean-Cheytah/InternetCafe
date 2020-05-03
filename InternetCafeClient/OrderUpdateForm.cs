@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class Communicate : Form
+    public partial class OrderUpdateForm : Form
     {
-        public Communicate()
+        public OrderUpdateForm()
         {
             InitializeComponent();
-        }
-
-        private void sendMessBtn_Click(object sender, EventArgs e)
-        {
-
+            Food.AddFood();
+            foreach (Food i in Food.listFood)
+            {
+                mainFoodPanel.Controls.Add(new FoodControl(i));
+            }
         }
     }
 }

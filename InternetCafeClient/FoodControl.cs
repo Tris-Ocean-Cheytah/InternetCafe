@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class Communicate : Form
+    public partial class FoodControl : UserControl
     {
-        public Communicate()
+        public FoodControl()
         {
             InitializeComponent();
         }
 
-        private void sendMessBtn_Click(object sender, EventArgs e)
+        public FoodControl(Food food) : this()
         {
-
+            nameLbl.Text = food.name;
+            PricetxtBox.Text = food.price;
+            amoutUpDown.Value = food.amount;
         }
     }
 }

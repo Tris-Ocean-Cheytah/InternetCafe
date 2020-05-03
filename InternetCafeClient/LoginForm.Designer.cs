@@ -49,7 +49,7 @@
             this.panel2.Controls.Add(this.loginButton);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(109, 65);
+            this.panel2.Location = new System.Drawing.Point(124, 78);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(363, 233);
             this.panel2.TabIndex = 19;
@@ -120,12 +120,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InternetCafeClient.Properties.Resources.loginPic;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(580, 363);
+            this.ClientSize = new System.Drawing.Size(610, 389);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -40,7 +40,7 @@ namespace InternetCafeClient
         }
         private void foodPicBox_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
+            OrderUpdateForm order = new OrderUpdateForm();
             order.Show();
         }
 

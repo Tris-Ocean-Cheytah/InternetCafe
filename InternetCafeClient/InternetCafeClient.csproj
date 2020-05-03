@@ -46,11 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cart.cs" />
     <Compile Include="Communicate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communicate.Designer.cs">
       <DependentUpon>Communicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs" />
+    <Compile Include="FoodControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodControl.Designer.cs">
+      <DependentUpon>FoodControl.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -64,6 +72,12 @@
     <Compile Include="Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderUpdateForm.Designer.cs">
+      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimingForm.cs">
@@ -75,11 +89,17 @@
     <EmbeddedResource Include="Communicate.resx">
       <DependentUpon>Communicate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FoodControl.resx">
+      <DependentUpon>FoodControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderUpdateForm.resx">
+      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pictures\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\food.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
