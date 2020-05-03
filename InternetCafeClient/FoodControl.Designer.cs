@@ -40,7 +40,7 @@
             // 
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLbl.Location = new System.Drawing.Point(59, 6);
+            this.nameLbl.Location = new System.Drawing.Point(69, 5);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(58, 22);
             this.nameLbl.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 32);
+            this.label2.Location = new System.Drawing.Point(3, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 17);
             this.label2.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // amoutUpDown
             // 
-            this.amoutUpDown.Location = new System.Drawing.Point(202, 33);
+            this.amoutUpDown.Location = new System.Drawing.Point(206, 37);
             this.amoutUpDown.Name = "amoutUpDown";
             this.amoutUpDown.Size = new System.Drawing.Size(41, 20);
             this.amoutUpDown.TabIndex = 2;
@@ -66,7 +66,7 @@
             // PricetxtBox
             // 
             this.PricetxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PricetxtBox.Location = new System.Drawing.Point(39, 31);
+            this.PricetxtBox.Location = new System.Drawing.Point(39, 36);
             this.PricetxtBox.Name = "PricetxtBox";
             this.PricetxtBox.ReadOnly = true;
             this.PricetxtBox.Size = new System.Drawing.Size(88, 20);
@@ -76,7 +76,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(134, 32);
+            this.label3.Location = new System.Drawing.Point(136, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 4;

@@ -175,7 +175,6 @@
             this.logoutPicBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.logoutPicBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.logoutPicBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutPicBox.Image = global::InternetCafeClient.Properties.Resources._out;
             this.logoutPicBox.Location = new System.Drawing.Point(185, 195);
             this.logoutPicBox.Name = "logoutPicBox";
             this.logoutPicBox.Size = new System.Drawing.Size(54, 50);
@@ -190,7 +189,6 @@
             this.foodPicBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.foodPicBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.foodPicBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foodPicBox.Image = global::InternetCafeClient.Properties.Resources.restaurant;
             this.foodPicBox.Location = new System.Drawing.Point(105, 195);
             this.foodPicBox.Name = "foodPicBox";
             this.foodPicBox.Size = new System.Drawing.Size(54, 50);
@@ -205,7 +203,6 @@
             this.messPicBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.messPicBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.messPicBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.messPicBox.Image = global::InternetCafeClient.Properties.Resources.mess;
             this.messPicBox.Location = new System.Drawing.Point(21, 195);
             this.messPicBox.Name = "messPicBox";
             this.messPicBox.Size = new System.Drawing.Size(54, 50);
@@ -217,7 +214,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::InternetCafeClient.Properties.Resources.unnamed;
             this.pictureBox1.Location = new System.Drawing.Point(12, 263);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(237, 184);
