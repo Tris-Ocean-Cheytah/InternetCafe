@@ -49,7 +49,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(690, 386);
+            this.tabPage3.Size = new System.Drawing.Size(760, 386);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Ăn nhẹ";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             this.snackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.snackPanel.Location = new System.Drawing.Point(3, 3);
             this.snackPanel.Name = "snackPanel";
-            this.snackPanel.Size = new System.Drawing.Size(684, 380);
+            this.snackPanel.Size = new System.Drawing.Size(754, 380);
             this.snackPanel.TabIndex = 0;
             // 
             // tabPage2
@@ -69,7 +69,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(690, 386);
+            this.tabPage2.Size = new System.Drawing.Size(760, 386);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Đồ uống";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.drinkPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drinkPanel.Location = new System.Drawing.Point(3, 3);
             this.drinkPanel.Name = "drinkPanel";
-            this.drinkPanel.Size = new System.Drawing.Size(684, 380);
+            this.drinkPanel.Size = new System.Drawing.Size(754, 380);
             this.drinkPanel.TabIndex = 0;
             // 
             // tabPage1
@@ -91,46 +91,49 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(690, 386);
+            this.tabPage1.Size = new System.Drawing.Size(760, 386);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Món chính";
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(-3, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(698, 414);
+            this.tabControl1.Size = new System.Drawing.Size(768, 414);
             this.tabControl1.TabIndex = 0;
             // 
             // mainFoodPanel
             // 
             this.mainFoodPanel.AutoScroll = true;
-            this.mainFoodPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainFoodPanel.Location = new System.Drawing.Point(3, 3);
+            this.mainFoodPanel.AutoSize = true;
+            this.mainFoodPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainFoodPanel.Location = new System.Drawing.Point(1, 1);
             this.mainFoodPanel.Name = "mainFoodPanel";
-            this.mainFoodPanel.Size = new System.Drawing.Size(684, 380);
-            this.mainFoodPanel.TabIndex = 2;
-            this.mainFoodPanel.TabStop = true;
+            this.mainFoodPanel.Size = new System.Drawing.Size(0, 0);
+            this.mainFoodPanel.TabIndex = 0;
             // 
             // OrderUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 450);
+            this.ClientSize = new System.Drawing.Size(767, 450);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "OrderUpdateForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "OrderUpdateForm";
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -144,6 +147,5 @@
         private System.Windows.Forms.FlowLayoutPanel drinkPanel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.FlowLayoutPanel mainFoodPanel;
     }
 }

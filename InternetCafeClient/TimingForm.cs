@@ -12,9 +12,15 @@ namespace InternetCafeClient
 {
     public partial class TimingForm : Form
     {
+        private Communicate communicate;
+        private OrderUpdateForm order;
+        LoginForm loginForm;
         public TimingForm()
         {
             InitializeComponent();
+            communicate = new Communicate();
+            order = new OrderUpdateForm();
+            loginForm = new LoginForm();
             this.StartPosition = FormStartPosition.Manual;
             foreach (Screen scrn in Screen.AllScreens)
             {
@@ -34,25 +40,17 @@ namespace InternetCafeClient
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Communicate communicate = new Communicate();
             communicate.Show();
-            
         }
         private void foodPicBox_Click(object sender, EventArgs e)
         {
-            OrderUpdateForm order = new OrderUpdateForm();
             order.Show();
         }
 
         private void logoutPicBox_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginForm loginForm = new LoginForm();
             loginForm.Show();
-        }
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
-        {
-           
         }
         private void messPicBox_MouseEnter(object sender, EventArgs e)
         {
