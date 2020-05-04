@@ -40,7 +40,7 @@
             // 
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLbl.Location = new System.Drawing.Point(75, 4);
+            this.nameLbl.Location = new System.Drawing.Point(99, 7);
             this.nameLbl.Margin = new System.Windows.Forms.Padding(0);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(58, 22);
@@ -51,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 33);
+            this.label2.Location = new System.Drawing.Point(14, 42);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 17);
@@ -60,27 +60,27 @@
             // 
             // amoutUpDown
             // 
-            this.amoutUpDown.Location = new System.Drawing.Point(164, 30);
+            this.amoutUpDown.Location = new System.Drawing.Point(216, 42);
             this.amoutUpDown.Margin = new System.Windows.Forms.Padding(0);
             this.amoutUpDown.Name = "amoutUpDown";
-            this.amoutUpDown.Size = new System.Drawing.Size(41, 20);
+            this.amoutUpDown.Size = new System.Drawing.Size(42, 20);
             this.amoutUpDown.TabIndex = 2;
             // 
             // PricetxtBox
             // 
             this.PricetxtBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PricetxtBox.Location = new System.Drawing.Point(30, 30);
+            this.PricetxtBox.Location = new System.Drawing.Point(44, 41);
             this.PricetxtBox.Margin = new System.Windows.Forms.Padding(0);
             this.PricetxtBox.Name = "PricetxtBox";
             this.PricetxtBox.ReadOnly = true;
-            this.PricetxtBox.Size = new System.Drawing.Size(70, 20);
+            this.PricetxtBox.Size = new System.Drawing.Size(88, 20);
             this.PricetxtBox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 30);
+            this.label3.Location = new System.Drawing.Point(152, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
@@ -100,7 +100,7 @@
             this.Location = new System.Drawing.Point(1, 1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FoodControl";
-            this.Size = new System.Drawing.Size(208, 53);
+            this.Size = new System.Drawing.Size(267, 68);
             ((System.ComponentModel.ISupportInitialize)(this.amoutUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

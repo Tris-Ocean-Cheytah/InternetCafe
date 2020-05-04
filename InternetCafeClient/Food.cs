@@ -11,6 +11,7 @@ namespace InternetCafeClient
         public static List<Food> listFood = new List<Food>();
         public string name;
         public string price;
+        public string type;
         public int amount;
         public Food()
         {
@@ -20,13 +21,45 @@ namespace InternetCafeClient
         }
         public Food(int s) : this()
         {
-            this.name += " "  + s;
+            this.name += " " + s;
+        }
+
+        public Food(string type) : this()
+        {
+            this.type = type;
         }
         static public void AddFood()
         {
+            AddType();
+        }
+
+        static public void AddType()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Food food = new Food("Mon Chinh")
+                {
+                    name = "Món chính"
+                };
+                listFood.Add(food);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Food food = new Food("Do uong")
+                {
+                    name = "Đồ uống"
+                };
+                listFood.Add(food);
+            }
+
             for (int i = 0; i < 20; i++)
             {
-                listFood.Add(new Food());
+                Food food = new Food("An Nhe")
+                {
+                    name = "Ăn nhẹ"
+                };
+                listFood.Add(food);
             }
         }
     }

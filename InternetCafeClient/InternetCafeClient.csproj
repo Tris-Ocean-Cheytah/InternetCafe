@@ -66,12 +66,6 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order.Designer.cs">
-      <DependentUpon>Order.cs</DependentUpon>
-    </Compile>
     <Compile Include="OrderUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,9 +88,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order.resx">
-      <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderUpdateForm.resx">
       <DependentUpon>OrderUpdateForm.cs</DependentUpon>
@@ -150,6 +141,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pictures\food.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\chocolate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\cuisine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\noodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\snack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\coke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\fry-noodles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\food-and-restaurant.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
