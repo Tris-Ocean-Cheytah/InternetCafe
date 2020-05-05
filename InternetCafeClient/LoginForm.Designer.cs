@@ -33,8 +33,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passTxtBx = new System.Windows.Forms.TextBox();
+            this.userTxtBx = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,8 +47,8 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.loginButton);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.passTxtBx);
+            this.panel2.Controls.Add(this.userTxtBx);
             this.panel2.Location = new System.Drawing.Point(124, 78);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(363, 233);
@@ -90,29 +90,31 @@
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click_1);
             // 
-            // textBox2
+            // passTxtBx
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.CausesValidation = false;
-            this.textBox2.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(81, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(222, 28);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.Text = "Password";
-            this.textBox2.UseSystemPasswordChar = true;
+            this.passTxtBx.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passTxtBx.CausesValidation = false;
+            this.passTxtBx.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passTxtBx.Location = new System.Drawing.Point(81, 105);
+            this.passTxtBx.Name = "passTxtBx";
+            this.passTxtBx.PasswordChar = '*';
+            this.passTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.passTxtBx.Size = new System.Drawing.Size(222, 28);
+            this.passTxtBx.TabIndex = 18;
+            this.passTxtBx.Text = "Password";
+            this.passTxtBx.UseSystemPasswordChar = true;
+            this.passTxtBx.TextChanged += new System.EventHandler(this.passTxtBx_TextChanged);
             // 
-            // textBox1
+            // userTxtBx
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(81, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 28);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.Text = "Username";
+            this.userTxtBx.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userTxtBx.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTxtBx.Location = new System.Drawing.Point(81, 50);
+            this.userTxtBx.Name = "userTxtBx";
+            this.userTxtBx.Size = new System.Drawing.Size(222, 28);
+            this.userTxtBx.TabIndex = 17;
+            this.userTxtBx.Text = "Username";
+            this.userTxtBx.TextChanged += new System.EventHandler(this.userTxtBx_TextChanged);
             // 
             // LoginForm
             // 
@@ -141,8 +143,8 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox passTxtBx;
+        private System.Windows.Forms.TextBox userTxtBx;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

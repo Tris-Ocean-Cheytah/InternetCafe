@@ -53,6 +53,8 @@
     <Compile Include="Communicate.Designer.cs">
       <DependentUpon>Communicate.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="ConnectionString.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FoodControl.cs">
       <SubType>UserControl</SubType>
@@ -66,6 +68,7 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonAn.cs" />
     <Compile Include="OrderUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
