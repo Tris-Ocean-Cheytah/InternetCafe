@@ -28,74 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.sdvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sdvsdvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sdvsdvToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.svsdvsdvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sdvToolStripMenuItem,
-            this.sdvsdvToolStripMenuItem,
-            this.sdvsdvToolStripMenuItem1,
-            this.svsdvsdvToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(577, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // sdvToolStripMenuItem
-            // 
-            this.sdvToolStripMenuItem.Name = "sdvToolStripMenuItem";
-            this.sdvToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.sdvToolStripMenuItem.Text = "sdv";
-            // 
-            // sdvsdvToolStripMenuItem
-            // 
-            this.sdvsdvToolStripMenuItem.Name = "sdvsdvToolStripMenuItem";
-            this.sdvsdvToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.sdvsdvToolStripMenuItem.Text = "sdvsdv";
-            // 
-            // sdvsdvToolStripMenuItem1
-            // 
-            this.sdvsdvToolStripMenuItem1.Name = "sdvsdvToolStripMenuItem1";
-            this.sdvsdvToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
-            this.sdvsdvToolStripMenuItem1.Text = "sdvsdv";
-            // 
-            // svsdvsdvToolStripMenuItem
-            // 
-            this.svsdvsdvToolStripMenuItem.Name = "svsdvsdvToolStripMenuItem";
-            this.svsdvsdvToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.svsdvsdvToolStripMenuItem.Text = "svsdvsdv";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 381);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(631, 421);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sdvToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sdvsdvToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sdvsdvToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem svsdvsdvToolStripMenuItem;
     }
 }
 
