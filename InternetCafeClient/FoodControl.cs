@@ -12,6 +12,7 @@ namespace InternetCafeClient
 {
     public partial class FoodControl : UserControl
     {
+        public Food food;
         public FoodControl()
         {
             InitializeComponent();
@@ -19,9 +20,15 @@ namespace InternetCafeClient
 
         public FoodControl(Food food) : this()
         {
-            nameLbl.Text = food.name;
-            PricetxtBox.Text = food.price;
-            amoutUpDown.Value = food.amount;
+            this.food = food;
+            nameLbl.Text = this.food.name;
+            PricetxtBox.Text = this.food.price;
+            amoutUpDown.Value = this.food.amount;
+        }
+
+        private void amoutUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            food.amount = (int)amoutUpDown.Value;
         }
     }
 }

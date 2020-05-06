@@ -65,6 +65,7 @@
             this.amoutUpDown.Name = "amoutUpDown";
             this.amoutUpDown.Size = new System.Drawing.Size(42, 20);
             this.amoutUpDown.TabIndex = 2;
+            this.amoutUpDown.ValueChanged += new System.EventHandler(this.amoutUpDown_ValueChanged);
             // 
             // PricetxtBox
             // 

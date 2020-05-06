@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderUpdateForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.mainFoodPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.drinkPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.snackPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.mainFoodPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -73,12 +73,13 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(-2, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1009, 449);
+            this.tabControl1.Size = new System.Drawing.Size(1005, 449);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -89,9 +90,19 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1001, 421);
+            this.tabPage1.Size = new System.Drawing.Size(997, 421);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Món chính";
+            // 
+            // mainFoodPanel1
+            // 
+            this.mainFoodPanel1.AutoScroll = true;
+            this.mainFoodPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.mainFoodPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainFoodPanel1.Location = new System.Drawing.Point(3, 3);
+            this.mainFoodPanel1.Name = "mainFoodPanel1";
+            this.mainFoodPanel1.Size = new System.Drawing.Size(991, 415);
+            this.mainFoodPanel1.TabIndex = 5;
             // 
             // tabPage4
             // 
@@ -136,16 +147,6 @@
             this.snackPanel.Name = "snackPanel";
             this.snackPanel.Size = new System.Drawing.Size(995, 415);
             this.snackPanel.TabIndex = 3;
-            // 
-            // mainFoodPanel1
-            // 
-            this.mainFoodPanel1.AutoScroll = true;
-            this.mainFoodPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mainFoodPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainFoodPanel1.Location = new System.Drawing.Point(3, 3);
-            this.mainFoodPanel1.Name = "mainFoodPanel1";
-            this.mainFoodPanel1.Size = new System.Drawing.Size(995, 415);
-            this.mainFoodPanel1.TabIndex = 5;
             // 
             // pictureBox10
             // 
@@ -296,7 +297,6 @@
             this.Controls.Add(this.acceptPicBx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "OrderUpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderUpdateForm";

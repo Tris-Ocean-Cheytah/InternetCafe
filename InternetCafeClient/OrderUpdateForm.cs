@@ -12,18 +12,32 @@ namespace InternetCafeClient
 {
     public partial class OrderUpdateForm : Form
     {
+
         public OrderUpdateForm()
         {
-            InitializeComponent();
             Food.AddFood();
+            List<FoodControl> foodControlsList = new List<FoodControl>();
+            InitializeComponent();
             foreach (Food i in Food.listFood)
             {
                 if (i.type.Equals("Mon Chinh"))
-                    mainFoodPanel1.Controls.Add(new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) });
+                {
+                    FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
+                    mainFoodPanel1.Controls.Add(fc);
+                    foodControlsList.Add(fc);
+                }
                 else if (i.type.Equals("Do uong"))
-                    drinkPanel.Controls.Add(new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) });
+                {
+                    FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
+                    drinkPanel.Controls.Add(fc);
+                    foodControlsList.Add(fc);
+                }
                 else
-                    snackPanel.Controls.Add(new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) });
+                {
+                    FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
+                    snackPanel.Controls.Add(fc);
+                    foodControlsList.Add(fc);
+                }
             }
         }
 
@@ -39,7 +53,16 @@ namespace InternetCafeClient
 
         private void acceptPicBx_Click(object sender, EventArgs e)
         {
-
+            bool checkEmptyCart = true;
+            foreach (Food food in Food.listFood)
+            {
+                if (food.amount != 0)
+                    checkEmptyCart = false;
+            }
+            if (checkEmptyCart)
+            {
+                MessageBox.Show("Bạn chưa đặt món ăn nào");
+            }
         }
 
         private void cancelPicBx_Click(object sender, EventArgs e)
@@ -47,9 +70,5 @@ namespace InternetCafeClient
 
         }
 
-        private void OrderUpdateForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
