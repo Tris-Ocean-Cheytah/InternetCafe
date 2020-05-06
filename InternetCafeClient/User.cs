@@ -52,21 +52,27 @@ namespace InternetCafeClient
                 connection.Close();
             }
         }
-        public String LayMatKhau(String username)
+        public int LayMatKhau(String username,String Pass_word)
         {
-            String mk="";
-            String query = "SELECT Pass_word FROM Thanh_Vien WHERE User_name=@User_name";
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
-            {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("User_name", username);
-                SqlDataReader read = cmd.ExecuteReader();
-                mk=read[0].ToString();
-                connection.Close();
+            int i = 0;
+            try {
+                String query = "SELECT count(*) FROM Thanh_Vien WHERE User_name=@User_name AND Pass_word=@Pass_word";
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("User_name", username);
+                    cmd.Parameters.AddWithValue("Pass_word", Pass_word);
+                    i = (int)cmd.ExecuteScalar();
+                    connection.Close();
+                }
             }
-            return mk;
-        }
+            catch(Exception e)
+            {
+                i = 0;
+            }
+            return i;
+            }
         public void SuaThanhVien()
         {
             String query = "UPDATE Thanh_Vien SET User_name=@User_name,Pass_word=@Pass_word,Name=@Name,Year_of_birth=@Year_of_birth,Citizen_identification=@Citizen_identification,Phone_number=@Phone_number,Account_balance=@Account_balance WHERE User_name=@User_name";

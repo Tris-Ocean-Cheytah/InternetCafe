@@ -12,7 +12,9 @@ namespace InternetCafeClient
 {
     public partial class LoginForm : Form
     {
-        public string pass;
+        private string pass="";
+        private int realpass;
+        private string username = "";
         public LoginForm()
         {
             InitializeComponent();
@@ -21,21 +23,26 @@ namespace InternetCafeClient
 
         private void loginButton_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            TimingForm timingForm = new TimingForm();
-            timingForm.Show();
+            User user = new User();
+            realpass = user.LayMatKhau(username,pass);
+            if (realpass == 1)
+            {
+                this.Hide();
+                TimingForm timingForm = new TimingForm();
+                timingForm.Show();
+            }
+            else
+                MessageBox.Show("wrong username or password");
         }
 
         private void userTxtBx_TextChanged(object sender, EventArgs e)
         {
-            string usrname = userTxtBx.Text;
-            User user = new User();
-            pass = user.LayMatKhau(usrname);
+            username = userTxtBx.Text;
         }
 
         private void passTxtBx_TextChanged(object sender, EventArgs e)
         {
-
+            pass = passTxtBx.Text;
         }
     }
 }
