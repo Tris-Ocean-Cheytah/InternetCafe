@@ -21,7 +21,7 @@ namespace InternetCafeClient
         public FoodControl(Food food) : this()
         {
             this.food = food;
-            nameLbl.Text = this.food.type;
+            nameLbl.Text = this.food.name;
             PricetxtBox.Text = this.food.price;
             amoutUpDown.Value = this.food.amount;
         }
@@ -29,11 +29,6 @@ namespace InternetCafeClient
         private void amoutUpDown_ValueChanged(object sender, EventArgs e)
         {
             food.amount = (int)amoutUpDown.Value;
-        }
-
-        private void NameLbl_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

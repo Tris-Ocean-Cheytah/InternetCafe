@@ -31,31 +31,9 @@ namespace InternetCafeClient
         }
         static public void AddFood()
         {
-            //AddType();
             GetFoodFromDatabase();
         }
 
-        static public void AddType()
-        {
-            //cái hàm này t ko dùng
-            for (int i = 0; i < 10; i++)
-            {
-                Food food = new Food("MonChinh");
-                listFood.Add(food);
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                Food food = new Food("DoUong");
-                listFood.Add(food);
-            }
-
-            for (int i = 0; i < 20; i++)
-            {
-                Food food = new Food("AnNhe");
-                listFood.Add(food);
-            }
-        }
         static public void GetFoodFromDatabase()
         {
             String query = "SELECT * FROM Thuc_Don";
@@ -105,10 +83,7 @@ namespace InternetCafeClient
                     MessageBox.Show(e.ToString());
                 }
             }
-            foreach (Food item in listFood)
-            {
-                Console.WriteLine(item.name + item.type);
-            }
+
         }
     }
 }
