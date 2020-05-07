@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
+using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
@@ -22,6 +22,12 @@ namespace InternetCafeClient
             this.LoaiMonAn = LoaiMonAn;
             this.DonGia = DonGia;
         }
+
+        public MonAn()
+        {
+
+        }
+
         public void ThemMonAn()
         {
             String query = "INSERT INTO Thuc_Don VALUES(@MaSP,@TenMonAn,@LoaiMonAn,@DonGia)";
@@ -53,35 +59,30 @@ namespace InternetCafeClient
             }
         }
 
-        public void LayDuLieu()
+        public List<MonAn> LayMonAn()
         {
-            String query = "SELECT * FROM Thuc_Don WHERE MaSP=@MaSP";
+            String query = "SELECT * FROM Thuc_Don";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("MaSP", MaSP);
-                SqlDataReader read = cmd.ExecuteReader();
-                TenMonAn = (string)read[1];
-                LoaiMonAn = (string)read[2];
-                DonGia = int.Parse(read[3].ToString());
-                connection.Close();
-            }
-            
-        }
-        public void LayMonAn()
-        {
-            String query = "SELECT * FROM Thuc_Don WHERE MaSP=@MaSP";
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
-            {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("MaSP", MaSP);
-                SqlDataReader read = cmd.ExecuteReader();
-                TenMonAn = (string)read[1];
-                LoaiMonAn = (string)read[2];
-                DonGia = int.Parse(read[3].ToString());
-                connection.Close();
+                int i = 1;
+                List<MonAn> menu= new List<MonAn>();
+                try{
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        menu[i].TenMonAn = (string)read["TenMonAn"];
+                        menu[i].LoaiMonAn = (string)read["LoaiMonAn"];
+                        menu[i].DonGia = int.Parse(read["LoaiMonAn"].ToString());
+                        i++;
+                    }
+                    connection.Close();
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+                return menu;
             }
 
         }

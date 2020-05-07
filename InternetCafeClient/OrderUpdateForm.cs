@@ -20,13 +20,13 @@ namespace InternetCafeClient
             InitializeComponent();
             foreach (Food i in Food.listFood)
             {
-                if (i.type.Equals("Mon Chinh"))
+                if (i.type.Equals("MonChinh"))
                 {
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
                     mainFoodPanel1.Controls.Add(fc);
                     foodControlsList.Add(fc);
                 }
-                else if (i.type.Equals("Do uong"))
+                else if (i.type.Equals("DoUong"))
                 {
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
                     drinkPanel.Controls.Add(fc);
@@ -70,5 +70,9 @@ namespace InternetCafeClient
 
         }
 
+        private void MainFoodPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
