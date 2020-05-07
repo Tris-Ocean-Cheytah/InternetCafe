@@ -19,10 +19,6 @@ namespace InternetCafeClient
             this.amount = 0;
         }
 
-        public Food(string type) : this()
-        {
-            this.type = type;
-        }
         public Food(string name, string type, string price) : this()
         {
             this.type = type;
@@ -52,29 +48,6 @@ namespace InternetCafeClient
                         string Price = (string)read["DonGia"];
                         Food add = new Food(Name, Type, Price);
                         listFood.Add(add);
-                        //tao lấy rồi add vào list food
-                        //while(true)
-                        //{
-                        //    if (listFood[count].type.Equals("MonChinh"))
-                        //    {
-                        //        listFood[count].name = Name;
-                        //        listFood[count].price = Price;
-                        //        break;
-                        //    }
-                        //    else if (listFood[count].type.Equals("DoUong"))
-                        //    {
-                        //        listFood[count].name = Name;
-                        //        listFood[count].price = Price;
-                        //        break;
-                        //    }
-                        //    else if (listFood[count].type.Equals("AnNhe"))
-                        //    {
-                        //        listFood[count].name = Name;
-                        //        listFood[count].price = Price;
-                        //        break;
-                        //    }
-                        //    count++;
-                        //}
                     }
                     connection.Close();
                 }
