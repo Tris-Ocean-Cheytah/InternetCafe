@@ -28,7 +28,7 @@ namespace InternetCafeClient
             if (realpass == 1)
             {
                 this.Hide();
-                TimingForm timingForm = new TimingForm();
+                TimingForm timingForm = new TimingForm(username);
                 timingForm.Show();
             }
             else
