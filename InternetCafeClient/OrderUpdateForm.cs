@@ -12,21 +12,22 @@ namespace InternetCafeClient
 {
     public partial class OrderUpdateForm : Form
     {
-
+        public static List<FoodControl> foodControlsList;
         public OrderUpdateForm()
         {
-            Food.AddFood();
-            List<FoodControl> foodControlsList = new List<FoodControl>();
             InitializeComponent();
+            Food.AddFood();
+            foodControlsList = new List<FoodControl>();
             foreach (Food i in Food.listFood)
             {
-                if (i.type.Equals("Mon Chinh"))
+                if (i.type.Equals("MonChinh"))
                 {
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
-                    mainFoodPanel1.Controls.Add(fc);
+                    mainFoodPanel.Controls.Add(fc);
                     foodControlsList.Add(fc);
+
                 }
-                else if (i.type.Equals("Do uong"))
+                else if (i.type.Equals("DoUong"))
                 {
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
                     drinkPanel.Controls.Add(fc);
@@ -37,6 +38,7 @@ namespace InternetCafeClient
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
                     snackPanel.Controls.Add(fc);
                     foodControlsList.Add(fc);
+                    Console.WriteLine(i.name + i.type);
                 }
             }
         }
@@ -63,12 +65,27 @@ namespace InternetCafeClient
             {
                 MessageBox.Show("Bạn chưa đặt món ăn nào");
             }
+            else
+            {
+                //Đợi server
+            }
         }
 
         private void cancelPicBx_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0, j = 0; i < Food.listFood.Count - 1; i++, j++)
+            {
+                if (Food.listFood[i].amount != 0)
+                {
+                    Food.listFood[i].amount = 0;
+                    foodControlsList[i].amoutUpDown.Value = 0;
+                }
+            }
         }
 
+        private void MainFoodPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

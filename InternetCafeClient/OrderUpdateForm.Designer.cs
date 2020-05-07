@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderUpdateForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.mainFoodPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.mainFoodPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.drinkPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -86,23 +86,25 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
-            this.tabPage1.Controls.Add(this.mainFoodPanel1);
+            this.tabPage1.Controls.Add(this.mainFoodPanel);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage1.Size = new System.Drawing.Size(997, 421);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Món chính";
             // 
-            // mainFoodPanel1
+            // mainFoodPanel
             // 
-            this.mainFoodPanel1.AutoScroll = true;
-            this.mainFoodPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mainFoodPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainFoodPanel1.Location = new System.Drawing.Point(3, 3);
-            this.mainFoodPanel1.Name = "mainFoodPanel1";
-            this.mainFoodPanel1.Size = new System.Drawing.Size(991, 415);
-            this.mainFoodPanel1.TabIndex = 5;
+            this.mainFoodPanel.AutoScroll = true;
+            this.mainFoodPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.mainFoodPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.mainFoodPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainFoodPanel.Location = new System.Drawing.Point(3, 3);
+            this.mainFoodPanel.Name = "mainFoodPanel";
+            this.mainFoodPanel.Size = new System.Drawing.Size(991, 415);
+            this.mainFoodPanel.TabIndex = 5;
+            this.mainFoodPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainFoodPanel1_Paint);
             // 
             // tabPage4
             // 
@@ -110,8 +112,8 @@
             this.tabPage4.Controls.Add(this.drinkPanel);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1001, 421);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(997, 421);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Đồ uống";
             // 
@@ -123,7 +125,7 @@
             this.drinkPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drinkPanel.Location = new System.Drawing.Point(3, 3);
             this.drinkPanel.Name = "drinkPanel";
-            this.drinkPanel.Size = new System.Drawing.Size(995, 415);
+            this.drinkPanel.Size = new System.Drawing.Size(991, 415);
             this.drinkPanel.TabIndex = 4;
             // 
             // tabPage2
@@ -132,8 +134,8 @@
             this.tabPage2.Controls.Add(this.snackPanel);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1001, 421);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(997, 421);
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Ăn nhẹ";
             // 
@@ -145,7 +147,7 @@
             this.snackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.snackPanel.Location = new System.Drawing.Point(3, 3);
             this.snackPanel.Name = "snackPanel";
-            this.snackPanel.Size = new System.Drawing.Size(995, 415);
+            this.snackPanel.Size = new System.Drawing.Size(991, 415);
             this.snackPanel.TabIndex = 3;
             // 
             // pictureBox10
@@ -340,6 +342,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.FlowLayoutPanel mainFoodPanel1;
+        private System.Windows.Forms.FlowLayoutPanel mainFoodPanel;
     }
 }

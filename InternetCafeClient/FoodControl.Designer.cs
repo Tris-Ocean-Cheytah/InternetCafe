@@ -99,7 +99,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nameLbl);
             this.Location = new System.Drawing.Point(1, 1);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FoodControl";
             this.Size = new System.Drawing.Size(267, 68);
             ((System.ComponentModel.ISupportInitialize)(this.amoutUpDown)).EndInit();
@@ -112,7 +112,7 @@
 
         private System.Windows.Forms.Label nameLbl;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown amoutUpDown;
+        public System.Windows.Forms.NumericUpDown amoutUpDown;
         private System.Windows.Forms.TextBox PricetxtBox;
         private System.Windows.Forms.Label label3;
     }
