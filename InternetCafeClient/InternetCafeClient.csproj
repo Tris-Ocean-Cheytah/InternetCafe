@@ -32,6 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,11 +56,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cart.cs" />
-    <Compile Include="Communicate.cs">
+    <Compile Include="FormCommunicate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Communicate.Designer.cs">
-      <DependentUpon>Communicate.cs</DependentUpon>
+    <Compile Include="FormCommunicate.Designer.cs">
+      <DependentUpon>FormCommunicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetPass.Designer.cs">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="ConnectionString.cs" />
@@ -62,37 +77,40 @@
     <Compile Include="FoodControl.Designer.cs">
       <DependentUpon>FoodControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderUpdateForm.cs">
+    <Compile Include="FormOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderUpdateForm.Designer.cs">
-      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
+    <Compile Include="FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimingForm.cs">
+    <Compile Include="FormTiming.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TimingForm.Designer.cs">
-      <DependentUpon>TimingForm.cs</DependentUpon>
+    <Compile Include="FormTiming.Designer.cs">
+      <DependentUpon>FormTiming.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Communicate.resx">
-      <DependentUpon>Communicate.cs</DependentUpon>
+    <EmbeddedResource Include="FormCommunicate.resx">
+      <DependentUpon>FormCommunicate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodControl.resx">
       <DependentUpon>FoodControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderUpdateForm.resx">
-      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormOrder.resx">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetPass.resx">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,9 +122,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TimingForm.resx">
-      <DependentUpon>TimingForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormTiming.resx">
+      <DependentUpon>FormTiming.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pictures\food-and-restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\security.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

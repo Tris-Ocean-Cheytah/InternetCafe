@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InternetCafeServer
+namespace InternetCafeClient
 {
-    public partial class Form1 : Form
+    public partial class FormSetPass : Form
     {
-        public Form1()
+        public FormSetPass()
         {
             InitializeComponent();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

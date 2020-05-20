@@ -10,17 +10,19 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class TimingForm : Form
+    public partial class FormTiming : Form
     {
-        private Communicate communicate;
-        private OrderUpdateForm order;
-        LoginForm loginForm;
-        public TimingForm()
+        private FormCommunicate communicate;
+        private FormOrder order;
+        private FormLogin loginForm;
+        private FormSetPass formSet;
+        public FormTiming()
         {
             InitializeComponent();
-            communicate = new Communicate();
-            order = new OrderUpdateForm();
-            loginForm = new LoginForm();
+            communicate = new FormCommunicate();
+            order = new FormOrder();
+            loginForm = new FormLogin();
+            formSet = new FormSetPass();
             this.StartPosition = FormStartPosition.Manual;
             foreach (Screen scrn in Screen.AllScreens)
             {
@@ -65,6 +67,16 @@ namespace InternetCafeClient
         private void logoutPicBox_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Đăng xuất", logoutPicBox);
+        }
+
+        private void keyPicBx_Click(object sender, EventArgs e)
+        {
+            formSet.Show();
+        }
+
+        private void keyPicBx_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Đặt lại mật khẩu", keyPicBx);
         }
     }
 }
