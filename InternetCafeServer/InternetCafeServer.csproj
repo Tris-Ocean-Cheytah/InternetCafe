@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="FormCommunicate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +91,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="DTO\" />
     <Folder Include="pictures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
