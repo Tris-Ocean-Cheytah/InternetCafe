@@ -68,6 +68,7 @@ namespace InternetCafeClient
             else
             {
                 //Đợi server
+                MessageBox.Show("Đặt món hoàn tất","",MessageBoxButtons.YesNo);
             }
         }
 
