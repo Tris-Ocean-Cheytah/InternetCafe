@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class OrderUpdateForm : Form
+    public partial class FormOrder : Form
     {
         public static List<FoodControl> foodControlsList;
-        public OrderUpdateForm()
+        public FormOrder()
         {
             InitializeComponent();
             Food.AddFood();
@@ -68,6 +68,7 @@ namespace InternetCafeClient
             else
             {
                 //Đợi server
+                MessageBox.Show("Đặt món hoàn tất","",MessageBoxButtons.YesNo);
             }
         }
 

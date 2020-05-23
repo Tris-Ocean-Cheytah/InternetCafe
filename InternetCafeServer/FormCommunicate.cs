@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InternetCafeClient
+namespace InternetCafeServer
 {
-    public partial class Communicate : Form
+    public partial class FormCommunicate : Form
     {
-        public Communicate()
+        public FormCommunicate()
         {
             InitializeComponent();
         }
 
-        private void sendMessBtn_Click(object sender, EventArgs e)
+        private void FormCommunicate_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

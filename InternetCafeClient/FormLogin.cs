@@ -10,25 +10,27 @@ using System.Windows.Forms;
 
 namespace InternetCafeClient
 {
-    public partial class LoginForm : Form
+    public partial class FormLogin : Form
     {
         private string pass="";
         private int realpass;
         private string username = "";
-        public LoginForm()
+        FormTiming timingForm;
+        public FormLogin()
         {
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(210, Color.Black);
+            this.AcceptButton = loginButton;
         }
 
-        private void loginButton_Click_1(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             User user = new User();
             realpass = user.LayMatKhau(username,pass);
             if (realpass == 1)
             {
                 this.Hide();
-                TimingForm timingForm = new TimingForm(username);
+                timingForm = new FormTiming();
                 timingForm.Show();
             }
             else

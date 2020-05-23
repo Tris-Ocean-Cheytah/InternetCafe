@@ -1,6 +1,6 @@
 ﻿namespace InternetCafeClient
 {
-    partial class OrderUpdateForm
+    partial class FormOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderUpdateForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrder));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.mainFoodPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -89,7 +89,7 @@
             this.tabPage1.Controls.Add(this.mainFoodPanel);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(997, 421);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Món chính";
@@ -112,7 +112,7 @@
             this.tabPage4.Controls.Add(this.drinkPanel);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(997, 421);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Đồ uống";
@@ -134,7 +134,7 @@
             this.tabPage2.Controls.Add(this.snackPanel);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(997, 421);
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Ăn nhẹ";
@@ -278,7 +278,7 @@
             this.acceptPicBx.Click += new System.EventHandler(this.acceptPicBx_Click);
             this.acceptPicBx.MouseEnter += new System.EventHandler(this.acceptPicBx_MouseEnter);
             // 
-            // OrderUpdateForm
+            // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,9 +299,9 @@
             this.Controls.Add(this.acceptPicBx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "OrderUpdateForm";
+            this.Name = "FormOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OrderUpdateForm";
+            this.Text = "Đặt món";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
