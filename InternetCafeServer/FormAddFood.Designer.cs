@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddFood));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFood = new System.Windows.Forms.TextBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnAddFood = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,21 +48,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên món ";
             // 
-            // textBox1
+            // txtFood
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtFood.Location = new System.Drawing.Point(92, 13);
+            this.txtFood.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFood.Name = "txtFood";
+            this.txtFood.Size = new System.Drawing.Size(132, 23);
+            this.txtFood.TabIndex = 1;
             // 
-            // textBox2
+            // txtType
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 55);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 23);
-            this.textBox2.TabIndex = 3;
+            this.txtType.Location = new System.Drawing.Point(92, 55);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(132, 23);
+            this.txtType.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,13 +74,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Loại";
             // 
-            // textBox3
+            // txtPrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(92, 100);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 23);
-            this.textBox3.TabIndex = 5;
+            this.txtPrice.Location = new System.Drawing.Point(92, 100);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(132, 23);
+            this.txtPrice.TabIndex = 5;
             // 
             // label3
             // 
@@ -91,21 +92,31 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Đơn giá";
             // 
+            // btnAddFood
+            // 
+            this.btnAddFood.Location = new System.Drawing.Point(80, 146);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(84, 34);
+            this.btnAddFood.TabIndex = 6;
+            this.btnAddFood.Text = "Thêm Món";
+            this.btnAddFood.UseVisualStyleBackColor = true;
+            // 
             // FormAddFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 141);
-            this.Controls.Add(this.textBox3);
+            this.ClientSize = new System.Drawing.Size(241, 192);
+            this.Controls.Add(this.btnAddFood);
+            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtType);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFood);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAddFood";
@@ -118,10 +129,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFood;
+        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAddFood;
     }
 }

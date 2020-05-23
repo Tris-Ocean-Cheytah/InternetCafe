@@ -62,24 +62,24 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPhoneNum = new System.Windows.Forms.TextBox();
+            this.txtMoney = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAddMon = new System.Windows.Forms.TextBox();
             this.btnDel = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFind = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -235,9 +235,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.textBox5);
+            this.panel3.Controls.Add(this.txtAddMon);
             this.panel3.Controls.Add(this.btnDel);
-            this.panel3.Controls.Add(this.btnCreate);
+            this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -249,14 +249,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.txtPass);
+            this.groupBox1.Controls.Add(this.txtTime);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtPhoneNum);
+            this.groupBox1.Controls.Add(this.txtMoney);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -277,36 +277,36 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Mật khẩu";
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox2.Location = new System.Drawing.Point(181, 120);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(132, 23);
-            this.textBox2.TabIndex = 27;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtPass.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtPass.Location = new System.Drawing.Point(181, 120);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.ReadOnly = true;
+            this.txtPass.Size = new System.Drawing.Size(132, 23);
+            this.txtPass.TabIndex = 27;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
-            // textBox4
+            // txtTime
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox4.Location = new System.Drawing.Point(181, 180);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(132, 23);
-            this.textBox4.TabIndex = 26;
+            this.txtTime.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTime.Location = new System.Drawing.Point(181, 180);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.ReadOnly = true;
+            this.txtTime.Size = new System.Drawing.Size(132, 23);
+            this.txtTime.TabIndex = 26;
             // 
-            // textBox8
+            // txtName
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox8.Location = new System.Drawing.Point(181, 58);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(132, 23);
-            this.textBox8.TabIndex = 25;
+            this.txtName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtName.Location = new System.Drawing.Point(181, 58);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(132, 23);
+            this.txtName.TabIndex = 25;
             // 
             // label6
             // 
@@ -318,25 +318,25 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Số điện thoại";
             // 
-            // textBox7
+            // txtPhoneNum
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox7.Location = new System.Drawing.Point(502, 120);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(132, 23);
-            this.textBox7.TabIndex = 23;
+            this.txtPhoneNum.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtPhoneNum.Location = new System.Drawing.Point(502, 120);
+            this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtPhoneNum.Name = "txtPhoneNum";
+            this.txtPhoneNum.ReadOnly = true;
+            this.txtPhoneNum.Size = new System.Drawing.Size(132, 23);
+            this.txtPhoneNum.TabIndex = 23;
             // 
-            // textBox3
+            // txtMoney
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox3.Location = new System.Drawing.Point(502, 180);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(132, 23);
-            this.textBox3.TabIndex = 21;
+            this.txtMoney.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtMoney.Location = new System.Drawing.Point(502, 180);
+            this.txtMoney.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.ReadOnly = true;
+            this.txtMoney.Size = new System.Drawing.Size(132, 23);
+            this.txtMoney.TabIndex = 21;
             // 
             // label5
             // 
@@ -348,15 +348,15 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Tên đăng nhập";
             // 
-            // textBox6
+            // txtUsername
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox6.Location = new System.Drawing.Point(502, 58);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(132, 23);
-            this.textBox6.TabIndex = 18;
+            this.txtUsername.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtUsername.Location = new System.Drawing.Point(502, 58);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 15, 10, 10);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(132, 23);
+            this.txtUsername.TabIndex = 18;
             // 
             // label3
             // 
@@ -385,14 +385,14 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Tên người dùng";
             // 
-            // textBox5
+            // txtAddMon
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox5.Location = new System.Drawing.Point(508, 311);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(143, 23);
-            this.textBox5.TabIndex = 13;
+            this.txtAddMon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAddMon.Location = new System.Drawing.Point(508, 311);
+            this.txtAddMon.Name = "txtAddMon";
+            this.txtAddMon.ReadOnly = true;
+            this.txtAddMon.Size = new System.Drawing.Size(143, 23);
+            this.txtAddMon.TabIndex = 13;
             // 
             // btnDel
             // 
@@ -403,15 +403,15 @@
             this.btnDel.Text = "Xóa";
             this.btnDel.UseVisualStyleBackColor = true;
             // 
-            // btnCreate
+            // btnAdd
             // 
-            this.btnCreate.Location = new System.Drawing.Point(55, 315);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(80, 36);
-            this.btnCreate.TabIndex = 4;
-            this.btnCreate.Text = "Tạo mới";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.btnAdd.Location = new System.Drawing.Point(55, 315);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(80, 36);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Tạo mới";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // label4
             // 
@@ -433,7 +433,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtFind);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(196, 3);
@@ -441,12 +441,12 @@
             this.panel2.Size = new System.Drawing.Size(666, 45);
             this.panel2.TabIndex = 0;
             // 
-            // textBox1
+            // txtFind
             // 
-            this.textBox1.Location = new System.Drawing.Point(377, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtFind.Location = new System.Drawing.Point(377, 12);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(203, 23);
+            this.txtFind.TabIndex = 1;
             // 
             // button1
             // 
@@ -556,12 +556,12 @@
             this.stripMenuItemAddFood});
             this.menuStripFood.Name = "contextMenuStrip1";
             this.menuStripFood.ShowImageMargin = false;
-            this.menuStripFood.Size = new System.Drawing.Size(156, 48);
+            this.menuStripFood.Size = new System.Drawing.Size(108, 26);
             // 
             // stripMenuItemAddFood
             // 
             this.stripMenuItemAddFood.Name = "stripMenuItemAddFood";
-            this.stripMenuItemAddFood.Size = new System.Drawing.Size(155, 22);
+            this.stripMenuItemAddFood.Size = new System.Drawing.Size(107, 22);
             this.stripMenuItemAddFood.Text = "Thêm món";
             this.stripMenuItemAddFood.Click += new System.EventHandler(this.stripMenuItemAddFood_Click_1);
             // 
@@ -613,9 +613,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ColumnHeader colDate;
@@ -624,7 +624,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAddMon;
         private System.Windows.Forms.ColumnHeader colTotalTime;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel4;
@@ -634,15 +634,15 @@
         private System.Windows.Forms.ColumnHeader colUsername_Food;
         private System.Windows.Forms.ColumnHeader colInfo_Food;
         private System.Windows.Forms.ColumnHeader colMoney_Food;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtPhoneNum;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ContextMenuStrip menuStripFood;
         private System.Windows.Forms.ToolStripMenuItem stripMenuItemAddFood;
     }

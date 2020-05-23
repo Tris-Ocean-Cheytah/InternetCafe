@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddUser));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtMoney = new System.Windows.Forms.TextBox();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 37);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 23);
-            this.textBox1.TabIndex = 0;
+            this.txtUsername.Location = new System.Drawing.Point(126, 37);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(132, 23);
+            this.txtUsername.TabIndex = 0;
             // 
             // label1
             // 
@@ -72,13 +72,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Mật khẩu";
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 80);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 23);
-            this.textBox2.TabIndex = 2;
+            this.txtPass.Location = new System.Drawing.Point(126, 80);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(132, 23);
+            this.txtPass.TabIndex = 2;
             // 
             // label3
             // 
@@ -90,13 +90,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Họ và tên";
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Location = new System.Drawing.Point(126, 123);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 23);
-            this.textBox3.TabIndex = 4;
+            this.txtName.Location = new System.Drawing.Point(126, 123);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(132, 23);
+            this.txtName.TabIndex = 4;
             // 
             // label4
             // 
@@ -108,13 +108,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "CMND";
             // 
-            // textBox4
+            // txtID
             // 
-            this.textBox4.Location = new System.Drawing.Point(126, 166);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 23);
-            this.textBox4.TabIndex = 6;
+            this.txtID.Location = new System.Drawing.Point(126, 166);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(132, 23);
+            this.txtID.TabIndex = 6;
             // 
             // label5
             // 
@@ -126,13 +126,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Số điện thoại";
             // 
-            // textBox5
+            // txtPhoneNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(126, 209);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 23);
-            this.textBox5.TabIndex = 8;
+            this.txtPhoneNum.Location = new System.Drawing.Point(126, 209);
+            this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtPhoneNum.Name = "txtPhoneNum";
+            this.txtPhoneNum.Size = new System.Drawing.Size(132, 23);
+            this.txtPhoneNum.TabIndex = 8;
             // 
             // label6
             // 
@@ -144,41 +144,41 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Số tiền";
             // 
-            // textBox6
+            // txtMoney
             // 
-            this.textBox6.Location = new System.Drawing.Point(126, 252);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(132, 23);
-            this.textBox6.TabIndex = 10;
+            this.txtMoney.Location = new System.Drawing.Point(126, 252);
+            this.txtMoney.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(132, 23);
+            this.txtMoney.TabIndex = 10;
             // 
-            // button1
+            // btnAddUser
             // 
-            this.button1.Location = new System.Drawing.Point(103, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 34);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Tạo mới";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddUser.Location = new System.Drawing.Point(103, 298);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(82, 34);
+            this.btnAddUser.TabIndex = 12;
+            this.btnAddUser.Text = "Tạo mới";
+            this.btnAddUser.UseVisualStyleBackColor = true;
             // 
             // FormAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 344);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtPhoneNum);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUsername);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -193,18 +193,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPhoneNum;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtMoney;
+        private System.Windows.Forms.Button btnAddUser;
     }
 }
