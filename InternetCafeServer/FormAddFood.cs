@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
-    public partial class Form2 : Form
+    public partial class FormAddFood : Form
     {
-        public Form2()
+        public FormAddFood()
         {
             InitializeComponent();
         }

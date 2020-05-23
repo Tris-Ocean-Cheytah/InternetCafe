@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
-    public partial class FormCommunicate : Form
+    public partial class FormAddUser : Form
     {
-        public FormCommunicate()
+        public FormAddUser()
         {
             InitializeComponent();
-        }
-
-        private void FormCommunicate_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
     }
 }
