@@ -39,7 +39,10 @@ namespace InternetCafeClient
             loginForm = new FormLogin();
             formSet = new FormSetPass();
             GetInfo(username);
+            TienConLai.Text = this.money.ToString();
             TransferToTime();
+            timer1.Enabled = true;
+            timer2.Enabled = true;
             this.StartPosition = FormStartPosition.Manual;
 
             foreach (Screen scrn in Screen.AllScreens)
@@ -137,7 +140,7 @@ namespace InternetCafeClient
                 phut = 59;
                 gio--;
             }
-            if (gio == 0)
+            if (gio == 0 && phut==0 &&giay==0)
             {
                 this.Hide();
                 timer1.Enabled = false;
