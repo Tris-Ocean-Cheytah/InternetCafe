@@ -21,6 +21,11 @@ namespace InternetCafeClient
         private string username;
         Socket SckClient;
         EndPoint ep;
+        int time;
+        int money;
+        int gio;
+        int phut;
+        int giay;
         byte[] data = new byte[1024];
         public FormTiming(string username)
         {
@@ -99,6 +104,17 @@ namespace InternetCafeClient
         private void keyPicBx_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Đặt lại mật khẩu", keyPicBx);
+        }
+        public void TransferToTime()
+        {
+            int du;
+            time = (money / 18000) * 3600;
+            gio = time / 3600;
+            du = time % 3600;
+            time = time / 3600;
+            time = time + du;
+            phut = time / 60;
+            giay = time % 60;
         }
     }
 }
