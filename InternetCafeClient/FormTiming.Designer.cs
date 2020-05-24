@@ -115,7 +115,6 @@
             this.textBox2.TabIndex = 10;
             this.textBox2.Text = "??? vnd";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label1
             // 

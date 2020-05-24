@@ -52,7 +52,9 @@
     <Compile Include="ControlClient.Designer.cs">
       <DependentUpon>ControlClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ConnectionString.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="FormAddFood.cs">
       <SubType>Form</SubType>
