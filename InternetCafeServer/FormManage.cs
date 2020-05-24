@@ -59,6 +59,12 @@ namespace InternetCafeServer
                 int result = DP.GetMoney(thongdiep);
                 SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
             }
+            else if (thongdiep.StartsWith("3"))
+            {
+                thongdiep = thongdiep.Substring(1);
+                String[] UAP = thongdiep.Split(' ');
+                DP.Changebalance(UAP[0], UAP[1]);
+            }
             SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
 

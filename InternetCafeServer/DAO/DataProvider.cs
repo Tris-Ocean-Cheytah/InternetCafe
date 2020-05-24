@@ -83,16 +83,16 @@ namespace InternetCafeServer.DAO
                 connection.Close();
             }
         }
-        public void Changebalance(String username, int sodu)
+        public void Changebalance(String username, string sodu)
         {
 
-            String query = "UPDATE Thanh_Vien SET Account_balance=Account_balance+@Account_balance WHERE User_name=@User_name";
+            String query = "UPDATE Thanh_Vien SET Account_balance=@Account_balance WHERE User_name=@User_name";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("User_name", username);
-                cmd.Parameters.AddWithValue("@Account_balance", sodu);
+                cmd.Parameters.AddWithValue("Account_balance", sodu);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }

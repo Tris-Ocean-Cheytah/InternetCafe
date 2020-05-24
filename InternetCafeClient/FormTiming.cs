@@ -21,14 +21,14 @@ namespace InternetCafeClient
         private string username;
         Socket SckClient;
         EndPoint ep;
-        int time;
-        int money;
-        int gio;
-        int phut;
-        int giay;
-        int gio2;
-        int phut2;
-        int giay2;
+        private int time;
+        private int money;
+        private int gio;
+        private int phut;
+        private int giay;
+        private int gio2;
+        private int phut2;
+        private int giay2;
         byte[] data = new byte[1024];
         public FormTiming(string username)
         {
@@ -70,6 +70,15 @@ namespace InternetCafeClient
             string result = Encoding.ASCII.GetString(data, 0, size);
             this.money = int.Parse(result);
         }
+        private void ChangeBalance(string username,int AB)
+        {
+            //tao ket noi
+            SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //tao cong
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            //bat dau gui du lieu
+            SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username+" "+AB.ToString()), ep);
+        }
 
         private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -88,6 +97,7 @@ namespace InternetCafeClient
 
         private void logoutPicBox_Click(object sender, EventArgs e)
         {
+            ChangeBalance(this.username, money);
             this.Hide();
             loginForm.Show();
         }
@@ -118,13 +128,11 @@ namespace InternetCafeClient
         public void TransferToTime()
         {
             int du;
-            time = (money / 18000) * 3600;
-            gio = time / 3600;
-            du = time % 3600;
-            time = time / 3600;
-            time = time + du;
-            phut = time / 60;
-            giay = time % 60;
+            gio = money / 18000;
+            du = money - gio * 18000;
+            phut = du / (18000/60);
+            du = du-phut*(18000/60);
+            giay = du / (18000 / 3600);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -142,11 +150,7 @@ namespace InternetCafeClient
             }
             if (gio == 0 && phut==0 &&giay==0)
             {
-                this.Hide();
-                timer1.Enabled = false;
-                timer2.Enabled = false;
-
-                loginForm.Show();
+                logoutPicBox_Click(null,null);
             }
             if (giay < 10)
             {
