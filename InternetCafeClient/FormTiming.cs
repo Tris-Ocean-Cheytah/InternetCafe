@@ -40,7 +40,6 @@ namespace InternetCafeClient
             formSet = new FormSetPass();
             GetInfo(username);
             TransferToTime();
-
             this.StartPosition = FormStartPosition.Manual;
 
             foreach (Screen scrn in Screen.AllScreens)

@@ -109,7 +109,7 @@ namespace InternetCafeServer.DAO
                 SqlDataReader read = cmd.ExecuteReader();
                 while (read.Read())
                 {
-                    money = (int)read["Account_balance"];
+                    money = Convert.ToInt32(read["Account_balance"]);
                 }
                 connection.Close();
             }
