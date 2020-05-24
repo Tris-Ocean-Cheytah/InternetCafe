@@ -100,15 +100,18 @@ namespace InternetCafeServer.DAO
         public int GetMoney(string username)
         {
             String query = "SELECT Account_balance FROM Thanh_vien Where User_name=@User_name";
-            int money;
+            int money=0;
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("User_name", username);
-                    SqlDataReader read = cmd.ExecuteReader();
-                    money = (int)read["Account_Balance"];  
-                    connection.Close();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("User_name", username);
+                SqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())
+                {
+                    money = (int)read["Account_balance"];
+                }
+                connection.Close();
             }
             return money;
         }

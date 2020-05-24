@@ -31,6 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTiming));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GiayConLai = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PhutConLai = new System.Windows.Forms.Label();
+            this.GioConLai = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.GiayDaSuDung = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PhutDaSuDung = new System.Windows.Forms.Label();
+            this.GioDaSuDung = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TienConLai = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,16 +55,7 @@
             this.foodPicBox = new System.Windows.Forms.PictureBox();
             this.messPicBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.GioDaSuDung = new System.Windows.Forms.Label();
-            this.PhutDaSuDung = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.GiayDaSuDung = new System.Windows.Forms.Label();
-            this.GiayConLai = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.PhutConLai = new System.Windows.Forms.Label();
-            this.GioConLai = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyPicBx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoutPicBox)).BeginInit();
@@ -92,6 +93,96 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Username";
+            // 
+            // GiayConLai
+            // 
+            this.GiayConLai.AutoSize = true;
+            this.GiayConLai.Location = new System.Drawing.Point(265, 144);
+            this.GiayConLai.Name = "GiayConLai";
+            this.GiayConLai.Size = new System.Drawing.Size(27, 20);
+            this.GiayConLai.TabIndex = 21;
+            this.GiayConLai.Text = "00";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(245, 144);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 20);
+            this.label9.TabIndex = 20;
+            this.label9.Text = ":";
+            // 
+            // PhutConLai
+            // 
+            this.PhutConLai.AutoSize = true;
+            this.PhutConLai.Location = new System.Drawing.Point(212, 145);
+            this.PhutConLai.Name = "PhutConLai";
+            this.PhutConLai.Size = new System.Drawing.Size(27, 20);
+            this.PhutConLai.TabIndex = 19;
+            this.PhutConLai.Text = "00";
+            // 
+            // GioConLai
+            // 
+            this.GioConLai.AutoSize = true;
+            this.GioConLai.Location = new System.Drawing.Point(165, 144);
+            this.GioConLai.Name = "GioConLai";
+            this.GioConLai.Size = new System.Drawing.Size(27, 20);
+            this.GioConLai.TabIndex = 18;
+            this.GioConLai.Text = "00";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(192, 144);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(14, 20);
+            this.label12.TabIndex = 17;
+            this.label12.Text = ":";
+            // 
+            // GiayDaSuDung
+            // 
+            this.GiayDaSuDung.AutoSize = true;
+            this.GiayDaSuDung.Location = new System.Drawing.Point(265, 104);
+            this.GiayDaSuDung.Name = "GiayDaSuDung";
+            this.GiayDaSuDung.Size = new System.Drawing.Size(27, 20);
+            this.GiayDaSuDung.TabIndex = 16;
+            this.GiayDaSuDung.Text = "00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(245, 104);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 20);
+            this.label6.TabIndex = 15;
+            this.label6.Text = ":";
+            // 
+            // PhutDaSuDung
+            // 
+            this.PhutDaSuDung.AutoSize = true;
+            this.PhutDaSuDung.Location = new System.Drawing.Point(212, 105);
+            this.PhutDaSuDung.Name = "PhutDaSuDung";
+            this.PhutDaSuDung.Size = new System.Drawing.Size(27, 20);
+            this.PhutDaSuDung.TabIndex = 14;
+            this.PhutDaSuDung.Text = "00";
+            // 
+            // GioDaSuDung
+            // 
+            this.GioDaSuDung.AutoSize = true;
+            this.GioDaSuDung.Location = new System.Drawing.Point(165, 104);
+            this.GioDaSuDung.Name = "GioDaSuDung";
+            this.GioDaSuDung.Size = new System.Drawing.Size(27, 20);
+            this.GioDaSuDung.TabIndex = 13;
+            this.GioDaSuDung.Text = "00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(192, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = ":";
             // 
             // label2
             // 
@@ -178,6 +269,11 @@
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Value = 50;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // keyPicBx
             // 
             this.keyPicBx.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -253,95 +349,10 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // timer2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = ":";
-            // 
-            // GioDaSuDung
-            // 
-            this.GioDaSuDung.AutoSize = true;
-            this.GioDaSuDung.Location = new System.Drawing.Point(165, 104);
-            this.GioDaSuDung.Name = "GioDaSuDung";
-            this.GioDaSuDung.Size = new System.Drawing.Size(27, 20);
-            this.GioDaSuDung.TabIndex = 13;
-            this.GioDaSuDung.Text = "00";
-            // 
-            // PhutDaSuDung
-            // 
-            this.PhutDaSuDung.AutoSize = true;
-            this.PhutDaSuDung.Location = new System.Drawing.Point(212, 105);
-            this.PhutDaSuDung.Name = "PhutDaSuDung";
-            this.PhutDaSuDung.Size = new System.Drawing.Size(27, 20);
-            this.PhutDaSuDung.TabIndex = 14;
-            this.PhutDaSuDung.Text = "00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(245, 104);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(14, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = ":";
-            // 
-            // GiayDaSuDung
-            // 
-            this.GiayDaSuDung.AutoSize = true;
-            this.GiayDaSuDung.Location = new System.Drawing.Point(265, 104);
-            this.GiayDaSuDung.Name = "GiayDaSuDung";
-            this.GiayDaSuDung.Size = new System.Drawing.Size(27, 20);
-            this.GiayDaSuDung.TabIndex = 16;
-            this.GiayDaSuDung.Text = "00";
-            // 
-            // GiayConLai
-            // 
-            this.GiayConLai.AutoSize = true;
-            this.GiayConLai.Location = new System.Drawing.Point(265, 144);
-            this.GiayConLai.Name = "GiayConLai";
-            this.GiayConLai.Size = new System.Drawing.Size(27, 20);
-            this.GiayConLai.TabIndex = 21;
-            this.GiayConLai.Text = "00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(245, 144);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 20);
-            this.label9.TabIndex = 20;
-            this.label9.Text = ":";
-            // 
-            // PhutConLai
-            // 
-            this.PhutConLai.AutoSize = true;
-            this.PhutConLai.Location = new System.Drawing.Point(212, 145);
-            this.PhutConLai.Name = "PhutConLai";
-            this.PhutConLai.Size = new System.Drawing.Size(27, 20);
-            this.PhutConLai.TabIndex = 19;
-            this.PhutConLai.Text = "00";
-            // 
-            // GioConLai
-            // 
-            this.GioConLai.AutoSize = true;
-            this.GioConLai.Location = new System.Drawing.Point(165, 144);
-            this.GioConLai.Name = "GioConLai";
-            this.GioConLai.Size = new System.Drawing.Size(27, 20);
-            this.GioConLai.TabIndex = 18;
-            this.GioConLai.Text = "00";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(192, 144);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 20);
-            this.label12.TabIndex = 17;
-            this.label12.Text = ":";
+            this.timer2.Interval = 5000;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // FormTiming
             // 
@@ -402,5 +413,6 @@
         private System.Windows.Forms.Label PhutDaSuDung;
         private System.Windows.Forms.Label GioDaSuDung;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer2;
     }
 }

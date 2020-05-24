@@ -26,6 +26,9 @@ namespace InternetCafeClient
         int gio;
         int phut;
         int giay;
+        int gio2;
+        int phut2;
+        int giay2;
         byte[] data = new byte[1024];
         public FormTiming(string username)
         {
@@ -35,7 +38,11 @@ namespace InternetCafeClient
             order = new FormOrder();
             loginForm = new FormLogin();
             formSet = new FormSetPass();
+            GetInfo(username);
+            TransferToTime();
+
             this.StartPosition = FormStartPosition.Manual;
+
             foreach (Screen scrn in Screen.AllScreens)
             {
                 if (scrn.Bounds.Contains(this.Location))
@@ -44,7 +51,8 @@ namespace InternetCafeClient
                     return;
                 }
             }
-            GetInfo(username);
+            
+
         }
 
         private void GetInfo(string username)
@@ -58,7 +66,7 @@ namespace InternetCafeClient
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data, 0, size);
-            
+            this.money = int.Parse(result);
         }
 
         private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -115,6 +123,91 @@ namespace InternetCafeClient
             time = time + du;
             phut = time / 60;
             giay = time % 60;
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            giay--;
+            if (giay < 1)
+            {
+                giay = 59;
+                phut--;
+            }
+            if (phut < 1)
+            {
+                phut = 59;
+                gio--;
+            }
+            if (gio == 0)
+            {
+                this.Hide();
+                timer1.Enabled = false;
+                timer2.Enabled = false;
+
+                loginForm.Show();
+            }
+            if (giay < 10)
+            {
+                GiayConLai.Text = "0" + giay;
+            }
+            else
+                GiayConLai.Text = "" + giay;
+
+            if (phut < 10)
+            {
+                PhutConLai.Text = "0" + phut;
+            }
+            else
+                PhutConLai.Text = "" + phut;
+
+            if (gio < 10)
+            {
+                GioConLai.Text = "0" + gio;
+            }
+            else
+                GioConLai.Text = "" + gio;
+
+
+
+            giay2++;
+
+            if (giay2 > 59)
+            {
+                giay2 = 0;
+                phut2++;
+            }
+            if (phut2 > 59)
+            {
+                phut2 = 0;
+                gio++;
+            }
+
+            if (giay2 < 10)
+            {
+                GiayDaSuDung.Text = "0" + giay2;
+            }
+            else
+                GiayDaSuDung.Text = "" + giay2;
+
+            if (phut2 < 10)
+            {
+                PhutDaSuDung.Text = "0" + phut2;
+            }
+            else
+                PhutDaSuDung.Text = "" + phut2;
+
+            if (gio2 < 10)
+            {
+                GioDaSuDung.Text = "0" + gio2;
+            }
+            else
+                GioDaSuDung.Text = "" + gio2;
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            money = money - 25;
+            TienConLai.Text = money.ToString();
         }
     }
 }
