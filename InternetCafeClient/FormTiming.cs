@@ -14,6 +14,7 @@ namespace InternetCafeClient
 {
     public partial class FormTiming : Form
     {
+        //test
         private FormCommunicate communicate;
         private FormOrder order;
         private FormLogin loginForm;
