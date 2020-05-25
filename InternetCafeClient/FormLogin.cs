@@ -31,7 +31,13 @@ namespace InternetCafeClient
         private void loginButton_Click(object sender, EventArgs e)
         {
             User user = new User();
-            realpass = AcceptLogin(userTxtBx.Text, passTxtBx.Text);
+            string usernameHandler = "";
+            foreach(char i in userTxtBx.Text)
+            {
+                if (i != ' ')
+                    usernameHandler += i;
+            }
+            realpass = AcceptLogin(usernameHandler, passTxtBx.Text);
             if (realpass == "1")
             {
                 this.Hide();

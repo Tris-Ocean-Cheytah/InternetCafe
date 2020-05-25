@@ -33,8 +33,9 @@ namespace InternetCafeClient
         byte[] data = new byte[1024];
         public FormTiming(string username)
         {
-            this.username = username;
             InitializeComponent();
+            this.username = username;
+            groupBox1.Text = username;
             communicate = new FormCommunicate();
             order = new FormOrder();
             loginForm = new FormLogin();
@@ -213,7 +214,7 @@ namespace InternetCafeClient
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            money = money - 25;
+            money -= (18000/ 3600)*5;
             TienConLai.Text = money.ToString();
         }
     }

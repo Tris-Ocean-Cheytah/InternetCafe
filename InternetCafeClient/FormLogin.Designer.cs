@@ -49,20 +49,18 @@
             this.panel2.Controls.Add(this.loginButton);
             this.panel2.Controls.Add(this.passTxtBx);
             this.panel2.Controls.Add(this.userTxtBx);
-            this.panel2.Location = new System.Drawing.Point(165, 96);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(124, 78);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 287);
+            this.panel2.Size = new System.Drawing.Size(363, 233);
             this.panel2.TabIndex = 19;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = global::InternetCafeClient.Properties.Resources.pass;
-            this.pictureBox2.Location = new System.Drawing.Point(371, 132);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(278, 107);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
@@ -71,10 +69,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::InternetCafeClient.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(371, 64);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(278, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
@@ -85,10 +82,9 @@
             this.loginButton.BackColor = System.Drawing.SystemColors.ControlLight;
             this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(192, 186);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginButton.Location = new System.Drawing.Point(144, 151);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(120, 38);
+            this.loginButton.Size = new System.Drawing.Size(90, 31);
             this.loginButton.TabIndex = 19;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -99,12 +95,11 @@
             this.passTxtBx.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passTxtBx.CausesValidation = false;
             this.passTxtBx.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passTxtBx.Location = new System.Drawing.Point(108, 129);
-            this.passTxtBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passTxtBx.Location = new System.Drawing.Point(81, 105);
             this.passTxtBx.Name = "passTxtBx";
             this.passTxtBx.PasswordChar = '*';
             this.passTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.passTxtBx.Size = new System.Drawing.Size(295, 33);
+            this.passTxtBx.Size = new System.Drawing.Size(222, 28);
             this.passTxtBx.TabIndex = 18;
             this.passTxtBx.Text = "Password";
             this.passTxtBx.UseSystemPasswordChar = true;
@@ -114,27 +109,26 @@
             // 
             this.userTxtBx.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userTxtBx.Font = new System.Drawing.Font("Calibri Light", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTxtBx.Location = new System.Drawing.Point(108, 62);
-            this.userTxtBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userTxtBx.Location = new System.Drawing.Point(81, 50);
             this.userTxtBx.Name = "userTxtBx";
-            this.userTxtBx.Size = new System.Drawing.Size(295, 33);
+            this.userTxtBx.Size = new System.Drawing.Size(222, 28);
             this.userTxtBx.TabIndex = 17;
             this.userTxtBx.Text = "Username";
             this.userTxtBx.TextChanged += new System.EventHandler(this.userTxtBx_TextChanged);
             // 
-            // LoginForm
+            // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.loginButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InternetCafeClient.Properties.Resources.loginPic;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(813, 479);
+            this.ClientSize = new System.Drawing.Size(610, 389);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.Name = "LoginForm";
+            this.Name = "FormLogin";
             this.Text = "Login";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
