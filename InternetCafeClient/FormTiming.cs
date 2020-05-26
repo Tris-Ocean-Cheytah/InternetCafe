@@ -20,6 +20,7 @@ namespace InternetCafeClient
         private FormLogin loginForm;
         private FormSetPass formSet;
         private string username;
+        private string pass;
         Socket SckClient;
         EndPoint ep;
         private int time;
@@ -31,15 +32,16 @@ namespace InternetCafeClient
         private int phut2;
         private int giay2;
         byte[] data = new byte[1024];
-        public FormTiming(string username)
+        public FormTiming(string username, String Pass)
         {
             InitializeComponent();
             this.username = username;
+            this.pass = Pass;
             groupBox1.Text = username;
             communicate = new FormCommunicate();
             order = new FormOrder();
             loginForm = new FormLogin();
-            formSet = new FormSetPass();
+            formSet = new FormSetPass(pass,username);
             GetInfo(username);
             TienConLai.Text = this.money.ToString();
             TransferToTime();

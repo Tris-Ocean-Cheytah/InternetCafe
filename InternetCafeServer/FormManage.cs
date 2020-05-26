@@ -65,6 +65,12 @@ namespace InternetCafeServer
                 String[] UAP = thongdiep.Split(' ');
                 DP.Changebalance(UAP[0], UAP[1]);
             }
+            else if (thongdiep.StartsWith("4"))
+            {
+                thongdiep = thongdiep.Substring(1);
+                String[] UAP = thongdiep.Split(' ');
+                DP.Changepass(UAP[0], UAP[1]);
+            }
             SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
 

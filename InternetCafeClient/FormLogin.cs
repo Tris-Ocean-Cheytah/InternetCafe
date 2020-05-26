@@ -41,7 +41,7 @@ namespace InternetCafeClient
             if (realpass == "1")
             {
                 this.Hide();
-                timingForm = new FormTiming(userTxtBx.Text);
+                timingForm = new FormTiming(userTxtBx.Text, passTxtBx.Text);
                 timingForm.Show();
             }
             else

@@ -70,7 +70,7 @@ namespace InternetCafeServer.DAO
                 connection.Close();
             }
         }
-        public void DelUset(string username)
+        public void DelUser(string username)
         {
             String query = "DELETE FROM Thanh_Vien WHERE User_name=@User_name";
 
@@ -93,6 +93,20 @@ namespace InternetCafeServer.DAO
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("User_name", username);
                 cmd.Parameters.AddWithValue("Account_balance", sodu);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public void Changepass(String username, string pass)
+        {
+
+            String query = "UPDATE Thanh_Vien SET Pass_word=@Pass_word WHERE User_name=@User_name";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("User_name", username);
+                cmd.Parameters.AddWithValue("Pass_word", pass);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
