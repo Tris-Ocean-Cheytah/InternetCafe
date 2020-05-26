@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using InternetCafeServer.DAO;
+using System.Security.Cryptography;
 
 namespace InternetCafeServer
 {

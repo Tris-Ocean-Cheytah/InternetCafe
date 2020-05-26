@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 
 namespace InternetCafeClient
 {
@@ -37,15 +38,15 @@ namespace InternetCafeClient
                 if (i != ' ')
                     usernameHandler += i;
             }
-            realpass = AcceptLogin(usernameHandler, passTxtBx.Text);
+            realpass = AcceptLogin(usernameHandler, pass);
             if (realpass == "1")
             {
                 this.Hide();
-                timingForm = new FormTiming(userTxtBx.Text, passTxtBx.Text);
+                timingForm = new FormTiming(userTxtBx.Text, pass);
                 timingForm.Show();
             }
             else
-                MessageBox.Show("wrong username or password");
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
 
         private string AcceptLogin(string username, string pass)
@@ -55,11 +56,23 @@ namespace InternetCafeClient
             //tao cong
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("1"+username+" "+pass), ep);
+            SckClient.SendTo(Encoding.ASCII.GetBytes("1"+username+" "+ pass), ep);
             // xu ly du lieu nhan duoc
             int size=SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data,0,  size);
             return result;
+        }
+
+        private string EncryptPassword(string pass)
+        {
+            byte[] temp = Encoding.ASCII.GetBytes(pass);
+            byte[] hashPass = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string encryptedPass = "";
+            foreach (var item in hashPass)
+            {
+                encryptedPass += item;
+            }
+            return encryptedPass;
         }
 
         private void userTxtBx_TextChanged(object sender, EventArgs e)
@@ -69,7 +82,7 @@ namespace InternetCafeClient
 
         private void passTxtBx_TextChanged(object sender, EventArgs e)
         {
-            pass = passTxtBx.Text;
+            pass = EncryptPassword(passTxtBx.Text);
         }
     }
 }

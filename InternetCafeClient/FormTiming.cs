@@ -86,7 +86,7 @@ namespace InternetCafeClient
 
         private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Bạn không được phép tắt", "Thông báo");
+            MessageBox.Show("Bạn không được phép tắt", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             e.Cancel = true;
         }
 
@@ -216,7 +216,7 @@ namespace InternetCafeClient
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            money -= (18000/ 3600)*5;
+            money -= (18000/ 3600);
             TienConLai.Text = money.ToString();
         }
     }

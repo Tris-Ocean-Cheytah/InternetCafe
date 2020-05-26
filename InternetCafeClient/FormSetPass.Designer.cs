@@ -125,6 +125,7 @@
             this.MinimizeBox = false;
             this.Name = "FormSetPass";
             this.Text = "Đặt lại mật khẩu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSetPass_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

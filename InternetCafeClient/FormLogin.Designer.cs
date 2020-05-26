@@ -130,7 +130,6 @@
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Login";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
