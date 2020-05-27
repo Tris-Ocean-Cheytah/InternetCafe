@@ -9,20 +9,20 @@ namespace InternetCafeServer
 {
     class User
     {
-        private string username;
-        private string password;
-        private int sodu;
-        private string ten;
-        private int namsinh;
-        private string cmnd;
-        private int phonenumber;
+        public string username;
+        public string password;
+        public string sodu;
+        public string ten;
+        public string namsinh;
+        public string cmnd;
+        public string phonenumber;
 
         public User()
         {
 
         }
 
-        public User(string username, string password, int sodu, string ten, int namsinh, string cmnd, int phonenumber)
+        public User(string username, string password, string sodu, string ten, string namsinh, string cmnd, string phonenumber)
         {
             this.username = username;
             this.password = password;

@@ -17,7 +17,8 @@ namespace InternetCafeServer
     public partial class FormManage : Form
     {
         Socket SckServer;
-        DataProvider DP=new DataProvider();
+        BindingSource source = new BindingSource();
+        UserDAO DP=new UserDAO();
         FormCommunicate communicate;
         byte[] data = new byte[1024];
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
@@ -26,8 +27,31 @@ namespace InternetCafeServer
             
             InitializeComponent();
             communicate = new FormCommunicate();
-            OpenConnection();
+            Load();   
+        }
 
+        void Load()
+        {
+            dataGridView1.DataSource = source;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            OpenConnection();
+            Getalluser();
+            Userbinding();
+        }
+
+        private void Getalluser()
+        {
+             source.DataSource= DP.Getuser();
+        }
+
+        void Userbinding()
+        {
+            txtUsername.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "User_name",true,DataSourceUpdateMode.Never));
+            txtMoney.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "Account_balance", true, DataSourceUpdateMode.Never));
+            txtPhoneNum.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "Phone_number", true, DataSourceUpdateMode.Never));
+            txtName.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            txtID.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "Citizen_identification", true, DataSourceUpdateMode.Never));
+            txtDate.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "Year_of_birth", true, DataSourceUpdateMode.Never));
         }
 
         private void OpenConnection()
@@ -90,6 +114,29 @@ namespace InternetCafeServer
         {
             FormAddFood form = new FormAddFood();
             form.ShowDialog();  
+        }
+
+        
+
+        private void Finduser(string text)
+        {
+            source.DataSource= DP.FindUser(text);
+        }
+
+        private void Butfind_Click(object sender, EventArgs e)
+        {
+            Finduser(txtFind.Text);
+        }
+
+        private void BtnDel_Click(object sender, EventArgs e)
+        {
+            DP.DelUser(txtUsername.Text);
+            Getalluser();
+        }
+
+        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Getalluser();
         }
     }
 }

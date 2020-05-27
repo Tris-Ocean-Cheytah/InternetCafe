@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -49,7 +51,7 @@
             this.txtUsername.Location = new System.Drawing.Point(126, 37);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(132, 23);
+            this.txtUsername.Size = new System.Drawing.Size(132, 26);
             this.txtUsername.TabIndex = 0;
             // 
             // label1
@@ -58,7 +60,7 @@
             this.label1.Location = new System.Drawing.Point(13, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 17);
+            this.label1.Size = new System.Drawing.Size(119, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên đăng nhập";
             // 
@@ -68,7 +70,7 @@
             this.label2.Location = new System.Drawing.Point(13, 83);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mật khẩu";
             // 
@@ -77,7 +79,7 @@
             this.txtPass.Location = new System.Drawing.Point(126, 80);
             this.txtPass.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(132, 23);
+            this.txtPass.Size = new System.Drawing.Size(132, 26);
             this.txtPass.TabIndex = 2;
             // 
             // label3
@@ -86,7 +88,7 @@
             this.label3.Location = new System.Drawing.Point(13, 126);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Họ và tên";
             // 
@@ -95,7 +97,7 @@
             this.txtName.Location = new System.Drawing.Point(126, 123);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(132, 23);
+            this.txtName.Size = new System.Drawing.Size(132, 26);
             this.txtName.TabIndex = 4;
             // 
             // label4
@@ -104,7 +106,7 @@
             this.label4.Location = new System.Drawing.Point(13, 169);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 17);
+            this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "CMND";
             // 
@@ -113,7 +115,7 @@
             this.txtID.Location = new System.Drawing.Point(126, 166);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(132, 23);
+            this.txtID.Size = new System.Drawing.Size(132, 26);
             this.txtID.TabIndex = 6;
             // 
             // label5
@@ -122,16 +124,16 @@
             this.label5.Location = new System.Drawing.Point(13, 212);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.Size = new System.Drawing.Size(106, 20);
             this.label5.TabIndex = 9;
             this.label5.Text = "Số điện thoại";
             // 
             // txtPhoneNum
             // 
-            this.txtPhoneNum.Location = new System.Drawing.Point(126, 209);
+            this.txtPhoneNum.Location = new System.Drawing.Point(126, 212);
             this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtPhoneNum.Name = "txtPhoneNum";
-            this.txtPhoneNum.Size = new System.Drawing.Size(132, 23);
+            this.txtPhoneNum.Size = new System.Drawing.Size(132, 26);
             this.txtPhoneNum.TabIndex = 8;
             // 
             // label6
@@ -140,7 +142,7 @@
             this.label6.Location = new System.Drawing.Point(13, 255);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.Size = new System.Drawing.Size(61, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Số tiền";
             // 
@@ -149,23 +151,44 @@
             this.txtMoney.Location = new System.Drawing.Point(126, 252);
             this.txtMoney.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
             this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(132, 23);
+            this.txtMoney.Size = new System.Drawing.Size(132, 26);
             this.txtMoney.TabIndex = 10;
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(103, 298);
+            this.btnAddUser.Location = new System.Drawing.Point(92, 357);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(82, 34);
             this.btnAddUser.TabIndex = 12;
             this.btnAddUser.Text = "Tạo mới";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.BtnAddUser_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 304);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Năm sinh";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(126, 298);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(4, 10, 10, 10);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(132, 26);
+            this.txtDate.TabIndex = 14;
             // 
             // FormAddUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 344);
+            this.ClientSize = new System.Drawing.Size(289, 403);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtMoney);
@@ -206,5 +229,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtDate;
     }
 }

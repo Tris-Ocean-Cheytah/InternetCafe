@@ -1,33 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
+using System.Windows.Forms;
+using InternetCafeServer;
 namespace InternetCafeServer.DAO
 {
-    class DataProvider
+    class UserDAO
     {
-
-        public void AddUser(string username, string password, string ten, int namsinh,int phonenumber, string cmnd, int sodu)
+        public void AddUser(User user)
         {
-            String query = "INSERT INTO Thanh_Vien VALUES(@User_name,@Pass_word,@Name,@Year_of_birth,@Citizen_identification,@Phone_number,@Account_balance)";
-
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+            try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("User_name", username);
-                cmd.Parameters.AddWithValue("Pass_word", password);
-                cmd.Parameters.AddWithValue("Name", ten);
-                cmd.Parameters.AddWithValue("Year_of_birth", namsinh);
-                cmd.Parameters.AddWithValue("Citizen_identification", cmnd);
-                cmd.Parameters.AddWithValue("Phone_number", phonenumber);
-                cmd.Parameters.AddWithValue("Account_balance", sodu);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                String query = "INSERT INTO Thanh_Vien VALUES(@User_name,@Pass_word,@Name,@Year_of_birth,@Citizen_identification,@Phone_number,@Account_balance)";
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("User_name", user.username);
+                    cmd.Parameters.AddWithValue("Pass_word", user.password);
+                    cmd.Parameters.AddWithValue("Name", user.ten);
+                    cmd.Parameters.AddWithValue("Year_of_birth", user.namsinh);
+                    cmd.Parameters.AddWithValue("Citizen_identification", user.cmnd);
+                    cmd.Parameters.AddWithValue("Phone_number", user.phonenumber);
+                    cmd.Parameters.AddWithValue("Account_balance", user.sodu);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
         public int GetPass(String username, String Pass_word)
         {
@@ -45,13 +55,13 @@ namespace InternetCafeServer.DAO
                     connection.Close();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 i = 0;
             }
             return i;
         }
-        public void ChangeUser(string username, string password, string ten, int namsinh, int phonenumber, string cmnd, int sodu)
+        public void ChangeUser(string username, string password, string ten, string namsinh, string phonenumber, string cmnd, string sodu)
         {
             String query = "UPDATE Thanh_Vien SET User_name=@User_name,Pass_word=@Pass_word,Name=@Name,Year_of_birth=@Year_of_birth,Citizen_identification=@Citizen_identification,Phone_number=@Phone_number,Account_balance=@Account_balance WHERE User_name=@User_name";
 
@@ -72,17 +82,55 @@ namespace InternetCafeServer.DAO
         }
         public void DelUser(string username)
         {
-            String query = "DELETE FROM Thanh_Vien WHERE User_name=@User_name";
+            try
+            {
+                String query = "DELETE FROM Thanh_Vien WHERE User_name=@User_name";
 
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("User_name", username);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                MessageBox.Show("xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Không thể xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        internal  DataTable Getuser()
+        {
+            String query = string.Format("SELECT * FROM Thanh_vien ");
+            DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("User_name", username);
-                cmd.ExecuteNonQuery();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(data);
                 connection.Close();
             }
+            return data;
         }
+        internal DataTable FindUser(string text)
+        {
+            String query = string.Format("SELECT * FROM Thanh_vien Where User_name like N'%{0}%'", text);
+            DataTable data = new DataTable();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            return data;
+        }
+
         public void Changebalance(String username, string sodu)
         {
 
@@ -114,7 +162,7 @@ namespace InternetCafeServer.DAO
         public int GetMoney(string username)
         {
             String query = "SELECT Account_balance FROM Thanh_vien Where User_name=@User_name";
-            int money=0;
+            int money = 0;
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
                 connection.Open();
@@ -129,25 +177,5 @@ namespace InternetCafeServer.DAO
             }
             return money;
         }
-        //public void LayDuLieu()
-        //{
-        //    String query = "SELECT * FROM Thuc_Don WHERE username=@username";
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
-        //    {
-        //        connection.Open();
-        //        SqlCommand cmd = new SqlCommand(query, connection);
-        //        cmd.Parameters.AddWithValue("username", username);
-        //        SqlDataReader read = cmd.ExecuteReader();
-        //        username = (string)read[1];
-        //        password = (string)read[2];
-        //        sodu = int.Parse(read[3].ToString());
-        //        ten = (string)read[4].ToString();
-        //        namsinh = int.Parse(read[5].ToString());
-        //        cmnd = (string)read[6];
-        //        phonenumber = int.Parse(read[7].ToString());
-        //        connection.Close();
-        //    }
-
-        //}
     }
 }

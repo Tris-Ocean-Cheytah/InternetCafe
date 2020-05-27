@@ -44,7 +44,7 @@
             this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên món ";
             // 
@@ -53,7 +53,7 @@
             this.txtFood.Location = new System.Drawing.Point(92, 13);
             this.txtFood.Margin = new System.Windows.Forms.Padding(4);
             this.txtFood.Name = "txtFood";
-            this.txtFood.Size = new System.Drawing.Size(132, 23);
+            this.txtFood.Size = new System.Drawing.Size(132, 26);
             this.txtFood.TabIndex = 1;
             // 
             // txtType
@@ -61,7 +61,7 @@
             this.txtType.Location = new System.Drawing.Point(92, 55);
             this.txtType.Margin = new System.Windows.Forms.Padding(4);
             this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(132, 23);
+            this.txtType.Size = new System.Drawing.Size(132, 26);
             this.txtType.TabIndex = 3;
             // 
             // label2
@@ -70,7 +70,7 @@
             this.label2.Location = new System.Drawing.Point(16, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 17);
+            this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Loại";
             // 
@@ -79,7 +79,7 @@
             this.txtPrice.Location = new System.Drawing.Point(92, 100);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(132, 23);
+            this.txtPrice.Size = new System.Drawing.Size(132, 26);
             this.txtPrice.TabIndex = 5;
             // 
             // label3
@@ -88,7 +88,7 @@
             this.label3.Location = new System.Drawing.Point(16, 103);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Đơn giá";
             // 
@@ -100,10 +100,11 @@
             this.btnAddFood.TabIndex = 6;
             this.btnAddFood.Text = "Thêm Món";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // FormAddFood
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(241, 192);
             this.Controls.Add(this.btnAddFood);
