@@ -33,7 +33,7 @@ namespace InternetCafeClient
             {
                 MessageBox.Show("Bạn chưa nhập đủ yêu cầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
+            else  
             {
                 string encryptPass = EncryptPassword(txtOldPass.Text);
                 string encryptNewPass = EncryptPassword(txtNewPass.Text);
