@@ -30,13 +30,145 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "item0",
-            "alo",
-            "blo"}, -1);
+            "MAY1",
+            "MAY1",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "item2",
-            "ola",
-            "olb"}, -1);
+            "MAY10",
+            "MAY10",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY11",
+            "MAY11",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY12",
+            "MAY12",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY13",
+            "MAY13",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY14",
+            "MAY14",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY15",
+            "MAY15",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY16",
+            "MAY16",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY17",
+            "MAY17",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY18",
+            "MAY18",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY19",
+            "MAY19",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY2",
+            "MAY2",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY20",
+            "MAY20",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY3",
+            "MAY3",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY4",
+            "MAY4",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY5",
+            "MAY5",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY6",
+            "MAY6",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY7",
+            "MAY7",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY8",
+            "MAY8",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            "MAY9",
+            "MAY9",
+            "OFF",
+            "",
+            "",
+            ""}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManage));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -46,9 +178,7 @@
             this.colStat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTimeRemain = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMoneyRemain = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTotalTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStripClient = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.giaoTieespToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -137,18 +267,38 @@
             this.colStat,
             this.colUsername,
             this.colTimeRemain,
-            this.colDate,
-            this.colMoneyRemain,
-            this.colTotalTime});
+            this.colMoneyRemain});
             this.listViewClient.ContextMenuStrip = this.menuStripClient;
             this.listViewClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewClient.FullRowSelect = true;
             this.listViewClient.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewClient.HideSelection = false;
+            listViewItem1.UseItemStyleForSubItems = false;
+            listViewItem4.Checked = true;
+            listViewItem4.StateImageIndex = 1;
+            listViewItem12.UseItemStyleForSubItems = false;
             this.listViewClient.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
-            listViewItem2});
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20});
             this.listViewClient.Location = new System.Drawing.Point(4, 4);
             this.listViewClient.Margin = new System.Windows.Forms.Padding(4);
             this.listViewClient.Name = "listViewClient";
@@ -157,6 +307,7 @@
             this.listViewClient.TabIndex = 3;
             this.listViewClient.UseCompatibleStateImageBehavior = false;
             this.listViewClient.View = System.Windows.Forms.View.Details;
+            this.listViewClient.SelectedIndexChanged += new System.EventHandler(this.ListViewClient_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -178,31 +329,19 @@
             // 
             this.colUsername.Text = "Người dùng";
             this.colUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colUsername.Width = 120;
+            this.colUsername.Width = 150;
             // 
             // colTimeRemain
             // 
             this.colTimeRemain.Text = "Thời gian còn lại";
             this.colTimeRemain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colTimeRemain.Width = 120;
-            // 
-            // colDate
-            // 
-            this.colDate.Text = "Ngày";
-            this.colDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colDate.Width = 120;
+            this.colTimeRemain.Width = 150;
             // 
             // colMoneyRemain
             // 
             this.colMoneyRemain.Text = "Số tiền còn lại";
             this.colMoneyRemain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colMoneyRemain.Width = 120;
-            // 
-            // colTotalTime
-            // 
-            this.colTotalTime.Text = "Tổng thời gian chơi";
-            this.colTotalTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colTotalTime.Width = 143;
             // 
             // menuStripClient
             // 
@@ -666,14 +805,12 @@
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button butfind;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ColumnHeader colDate;
         private System.Windows.Forms.ColumnHeader colMoneyRemain;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAddMoney;
-        private System.Windows.Forms.ColumnHeader colTotalTime;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ListView listViewFood;
         private System.Windows.Forms.TextBox txtMoney;

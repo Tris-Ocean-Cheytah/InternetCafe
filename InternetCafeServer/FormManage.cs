@@ -104,7 +104,9 @@ namespace InternetCafeServer
             else if (thongdiep.StartsWith("2"))
             {
                 thongdiep = thongdiep.Substring(1);
-                int result = UD.GetMoney(thongdiep);
+                String[] UAP = thongdiep.Split(' ');
+                int result = UD.GetMoney(UAP[0]);
+                TurnOn(UAP[1], UAP[0], result);
                 SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
             }
             else if (thongdiep.StartsWith("3"))
@@ -112,6 +114,7 @@ namespace InternetCafeServer
                 thongdiep = thongdiep.Substring(1);
                 String[] UAP = thongdiep.Split(' ');
                 UD.Changebalance(UAP[0], UAP[1]);
+                TurnOff(UAP[2]);
             }
             else if (thongdiep.StartsWith("4"))
             {
@@ -132,7 +135,40 @@ namespace InternetCafeServer
                 Order order= OD.Convertstringtoorder(thongdiep);
                 addlistviewfood(order);
             }
+            else if (thongdiep.StartsWith("7"))
+            {
+                thongdiep = thongdiep.Substring(1);
+                String[] UAP = thongdiep.Split(' ');
+                Update(UAP[0], UAP[1]);
+            }
             SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+        }
+
+        private void Update(string name, string money)
+        {
+            Time time = TransferToTime(Convert.ToInt32(money));
+            //for (int i = 0; i < listViewClient.Items.Count; i++)
+            //{
+            //    if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
+            //    {
+            //        listViewClient.Items[i].SubItems[3].Text = time.hour.ToString() + "H" + time.minute.ToString() + "M" + time.second.ToString() + "S";
+            //        listViewClient.Items[i].SubItems[4].Text = money;
+            //    }
+            //}
+            if (listViewClient.InvokeRequired)
+            {
+                listViewClient.Invoke((MethodInvoker)delegate ()
+                {
+                    for (int i = 0; i < listViewClient.Items.Count; i++)
+                    {
+                        if (listViewClient.Items[i].SubItems[1].Text == name)
+                        {
+                            listViewClient.Items[i].SubItems[4].Text = time.hour.ToString() + "h" + time.minute.ToString() + "m";
+                            listViewClient.Items[i].SubItems[5].Text = money;
+                        }
+                    }
+                });
+            }
         }
 
         private void CommunicateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,6 +220,72 @@ namespace InternetCafeServer
             return result;
         }
 
-        
+        private void ListViewClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void TurnOn(string name,string username,int money)
+        {
+            Time time = TransferToTime(money);
+            //for (int i = 0; i < listViewClient.Items.Count; i++)
+            //{
+            //    if (listViewClient.Items[i].SubItems[0].Text == name)
+            //    {
+            //        listViewClient.Items[i].SubItems[1].Text = "ON";
+            //        listViewClient.Items[i].SubItems[2].Text = username;
+            //        listViewClient.Items[i].SubItems[3].Text = time.hour.ToString() + "H" + time.minute.ToString() + "M" + time.second.ToString() + "S";
+            //        listViewClient.Items[i].SubItems[4].Text = money.ToString();
+            //    }
+            //}
+            if (listViewClient.InvokeRequired)
+            {
+                listViewClient.Invoke((MethodInvoker)delegate ()
+                {
+                    for (int i = 0; i < listViewClient.Items.Count; i++)
+                    {
+                        if (listViewClient.Items[i].SubItems[1].Text == name)
+                        {
+                            listViewClient.Items[i].SubItems[2].Text = "ON";
+                            listViewClient.Items[i].SubItems[3].Text = username;
+                            listViewClient.Items[i].SubItems[4].Text = time.hour.ToString() + "h" + time.minute.ToString() + "m";
+                            listViewClient.Items[i].SubItems[5].Text = money.ToString();
+                        }
+                    }
+                });
+            }
+        }
+        private void TurnOff(string name)
+        {
+            
+            if (listViewClient.InvokeRequired)
+            {
+                listViewClient.Invoke((MethodInvoker)delegate ()
+                {
+                    for (int i = 0; i < listViewClient.Items.Count; i++)
+                    {
+                        if (listViewClient.Items[i].SubItems[0].Text.ToString() == name)
+                        {
+                            listViewClient.Items[i].Remove();
+                        }
+                    }
+
+                    ListViewItem item = new ListViewItem();
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = name });
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "OFF" });
+                    listViewClient.Items.Add(item);
+                });
+            }
+        }
+        private Time TransferToTime(int money)
+        {
+            Time time = new Time();
+            int du;
+            time.hour = money / 18000;
+            du = money - time.hour * 18000;
+            time.minute = du / (18000 / 60);
+            du = du - time.minute * (18000 / 60);
+            time.second = du / (18000 / 3600);
+            return time;
+        }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Order.cs" />
+    <Compile Include="DTO\Time.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="FormAddFood.cs">
       <SubType>Form</SubType>
