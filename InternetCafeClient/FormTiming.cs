@@ -23,7 +23,6 @@ namespace InternetCafeClient
         private string pass;
         Socket SckClient;
         EndPoint ep;
-        private int time;
         private int money;
         private int gio;
         private int phut;
@@ -39,7 +38,7 @@ namespace InternetCafeClient
             this.pass = Pass;
             groupBox1.Text = username;
             communicate = new FormCommunicate();
-            order = new FormOrder();
+            order = new FormOrder(this.username);
             loginForm = new FormLogin();
             formSet = new FormSetPass(pass,username);
             GetInfo(username);

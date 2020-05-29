@@ -54,8 +54,10 @@
     </Compile>
     <Compile Include="DAO\ConnectionString.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\Order.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="FormAddFood.cs">
       <SubType>Form</SubType>

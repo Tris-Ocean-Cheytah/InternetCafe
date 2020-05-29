@@ -55,8 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\Cart.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="FormCommunicate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,7 +69,6 @@
       <DependentUpon>FormSetPass.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\User.cs" />
-    <Compile Include="DAO\ConnectionString.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="FoodControl.cs">
       <SubType>UserControl</SubType>

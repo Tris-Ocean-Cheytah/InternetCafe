@@ -37,13 +37,6 @@
             "item2",
             "ola",
             "olb"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "May 1",
-            "0949311482",
-            "Mì xào bò: 2, Heniken: 1, Snack: 3sdfsdfsdfsdfafsdfasấdfasdfasdfasdfasdfasdfasdfd" +
-                "fasdf",
-            "80000000"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManage));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -83,16 +76,6 @@
             this.butfind = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.listViewFood = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colComName_Food = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colUsername_Food = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colInfo_Food = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colMoney_Food = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuStripFood = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.stripMenuItemAddFood = new System.Windows.Forms.ToolStripMenuItem();
             this.tk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +83,11 @@
             this.cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.listViewFood = new System.Windows.Forms.ListView();
+            this.menuStripFood = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.stripMenuItemAddFood = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.menuStripClient.SuspendLayout();
@@ -520,100 +508,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(257, 520);
             this.dataGridView1.TabIndex = 3;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1156, 528);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Đặt món";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.listViewFood);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(4, 4);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1148, 520);
-            this.panel4.TabIndex = 0;
-            // 
-            // listViewFood
-            // 
-            this.listViewFood.CheckBoxes = true;
-            this.listViewFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.colComName_Food,
-            this.colUsername_Food,
-            this.colInfo_Food,
-            this.colMoney_Food});
-            this.listViewFood.ContextMenuStrip = this.menuStripFood;
-            this.listViewFood.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewFood.FullRowSelect = true;
-            this.listViewFood.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewFood.HideSelection = false;
-            listViewItem3.StateImageIndex = 0;
-            this.listViewFood.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.listViewFood.LabelWrap = false;
-            this.listViewFood.Location = new System.Drawing.Point(0, 0);
-            this.listViewFood.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewFood.Name = "listViewFood";
-            this.listViewFood.Size = new System.Drawing.Size(1148, 520);
-            this.listViewFood.TabIndex = 4;
-            this.listViewFood.UseCompatibleStateImageBehavior = false;
-            this.listViewFood.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Check";
-            this.columnHeader2.Width = 51;
-            // 
-            // colComName_Food
-            // 
-            this.colComName_Food.Text = "Tên máy";
-            this.colComName_Food.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colComName_Food.Width = 97;
-            // 
-            // colUsername_Food
-            // 
-            this.colUsername_Food.Text = "Người dùng";
-            this.colUsername_Food.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colUsername_Food.Width = 137;
-            // 
-            // colInfo_Food
-            // 
-            this.colInfo_Food.Text = "Thông tin thực đơn";
-            this.colInfo_Food.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colInfo_Food.Width = 424;
-            // 
-            // colMoney_Food
-            // 
-            this.colMoney_Food.Text = "Tổng tiền";
-            this.colMoney_Food.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colMoney_Food.Width = 143;
-            // 
-            // menuStripFood
-            // 
-            this.menuStripFood.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStripFood.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stripMenuItemAddFood});
-            this.menuStripFood.Name = "contextMenuStrip1";
-            this.menuStripFood.ShowImageMargin = false;
-            this.menuStripFood.Size = new System.Drawing.Size(125, 28);
-            // 
-            // stripMenuItemAddFood
-            // 
-            this.stripMenuItemAddFood.Name = "stripMenuItemAddFood";
-            this.stripMenuItemAddFood.Size = new System.Drawing.Size(124, 24);
-            this.stripMenuItemAddFood.Text = "Thêm món";
-            this.stripMenuItemAddFood.Click += new System.EventHandler(this.stripMenuItemAddFood_Click_1);
-            // 
             // tk
             // 
             this.tk.DataPropertyName = "User_name";
@@ -661,6 +555,62 @@
             this.tien.HeaderText = "tiền";
             this.tien.Name = "tien";
             this.tien.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1156, 528);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Đặt món";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.listViewFood);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1148, 520);
+            this.panel4.TabIndex = 0;
+            // 
+            // listViewFood
+            // 
+            this.listViewFood.CheckBoxes = true;
+            this.listViewFood.ContextMenuStrip = this.menuStripFood;
+            this.listViewFood.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewFood.FullRowSelect = true;
+            this.listViewFood.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewFood.HideSelection = false;
+            this.listViewFood.LabelWrap = false;
+            this.listViewFood.Location = new System.Drawing.Point(0, 0);
+            this.listViewFood.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewFood.Name = "listViewFood";
+            this.listViewFood.Size = new System.Drawing.Size(1148, 520);
+            this.listViewFood.TabIndex = 4;
+            this.listViewFood.UseCompatibleStateImageBehavior = false;
+            this.listViewFood.View = System.Windows.Forms.View.Details;
+            // 
+            // menuStripFood
+            // 
+            this.menuStripFood.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripFood.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripMenuItemAddFood});
+            this.menuStripFood.Name = "contextMenuStrip1";
+            this.menuStripFood.ShowImageMargin = false;
+            this.menuStripFood.Size = new System.Drawing.Size(125, 28);
+            // 
+            // stripMenuItemAddFood
+            // 
+            this.stripMenuItemAddFood.Name = "stripMenuItemAddFood";
+            this.stripMenuItemAddFood.Size = new System.Drawing.Size(124, 24);
+            this.stripMenuItemAddFood.Text = "Thêm món";
+            this.stripMenuItemAddFood.Click += new System.EventHandler(this.stripMenuItemAddFood_Click_1);
             // 
             // FormManage
             // 
@@ -726,11 +676,6 @@
         private System.Windows.Forms.ColumnHeader colTotalTime;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ListView listViewFood;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader colComName_Food;
-        private System.Windows.Forms.ColumnHeader colUsername_Food;
-        private System.Windows.Forms.ColumnHeader colInfo_Food;
-        private System.Windows.Forms.ColumnHeader colMoney_Food;
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUsername;
