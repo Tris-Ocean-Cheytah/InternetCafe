@@ -17,7 +17,7 @@ namespace InternetCafeClient
         {
             InitializeComponent();
         }
-
+        //.
         public FoodControl(Food food) : this()
         {
             this.food = food;
