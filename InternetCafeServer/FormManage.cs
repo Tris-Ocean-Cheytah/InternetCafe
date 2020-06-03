@@ -265,14 +265,21 @@ namespace InternetCafeServer
                     {
                         if (listViewClient.Items[i].SubItems[0].Text.ToString() == name)
                         {
-                            listViewClient.Items[i].Remove();
+                            listViewClient.Items[i].SubItems[2].Text = "OFF";
+                            listViewClient.Items[i].SubItems[3].Text = "";
+                            listViewClient.Items[i].SubItems[4].Text = "";
+                            listViewClient.Items[i].SubItems[5].Text = "";
                         }
                     }
 
-                    ListViewItem item = new ListViewItem();
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = name });
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "OFF" });
-                    listViewClient.Items.Add(item);
+                    //ListViewItem item = new ListViewItem();
+                    //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = name });
+                    //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "OFF" });
+                    //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "" });
+                    //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "" });
+                    //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "" });
+
+                    //listViewClient.Items.Add(item);
                 });
             }
         }

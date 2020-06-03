@@ -102,6 +102,7 @@ namespace InternetCafeClient
         private void logoutPicBox_Click(object sender, EventArgs e)
         {
             ChangeBalance(this.username, money);
+            timer3.Enabled = false;
             this.Hide();
             loginForm.Show();
         }
