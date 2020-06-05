@@ -200,7 +200,7 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.butAddMoney = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.butfind = new System.Windows.Forms.Button();
@@ -379,7 +379,7 @@
             this.panel3.Controls.Add(this.btnDel);
             this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.butAddMoney);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(261, 59);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -537,7 +537,6 @@
             this.txtAddMoney.Location = new System.Drawing.Point(677, 383);
             this.txtAddMoney.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddMoney.Name = "txtAddMoney";
-            this.txtAddMoney.ReadOnly = true;
             this.txtAddMoney.Size = new System.Drawing.Size(189, 26);
             this.txtAddMoney.TabIndex = 13;
             // 
@@ -573,15 +572,16 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Tiền nạp thêm";
             // 
-            // button2
+            // butAddMoney
             // 
-            this.button2.Location = new System.Drawing.Point(635, 418);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 44);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Nạp tiền";
-            this.button2.UseVisualStyleBackColor = true;
+            this.butAddMoney.Location = new System.Drawing.Point(635, 418);
+            this.butAddMoney.Margin = new System.Windows.Forms.Padding(4);
+            this.butAddMoney.Name = "butAddMoney";
+            this.butAddMoney.Size = new System.Drawing.Size(107, 44);
+            this.butAddMoney.TabIndex = 2;
+            this.butAddMoney.Text = "Nạp tiền";
+            this.butAddMoney.UseVisualStyleBackColor = true;
+            this.butAddMoney.Click += new System.EventHandler(this.butAddMoney_Click);
             // 
             // panel2
             // 
@@ -801,7 +801,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button butAddMoney;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button butfind;
         private System.Windows.Forms.Label label4;
