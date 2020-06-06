@@ -12,13 +12,13 @@ namespace InternetCafeClient
 {
     public partial class FoodControl : UserControl
     {
-        public Food food;
+        public FoodDTO food;
         public FoodControl()
         {
             InitializeComponent();
         }
         //.
-        public FoodControl(Food food) : this()
+        public FoodControl(FoodDTO food) : this()
         {
             this.food = food;
             nameLbl.Text = this.food.name;

@@ -16,7 +16,7 @@ namespace InternetCafeClient.DAO
         byte[] data=new byte[1024];
         public string GetFoodFromServer()
         {
-            List<Food> listfood = new List<Food>();
+            List<FoodDTO> listfood = new List<FoodDTO>();
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
@@ -28,14 +28,14 @@ namespace InternetCafeClient.DAO
             string result = Encoding.ASCII.GetString(data, 0, size);
             return result;
         }
-        public List<Food> ConvertToListFood(string result)
+        public List<FoodDTO> ConvertToListFood(string result)
         {
-            List<Food> listfood = new List<Food>();
+            List<FoodDTO> listfood = new List<FoodDTO>();
             string[] splitbyspace = result.Substring(1).Split(' ');
             for(int i=0;i<splitbyspace.Length;i++)
             {
                 string[] splitbydot = splitbyspace[i].Split('.');
-                Food food = new Food();
+                FoodDTO food = new FoodDTO();
                 food.name = splitbydot[0];
                 food.type = splitbydot[1];
                 food.price = splitbydot[2];

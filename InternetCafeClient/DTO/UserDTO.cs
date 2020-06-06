@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
+using System.Data;  
 using System.Data.SqlClient;
 namespace InternetCafeClient
 {
-    class User
+    class UserDTO
     {
         private string username;
         private string password;
@@ -17,12 +17,12 @@ namespace InternetCafeClient
         private string cmnd;
         private int phonenumber;
 
-        public User()
+        public UserDTO()
         {
 
         }
 
-        public User(string username, string password, int sodu, string ten, int namsinh, string cmnd, int phonenumber)
+        public UserDTO(string username, string password, int sodu, string ten, int namsinh, string cmnd, int phonenumber)
         {
             this.username = username;
             this.password = password;
