@@ -31,7 +31,7 @@ namespace InternetCafeClient.DAO
         public List<FoodDTO> ConvertToListFood(string result)
         {
             List<FoodDTO> listfood = new List<FoodDTO>();
-            string[] splitbyspace = result.Substring(1).Split(' ');
+            string[] splitbyspace = result.Substring(1).Split('*');
             for(int i=0;i<splitbyspace.Length;i++)
             {
                 string[] splitbydot = splitbyspace[i].Split('.');

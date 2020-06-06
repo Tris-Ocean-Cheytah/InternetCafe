@@ -215,7 +215,7 @@ namespace InternetCafeServer
             string result = "";
             for (int i = 0; i < list.Count; i++)
             {
-                result += string.Format(" " + list[i].name + "." + list[i].type + "." + list[i].price);
+                result += string.Format("*" + list[i].name + "." + list[i].type + "." + list[i].price);
             }
             return result;
         }

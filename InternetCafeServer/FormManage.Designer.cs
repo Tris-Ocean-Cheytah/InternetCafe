@@ -200,7 +200,7 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.butAddMoney = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.butfind = new System.Windows.Forms.Button();
@@ -374,7 +374,7 @@
             this.panel3.Controls.Add(this.btnDel);
             this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.butAddMoney);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(196, 48);
             this.panel3.Name = "panel3";
@@ -524,7 +524,6 @@
             this.txtAddMoney.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtAddMoney.Location = new System.Drawing.Point(508, 311);
             this.txtAddMoney.Name = "txtAddMoney";
-            this.txtAddMoney.ReadOnly = true;
             this.txtAddMoney.Size = new System.Drawing.Size(143, 23);
             this.txtAddMoney.TabIndex = 13;
             // 
@@ -557,14 +556,15 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Tiền nạp thêm";
             // 
-            // button2
+            // butAddMoney
             // 
-            this.button2.Location = new System.Drawing.Point(476, 340);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 36);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Nạp tiền";
-            this.button2.UseVisualStyleBackColor = true;
+            this.butAddMoney.Location = new System.Drawing.Point(488, 337);
+            this.butAddMoney.Name = "butAddMoney";
+            this.butAddMoney.Size = new System.Drawing.Size(80, 36);
+            this.butAddMoney.TabIndex = 2;
+            this.butAddMoney.Text = "Nạp tiền";
+            this.butAddMoney.UseVisualStyleBackColor = true;
+            this.butAddMoney.Click += new System.EventHandler(this.butAddMoney_Click);
             // 
             // panel2
             // 
@@ -620,6 +620,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(193, 421);
@@ -630,12 +631,14 @@
             this.tk.DataPropertyName = "User_name";
             this.tk.HeaderText = "Tên tài khoản";
             this.tk.Name = "tk";
+            this.tk.ReadOnly = true;
             // 
             // pass
             // 
             this.pass.DataPropertyName = "Pass_word";
             this.pass.HeaderText = "pass";
             this.pass.Name = "pass";
+            this.pass.ReadOnly = true;
             this.pass.Visible = false;
             // 
             // ten
@@ -643,6 +646,7 @@
             this.ten.DataPropertyName = "Name";
             this.ten.HeaderText = "Tên";
             this.ten.Name = "ten";
+            this.ten.ReadOnly = true;
             this.ten.Visible = false;
             // 
             // namsinh
@@ -650,6 +654,7 @@
             this.namsinh.DataPropertyName = "Year_of_birth";
             this.namsinh.HeaderText = "Năm Sinh";
             this.namsinh.Name = "namsinh";
+            this.namsinh.ReadOnly = true;
             this.namsinh.Visible = false;
             // 
             // cmnd
@@ -657,6 +662,7 @@
             this.cmnd.DataPropertyName = "Citizen_identification";
             this.cmnd.HeaderText = "Căn cước";
             this.cmnd.Name = "cmnd";
+            this.cmnd.ReadOnly = true;
             this.cmnd.Visible = false;
             // 
             // sdt
@@ -664,6 +670,7 @@
             this.sdt.DataPropertyName = "Phone_number";
             this.sdt.HeaderText = "sdt";
             this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
             this.sdt.Visible = false;
             // 
             // tien
@@ -671,6 +678,7 @@
             this.tien.DataPropertyName = "Account_balance";
             this.tien.HeaderText = "tiền";
             this.tien.Name = "tien";
+            this.tien.ReadOnly = true;
             this.tien.Visible = false;
             // 
             // tabPage1
@@ -775,7 +783,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button butAddMoney;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button butfind;
         private System.Windows.Forms.Label label4;
