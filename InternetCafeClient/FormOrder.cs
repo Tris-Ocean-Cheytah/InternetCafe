@@ -146,8 +146,7 @@ namespace InternetCafeClient
 
         private void FormOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+
         }
     }
 }

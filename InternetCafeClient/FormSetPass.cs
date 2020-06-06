@@ -82,8 +82,7 @@ namespace InternetCafeClient
 
         private void FormSetPass_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+
         }
     }
 }
