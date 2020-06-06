@@ -49,3 +49,8 @@ namespace InternetCafeClient
     }
 }
 // khác nhau ở chỗ lồn nào ? :))) ddc ko?
+// m thử test lại xem chạy đi ???
+//đang ở branch master
+// t vừa merge vào rồi
+// thử push r
+
