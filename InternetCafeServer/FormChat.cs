@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
-    public partial class FormCommunicate : Form
+    public partial class FormChat : Form
     {
-        public FormCommunicate()
+        public FormChat()
         {
             InitializeComponent();
         }
 
-        private void FormCommunicate_FormClosing(object sender, FormClosingEventArgs e)
+        public FormChat(string s):this()
+        {
+            this.Text = s;
+        }
+
+        private void sendMessBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormChat_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
             this.Hide();

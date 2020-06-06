@@ -7,18 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InternetCafeClient.DAO;
+using System.Net;
+using System.Net.Sockets;
 
 namespace InternetCafeClient
 {
     public partial class FormOrder : Form
     {
+        Socket SckClient;
+        EndPoint ep;
         public static List<FoodControl> foodControlsList;
-        public FormOrder()
+        List<Food> listfood = new List<Food>();
+        FoodDAO FP = new FoodDAO();
+        private string username;
+
+        public FormOrder(string username)
         {
+            this.username = username;
             InitializeComponent();
-            Food.AddFood();
+            string result = FP.GetFoodFromServer();
+            listfood = FP.ConvertToListFood(result);
             foodControlsList = new List<FoodControl>();
-            foreach (Food i in Food.listFood)
+            foreach (Food i in listfood)
             {
                 if (i.type.Equals("MonChinh"))
                 {
@@ -56,7 +67,9 @@ namespace InternetCafeClient
         private void acceptPicBx_Click(object sender, EventArgs e)
         {
             bool checkEmptyCart = true;
-            foreach (Food food in Food.listFood)
+            string order = "";
+            int price = 0;
+            foreach (Food food in listfood)
             {
                 if (food.amount != 0)
                     checkEmptyCart = false;
@@ -67,17 +80,52 @@ namespace InternetCafeClient
             }
             else
             {
-                //Đợi server
+                string noti=notification();
+                transferordertostring(order, price);
+                MessageBox.Show(noti, "", MessageBoxButtons.YesNo);
             }
         }
 
+        private string notification()
+        {
+            string noti = "Bạn đã đặt \n";
+            foreach (Food food in listfood)
+            {
+                if (food.amount != 0)
+                {
+                    noti += string.Format(food.amount + " " + food.name + "\n");
+                }
+            }
+            return noti;
+        }
+
+        private void transferordertostring(string order,int price)
+        {
+            string name = Dns.GetHostName();
+            string result=string.Format("6"+name+" "+this.username+" ");
+            foreach (Food food in listfood)
+            {
+                if (food.amount != 0)
+                {
+                    result += string.Format(food.name + "=" + food.amount + ";");
+                    price += (Convert.ToInt32(food.price) * food.amount);
+                }
+            }
+            result += string.Format(" " + price);
+            //tao ket noi
+            SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //tao cong
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            //bat dau gui du lieu
+            SckClient.SendTo(Encoding.ASCII.GetBytes(result), ep);
+        }
         private void cancelPicBx_Click(object sender, EventArgs e)
         {
-            for (int i = 0, j = 0; i < Food.listFood.Count - 1; i++, j++)
+            for (int i = 0, j = 0; i < listfood.Count - 1; i++, j++)
             {
-                if (Food.listFood[i].amount != 0)
+                if (listfood[i].amount != 0)
                 {
-                    Food.listFood[i].amount = 0;
+                    listfood[i].amount = 0;
                     foodControlsList[i].amoutUpDown.Value = 0;
                 }
             }
@@ -86,6 +134,12 @@ namespace InternetCafeClient
         private void MainFoodPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void FormOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

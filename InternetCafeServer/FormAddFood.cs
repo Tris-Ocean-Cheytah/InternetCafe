@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using InternetCafeServer.DAO;
 namespace InternetCafeServer
 {
-    public partial class FormCommunicate : Form
+    public partial class FormAddFood : Form
     {
-        public FormCommunicate()
+        FoodDAO f = new FoodDAO();
+        public FormAddFood()
         {
             InitializeComponent();
         }
 
-        private void FormCommunicate_FormClosing(object sender, FormClosingEventArgs e)
+        private void BtnAddFood_Click(object sender, EventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            f.Addfood(new Food(txtFood.Text, txtType.Text, txtPrice.Text));
         }
     }
 }

@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetCafeClient
+namespace InternetCafeServer.DTO
 {
-    class Cart
+    class Time
     {
-        List<Food> listFood = new List<Food>();
+        public int hour;
+        public int minute;
+        public int second;
 
     }
 }

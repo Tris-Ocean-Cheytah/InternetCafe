@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cart.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="FormCommunicate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +68,8 @@
     <Compile Include="FormSetPass.Designer.cs">
       <DependentUpon>FormSetPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="ConnectionString.cs" />
-    <Compile Include="Food.cs" />
+    <Compile Include="DTO\User.cs" />
+    <Compile Include="DTO\Food.cs" />
     <Compile Include="FoodControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,5 +201,6 @@
   <ItemGroup>
     <None Include="pictures\security.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
