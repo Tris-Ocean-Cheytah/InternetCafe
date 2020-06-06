@@ -31,7 +31,7 @@ namespace InternetCafeClient
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            User user = new User();
+            UserDTO user = new UserDTO();
             string usernameHandler = "";
             foreach(char i in userTxtBx.Text)
             {

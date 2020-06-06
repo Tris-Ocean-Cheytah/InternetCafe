@@ -68,8 +68,8 @@
     <Compile Include="FormSetPass.Designer.cs">
       <DependentUpon>FormSetPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTO\User.cs" />
-    <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\FoodDTO.cs" />
     <Compile Include="FoodControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

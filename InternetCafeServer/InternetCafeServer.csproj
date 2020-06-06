@@ -56,10 +56,10 @@
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
-    <Compile Include="DTO\Food.cs" />
-    <Compile Include="DTO\Order.cs" />
-    <Compile Include="DTO\Time.cs" />
-    <Compile Include="DTO\User.cs" />
+    <Compile Include="DTO\FoodDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\TimeDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="FormAddFood.cs">
       <SubType>Form</SubType>
     </Compile>

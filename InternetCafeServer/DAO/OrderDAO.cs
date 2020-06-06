@@ -8,8 +8,8 @@ namespace InternetCafeServer.DAO
 {
     class OrderDAO
     {
-        Order order = new Order();
-        public Order Convertstringtoorder(string result)
+        OrderDTO order = new OrderDTO();
+        public OrderDTO Convertstringtoorder(string result)
         {
             string[] splitbyspace = result.Split(' ');
             order.name = splitbyspace[0];

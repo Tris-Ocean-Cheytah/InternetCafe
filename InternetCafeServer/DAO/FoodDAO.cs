@@ -9,7 +9,7 @@ namespace InternetCafeServer.DAO
 {
     class FoodDAO
     {
-        public void Addfood(Food food)
+        public void Addfood(FoodDTO food)
         {
             String query = "INSERT INTO Thuc_Don VALUES(@TenMonAn,@LoaiMonAn,@DonGia)";
 
@@ -24,9 +24,9 @@ namespace InternetCafeServer.DAO
                 connection.Close();
             }
         }
-        public List<Food> Getfood()
+        public List<FoodDTO> Getfood()
         {
-            List<Food> listfood = new List<Food>();
+            List<FoodDTO> listfood = new List<FoodDTO>();
             String query = "SELECT * FROM Thuc_Don";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
             {
@@ -39,7 +39,7 @@ namespace InternetCafeServer.DAO
                     string Name = (string)read["TenMonAn"];
                     string Type = (string)read["LoaiMonAn"];
                     string Price = (string)read["DonGia"];
-                    Food add = new Food(Name, Type, Price);
+                    FoodDTO add = new FoodDTO(Name, Type, Price);
                     listfood.Add(add);
                 }
                 connection.Close();

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace InternetCafeServer.DTO
 {
-    
-    class Order
+    class TimeDTO
     {
-        public string name;
-        public string username;
-        public string food;
-        public string price;
+        public int hour;
+        public int minute;
+        public int second;
+
     }
 }

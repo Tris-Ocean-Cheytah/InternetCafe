@@ -20,7 +20,7 @@ namespace InternetCafeServer
 
         private void BtnAddFood_Click(object sender, EventArgs e)
         {
-            f.Addfood(new Food(txtFood.Text, txtType.Text, txtPrice.Text));
+            f.Addfood(new FoodDTO(txtFood.Text, txtType.Text, txtPrice.Text));
         }
     }
 }

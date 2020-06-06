@@ -11,7 +11,7 @@ namespace InternetCafeServer.DAO
 {
     class UserDAO
     {
-        public void AddUser(User user)
+        public void AddUser(UserDTO user)
         {
             try
             {

@@ -18,7 +18,7 @@ namespace InternetCafeClient
         Socket SckClient;
         EndPoint ep;
         public static List<FoodControl> foodControlsList;
-        List<Food> listfood = new List<Food>();
+        List<FoodDTO> listfood = new List<FoodDTO>();
         FoodDAO FP = new FoodDAO();
         private string username;
 
@@ -29,7 +29,7 @@ namespace InternetCafeClient
             string result = FP.GetFoodFromServer();
             listfood = FP.ConvertToListFood(result);
             foodControlsList = new List<FoodControl>();
-            foreach (Food i in listfood)
+            foreach (FoodDTO i in listfood)
             {
                 if (i.type.Equals("MonChinh"))
                 {
@@ -69,7 +69,7 @@ namespace InternetCafeClient
             bool checkEmptyCart = true;
             string order = "";
             int price = 0;
-            foreach (Food food in listfood)
+            foreach (FoodDTO food in listfood)
             {
                 if (food.amount != 0)
                     checkEmptyCart = false;
@@ -89,7 +89,7 @@ namespace InternetCafeClient
         private string notification()
         {
             string noti = "Bạn đã đặt \n";
-            foreach (Food food in listfood)
+            foreach (FoodDTO food in listfood)
             {
                 if (food.amount != 0)
                 {
@@ -103,7 +103,7 @@ namespace InternetCafeClient
         {
             string name = Dns.GetHostName();
             string result=string.Format("6"+name+" "+this.username+" ");
-            foreach (Food food in listfood)
+            foreach (FoodDTO food in listfood)
             {
                 if (food.amount != 0)
                 {

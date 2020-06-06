@@ -52,7 +52,7 @@ namespace InternetCafeServer
             listViewFood.Columns.Add("Tổng giá", 100);
 
         }
-        private void addlistviewfood(Order order)
+        private void addlistviewfood(OrderDTO order)
         {
             ListViewItem item = new ListViewItem();
             item.Text = order.name;
@@ -124,7 +124,7 @@ namespace InternetCafeServer
             }
             else if (thongdiep.StartsWith("5"))
             {
-                List<Food> list = new List<Food>();
+                List<FoodDTO> list = new List<FoodDTO>();
                 list = FD.Getfood();
                 string result = ConvertToString(list);
                 SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
@@ -132,7 +132,7 @@ namespace InternetCafeServer
             else if (thongdiep.StartsWith("6"))
             {
                 thongdiep = thongdiep.Substring(1);
-                Order order = OD.Convertstringtoorder(thongdiep);
+                OrderDTO order = OD.Convertstringtoorder(thongdiep);
                 addlistviewfood(order);
             }
             else if (thongdiep.StartsWith("7"))
@@ -146,7 +146,7 @@ namespace InternetCafeServer
 
         private void Update(string name, string money)
         {
-            Time time = TransferToTime(Convert.ToInt32(money));
+            TimeDTO time = TransferToTime(Convert.ToInt32(money));
             //for (int i = 0; i < listViewClient.Items.Count; i++)
             //{
             //    if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
@@ -210,7 +210,7 @@ namespace InternetCafeServer
         {
             Getalluser();
         }
-        public string ConvertToString(List<Food> list)
+        public string ConvertToString(List<FoodDTO> list)
         {
             string result = "";
             for (int i = 0; i < list.Count; i++)
@@ -226,7 +226,7 @@ namespace InternetCafeServer
         }
         private void TurnOn(string name, string username, int money)
         {
-            Time time = TransferToTime(money);
+            TimeDTO time = TransferToTime(money);
             //for (int i = 0; i < listViewClient.Items.Count; i++)
             //{
             //    if (listViewClient.Items[i].SubItems[0].Text == name)
@@ -283,9 +283,9 @@ namespace InternetCafeServer
                 });
             }
         }
-        private Time TransferToTime(int money)
+        private TimeDTO TransferToTime(int money)
         {
-            Time time = new Time();
+            TimeDTO time = new TimeDTO();
             int du;
             time.hour = money / 18000;
             du = money - time.hour * 18000;
