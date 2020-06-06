@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InternetCafeServer.DAO
 {
@@ -11,17 +12,25 @@ namespace InternetCafeServer.DAO
     {
         public void Addfood(FoodDTO food)
         {
-            String query = "INSERT INTO Thuc_Don VALUES(@TenMonAn,@LoaiMonAn,@DonGia)";
-
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+            try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("TenMonAn", food.name);
-                cmd.Parameters.AddWithValue("LoaiMonAn", food.type);
-                cmd.Parameters.AddWithValue("DonGia", food.price);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                String query = "INSERT INTO Thuc_Don VALUES(@TenMonAn,@LoaiMonAn,@DonGia)";
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("TenMonAn", food.name);
+                    cmd.Parameters.AddWithValue("LoaiMonAn", food.type);
+                    cmd.Parameters.AddWithValue("DonGia", food.price);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show("Thêm món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Thêm món thất bại!\n Đã có món ăn này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public List<FoodDTO> Getfood()

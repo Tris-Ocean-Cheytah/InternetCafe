@@ -25,13 +25,13 @@ namespace InternetCafeClient.DAO
             SckClient.SendTo(Encoding.ASCII.GetBytes("5"), ep);
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
-            string result = Encoding.ASCII.GetString(data, 0, size);
+            string result = Encoding.UTF8.GetString(data, 0, size);
             return result;
         }
         public List<FoodDTO> ConvertToListFood(string result)
         {
             List<FoodDTO> listfood = new List<FoodDTO>();
-            string[] splitbyspace = result.Substring(1).Split(' ');
+            string[] splitbyspace = result.Substring(1).Split('*');
             for(int i=0;i<splitbyspace.Length;i++)
             {
                 string[] splitbydot = splitbyspace[i].Split('.');

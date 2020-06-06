@@ -31,7 +31,7 @@ namespace InternetCafeServer.DAO
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
@@ -94,7 +94,7 @@ namespace InternetCafeServer.DAO
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                MessageBox.Show("xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception)
             {

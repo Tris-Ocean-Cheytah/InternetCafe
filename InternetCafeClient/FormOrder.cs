@@ -76,13 +76,21 @@ namespace InternetCafeClient
             }
             if (checkEmptyCart)
             {
-                MessageBox.Show("Bạn chưa đặt món ăn nào");
+                MessageBox.Show("Bạn chưa đặt món ăn nào", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
                 string noti=notification();
                 transferordertostring(order, price);
-                MessageBox.Show(noti, "", MessageBoxButtons.YesNo);
+                MessageBox.Show(noti, "Đặt món thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                for (int i = 0, j = 0; i < listfood.Count; i++, j++)
+                {
+                    if (listfood[i].amount != 0)
+                    {
+                        listfood[i].amount = 0;
+                        foodControlsList[i].amoutUpDown.Value = 0;
+                    }
+                }
             }
         }
 
@@ -102,7 +110,7 @@ namespace InternetCafeClient
         private void transferordertostring(string order,int price)
         {
             string name = Dns.GetHostName();
-            string result=string.Format("6"+name+" "+this.username+" ");
+            string result=string.Format("6"+name+"*"+this.username+"*");
             foreach (FoodDTO food in listfood)
             {
                 if (food.amount != 0)
@@ -111,17 +119,17 @@ namespace InternetCafeClient
                     price += (Convert.ToInt32(food.price) * food.amount);
                 }
             }
-            result += string.Format(" " + price);
+            result += string.Format("*" + price);
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes(result), ep);
+            SckClient.SendTo(Encoding.UTF8.GetBytes(result), ep);
         }
         private void cancelPicBx_Click(object sender, EventArgs e)
         {
-            for (int i = 0, j = 0; i < listfood.Count - 1; i++, j++)
+            for (int i = 0, j = 0; i < listfood.Count; i++, j++)
             {
                 if (listfood[i].amount != 0)
                 {

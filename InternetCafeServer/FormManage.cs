@@ -17,7 +17,7 @@ namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket SckServer,SckClient;
+        Socket SckServer, SckClient;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
@@ -59,6 +59,11 @@ namespace InternetCafeServer
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.username });
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.food });
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.price });
+            listViewFood.Invoke(new ControlUpdate(AddListFood), new object[] { item });
+        }
+        delegate void ControlUpdate(ListViewItem item);
+        void AddListFood(ListViewItem item)
+        {
             listViewFood.Items.Add(item);
         }
 
@@ -93,7 +98,7 @@ namespace InternetCafeServer
             //goi ham endreive
             int size = SckServer.EndReceiveFrom(ar, ref dep);
             //Xu ly du lieu nhan duoc trong data[]
-            string thongdiep = Encoding.ASCII.GetString(data, 0, size);
+            string thongdiep = Encoding.UTF8.GetString(data, 0, size);
             if (thongdiep.StartsWith("1"))
             {
                 thongdiep = thongdiep.Substring(1);
@@ -127,7 +132,7 @@ namespace InternetCafeServer
                 List<FoodDTO> list = new List<FoodDTO>();
                 list = FD.Getfood();
                 string result = ConvertToString(list);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                SckServer.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
             }
             else if (thongdiep.StartsWith("6"))
             {
@@ -215,7 +220,7 @@ namespace InternetCafeServer
             string result = "";
             for (int i = 0; i < list.Count; i++)
             {
-                result += string.Format(" " + list[i].name + "." + list[i].type + "." + list[i].price);
+                result += string.Format("*" + list[i].name + "." + list[i].type + "." + list[i].price);
             }
             return result;
         }
@@ -305,7 +310,7 @@ namespace InternetCafeServer
                     check = 1;
                 }
             }
-            if(check==1)
+            if (check == 1)
             {
                 //
                 //tao ket noi
