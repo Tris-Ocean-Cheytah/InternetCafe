@@ -84,6 +84,7 @@ namespace InternetCafeClient
         {
             pass = EncryptPassword(passTxtBx.Text);
         }
-        //to activate push
+        //ok?okđm vừa làm cái attt  nhìn chán vc đéo biết phải làm lại k
+
     }
 }
