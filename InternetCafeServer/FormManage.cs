@@ -17,7 +17,7 @@ namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket SckServer;
+        Socket SckServer,SckClient;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
@@ -46,10 +46,10 @@ namespace InternetCafeServer
         private void loadlistviewfood()
         {
             listViewFood.CheckBoxes = true;
-            listViewFood.Columns.Add("Tên máy",100);
-            listViewFood.Columns.Add("Tên người dùng",130);
-            listViewFood.Columns.Add("Thông tin",500);
-            listViewFood.Columns.Add("Tổng giá",100);
+            listViewFood.Columns.Add("Tên máy", 100);
+            listViewFood.Columns.Add("Tên người dùng", 130);
+            listViewFood.Columns.Add("Thông tin", 500);
+            listViewFood.Columns.Add("Tổng giá", 100);
 
         }
         private void addlistviewfood(Order order)
@@ -132,7 +132,7 @@ namespace InternetCafeServer
             else if (thongdiep.StartsWith("6"))
             {
                 thongdiep = thongdiep.Substring(1);
-                Order order= OD.Convertstringtoorder(thongdiep);
+                Order order = OD.Convertstringtoorder(thongdiep);
                 addlistviewfood(order);
             }
             else if (thongdiep.StartsWith("7"))
@@ -212,10 +212,10 @@ namespace InternetCafeServer
         }
         public string ConvertToString(List<Food> list)
         {
-            string result="";
-            for(int i=0;i<list.Count;i++)
+            string result = "";
+            for (int i = 0; i < list.Count; i++)
             {
-                result += string.Format(" "+list[i].name+"."+list[i].type+"."+list[i].price);
+                result += string.Format(" " + list[i].name + "." + list[i].type + "." + list[i].price);
             }
             return result;
         }
@@ -224,7 +224,7 @@ namespace InternetCafeServer
         {
 
         }
-        private void TurnOn(string name,string username,int money)
+        private void TurnOn(string name, string username, int money)
         {
             Time time = TransferToTime(money);
             //for (int i = 0; i < listViewClient.Items.Count; i++)
@@ -256,7 +256,7 @@ namespace InternetCafeServer
         }
         private void TurnOff(string name)
         {
-            
+
             if (listViewClient.InvokeRequired)
             {
                 listViewClient.Invoke((MethodInvoker)delegate ()
@@ -294,5 +294,33 @@ namespace InternetCafeServer
             time.second = du / (18000 / 3600);
             return time;
         }
+
+        private void butAddMoney_Click(object sender, EventArgs e)
+        {
+            int check = 0;
+            for (int i = 0; i < listViewClient.Items.Count; i++)
+            {
+                if (listViewClient.Items[i].SubItems[3].Text == txtUsername.Text)
+                {
+                    check = 1;
+                }
+            }
+            if(check==1)
+            {
+                //tao ket noi
+                SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                //tao cong
+                EndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 999);
+                //bat dau gui du lieu
+                SckClient.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
+            }
+            else
+            {
+                int money = UD.GetMoney(txtUsername.Text);
+                money += int.Parse(txtAddMoney.Text);
+                UD.Changebalance(txtUsername.Text, money.ToString());
+            }
+        }
+
     }
 }

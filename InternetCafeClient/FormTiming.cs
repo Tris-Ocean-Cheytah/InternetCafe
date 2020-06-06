@@ -21,7 +21,7 @@ namespace InternetCafeClient
         private FormSetPass formSet;
         private string username;
         private string pass;
-        Socket SckClient;
+        Socket SckClient,SckServer;
         EndPoint ep;
         private int money;
         private int gio;
@@ -31,6 +31,11 @@ namespace InternetCafeClient
         private int phut2;
         private int giay2;
         byte[] data = new byte[1024];
+        byte[] data1 = new byte[1024];
+        EndPoint epreceiveserver = new IPEndPoint(IPAddress.Any, 0);
+        EndPoint epserver = new IPEndPoint(IPAddress.Any, 999);
+
+
         public FormTiming(string username, String Pass)
         {
             InitializeComponent();
@@ -44,6 +49,7 @@ namespace InternetCafeClient
             GetInfo(username);
             TienConLai.Text = this.money.ToString();
             TransferToTime();
+            OpenConnection();
             timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
@@ -103,7 +109,11 @@ namespace InternetCafeClient
         {
             ChangeBalance(this.username, money);
             timer3.Enabled = false;
-            this.Hide();
+            timer2.Enabled = false;
+            timer1.Enabled = false;
+            SckServer.Close();
+            SckClient.Close();
+            this.Hide();  
             loginForm.Show();
         }
         private void messPicBox_MouseEnter(object sender, EventArgs e)
@@ -223,6 +233,7 @@ namespace InternetCafeClient
 
         private void Timer3_Tick(object sender, EventArgs e)
         {
+
             Updatestat();
         }
 
@@ -234,6 +245,33 @@ namespace InternetCafeClient
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + this.money), ep);
+        }
+        private void OpenConnection()
+        {
+            //tao socket
+            SckServer = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //bind
+            
+            SckServer.Bind(epserver);
+            //bat dau gui nhan du lieu
+            SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
+        }
+
+        private void receive(IAsyncResult ar)
+        {
+            //goi ham endreive
+            try
+            {
+                int size = SckServer.EndReceiveFrom(ar, ref epreceiveserver);
+                //Xu ly du lieu nhan duoc trong data[]
+                string thongdiep = Encoding.ASCII.GetString(data1, 0, size);
+                this.money += int.Parse(thongdiep);
+                SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
+            }
+            catch(Exception e)
+            {
+
+            }           
         }
     }
 }
