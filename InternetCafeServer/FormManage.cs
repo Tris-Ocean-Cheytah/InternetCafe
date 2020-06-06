@@ -307,6 +307,7 @@ namespace InternetCafeServer
             }
             if(check==1)
             {
+                //
                 //tao ket noi
                 SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 //tao cong
