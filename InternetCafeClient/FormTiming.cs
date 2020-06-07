@@ -153,20 +153,22 @@ namespace InternetCafeClient
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            if (gio <= 0 && phut <= 0 && giay <= 0)
+            {
+                logoutPicBox_Click(null, null);
+                MessageBox.Show("Tài khoản của bạn đã hết tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             giay--;
-            if (giay < 1)
+            if (giay < 0)
             {
                 giay = 59;
                 phut--;
             }
-            if (phut < 1)
+            if (phut < 0)
             {
                 phut = 59;
-                gio--;
-            }
-            if (gio == 0 && phut == 0 && giay == 0)
-            {
-                logoutPicBox_Click(null, null);
+                if (gio > 0)
+                    gio--;
             }
             if (giay < 10)
             {
@@ -201,7 +203,7 @@ namespace InternetCafeClient
             if (phut2 > 59)
             {
                 phut2 = 0;
-                gio++;
+                gio2++;
             }
 
             if (giay2 < 10)
@@ -228,8 +230,11 @@ namespace InternetCafeClient
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            money -= (18000 / 3600);
-            TienConLai.Text = money.ToString();
+            if (money > 0)
+            {
+                money -= (18000 / 3600);
+                TienConLai.Text = money.ToString();
+            }
         }
 
         private void Timer3_Tick(object sender, EventArgs e)

@@ -39,12 +39,15 @@ namespace InternetCafeClient
                     usernameHandler += i;
             }
             realpass = AcceptLogin(usernameHandler, pass);
+            Console.WriteLine(realpass);
             if (realpass == "1")
             {
                 this.Hide();
                 timingForm = new FormTiming(userTxtBx.Text, pass);
                 timingForm.Show();
             }
+            else if(realpass.Equals("error"))
+                MessageBox.Show("Không nhận phản hồi từ server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -54,7 +57,6 @@ namespace InternetCafeClient
             string result = "";
             try
             {
-
                 //tao ket noi
                 SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 //tao cong
@@ -67,7 +69,7 @@ namespace InternetCafeClient
             }
             catch (SocketException)
             {
-                MessageBox.Show("Không nhận phản hồi từ server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                result = "error";
             }
             return result;
         }
