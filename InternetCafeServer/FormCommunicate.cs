@@ -13,10 +13,10 @@ namespace InternetCafeServer
 {
     public partial class FormCommunicate : Form
     {
-        public byte[] data= new byte[1024];
+        public byte[] data = new byte[1024];
         public static List<FormChatServer> listClientName = new List<FormChatServer>();
-        List<Socket> listSckClient = new List<Socket>();
-        List<ControlClient> listControl = new List<ControlClient>(); 
+        static public List<Socket> listSckClient = new List<Socket>();
+        List<ControlClient> listControl = new List<ControlClient>();
         public static TextBox txtMsgServer = new TextBox();
         public FormCommunicate()
         {
@@ -29,34 +29,6 @@ namespace InternetCafeServer
                 flowLayoutPanel1.Controls.Add(control);
                 listControl.Add(control);
             }
-            txtMsgServer.Location = new Point(40, 40);
-            txtMsgServer.Visible = false;
-            txtMsgServer.TextChanged += TxtMsgServer_TextChanged;
-        }
-
-        private void TxtMsgServer_TextChanged(object sender, EventArgs e)
-        {
-            data = Encoding.UTF8.GetBytes(txtMsgServer.Text);
-            foreach (var item in listSckClient)
-            {
-                item.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataSent),item);
-            }
-        }
-
-        private void OnDataSent(IAsyncResult ar)
-        {
-            Socket client = (Socket)ar.AsyncState;
-            try
-            {
-                int size = client.EndSend(ar);
-                client.BeginReceive(data, 0, data.Length, SocketFlags.None,
-                                   new AsyncCallback(OnDataReceived), client);
-            }
-            catch (SocketException)
-            {
-                CloseClient(client);
-            }
-
         }
 
         public void OnConnected(IAsyncResult ar)
@@ -70,13 +42,12 @@ namespace InternetCafeServer
             {
                 if (msg.StartsWith(listClientName[i].Text))
                 {
-                    flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatus), new object[] { i });
+                    flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusEnable), new object[] { i });
                 }
             }
             try
             {
                 FormManage.sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), FormManage.sckServerTcp);
-                //lblStat.Invoke(new UpdateForm(LabelUpdate), new object[] { "Connections: " + connections });
                 clientTest.BeginReceive(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataReceived), clientTest);
             }
             catch (SocketException)
@@ -85,10 +56,19 @@ namespace InternetCafeServer
             }
         }
         delegate void FormUpdate(int i);
-        void ChangeStatus(int i)
+        void ChangeStatusEnable(int i)
         {
             flowLayoutPanel1.Controls[i].Enabled = true;
         }
+        void ChangeStatusDisable(int i)
+        {
+            flowLayoutPanel1.Controls[i].Enabled = false;
+        }
+        void HideChat(int i)
+        {
+            listControl[i].formChat.Hide();
+        }
+
 
         private void OnDataReceived(IAsyncResult ar)
         {
@@ -102,8 +82,20 @@ namespace InternetCafeServer
                 }
                 else
                 {
-                    string msg = Encoding.UTF8.GetString(data, 0, data.Length);
-                    FormChatServer.textChatTempServer.Text = msg;
+                    string msg = Encoding.UTF8.GetString(data, 0, size);
+                    for (int i = 0; i < listClientName.Count; i++)
+                    {
+                        if (msg.StartsWith(listClientName[i].Text))
+                        {
+                            listClientName[i].ShowMess(msg);
+                            string split = msg.Substring(listClientName[i].Text.Length, msg.Length - listClientName[i].Text.Length);
+                            if (split.Equals("#out#"))
+                            {
+                                flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusDisable), new object[] { i });
+                                listControl[i].formChat.Invoke(new FormUpdate(HideChat), new object[] { i });
+                            }
+                        }
+                    }
                     client.BeginReceive(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataReceived), client);
                 }
             }

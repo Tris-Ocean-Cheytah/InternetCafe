@@ -22,6 +22,7 @@ namespace InternetCafeServer
         {
             button1.Text = name;
             formChat = new FormChatServer(button1.Text);
+            formChat.CreateControl();
             formChat.Show();
             formChat.Hide();
             FormCommunicate.listClientName.Add(formChat);

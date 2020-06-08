@@ -116,6 +116,7 @@ namespace InternetCafeClient
             SckClient.Close();
             this.Hide();
             loginForm.Show();
+            formChat.LogOut();
         }
         private void messPicBox_MouseEnter(object sender, EventArgs e)
         {

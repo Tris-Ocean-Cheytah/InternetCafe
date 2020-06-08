@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChatServer));
             this.sendMessBtn = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
             this.listBox = new System.Windows.Forms.ListBox();
@@ -75,6 +76,7 @@
             this.Controls.Add(this.txtChat);
             this.Controls.Add(this.sendMessBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormChatServer";
             this.Text = "Giao tiếp";

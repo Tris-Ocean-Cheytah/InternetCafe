@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,31 +13,13 @@ namespace InternetCafeServer
 {
     public partial class FormChatServer : Form
     {
-        static public TextBox textChatTempServer = new TextBox();
         public FormChatServer()
         {
             InitializeComponent();
-            textChatTempServer.Location = new Point(40, 40);
-            textChatTempServer.Visible = false;
-            textChatTempServer.TextChanged += TextChatTempServer_TextChanged;
         }
 
-        private void TextChatTempServer_TextChanged(object sender, EventArgs e)
-        {
-            this.Invoke(new StatusUpdate(SetTopMostTrue));
-            this.Invoke(new StatusUpdate(SetTopMostFalse));
-            if (textChatTempServer.Text.StartsWith(Text))
-            {
-                string msg = "";
-                for (int i = Text.Length; i < textChatTempServer.Text.Length; i++)
-                {
-                    msg += textChatTempServer.Text[i];
-                }
-                listBox.Invoke(new FormUpdate(AddListBox), new object[] { Text + ": " + msg });
-            }
-        }
 
-        public FormChatServer(string s):this()
+        public FormChatServer(string s) : this()
         {
             this.Text = s;
         }
@@ -44,7 +27,8 @@ namespace InternetCafeServer
         private void sendMessBtn_Click(object sender, EventArgs e)
         {
             listBox.Items.Add("Server: " + txtChat.Text);
-            FormCommunicate.txtMsgServer.Text = Text + txtChat.Text;
+            string msg = Text + txtChat.Text;
+            Send(msg);
             txtChat.Clear();
         }
 
@@ -54,12 +38,16 @@ namespace InternetCafeServer
             this.Hide();
         }
 
-        delegate void FormUpdate(string s);
         delegate void StatusUpdate();
         void AddListBox(string s)
         {
             listBox.Items.Add(s);
         }
+        void ClearListBox(string s)
+        {
+            listBox.Items.Clear();
+        }
+        delegate void FormUpdate(string s);
         void SetTopMostTrue()
         {
             TopMost = true;
@@ -67,6 +55,33 @@ namespace InternetCafeServer
         void SetTopMostFalse()
         {
             TopMost = false;
+        }
+
+        public void ShowMess(string mess)
+        {
+            if (mess.StartsWith(Text))
+            {
+                this.Invoke(new StatusUpdate(SetTopMostTrue));
+                this.Invoke(new StatusUpdate(SetTopMostFalse));
+                string msg = "";
+                for (int i = Text.Length; i < mess.Length; i++)
+                {
+                    msg += mess[i];
+                }
+                if (msg.Equals("#out#"))
+                    listBox.Invoke(new FormUpdate(ClearListBox), new object[] { msg });
+                else
+                    listBox.Invoke(new FormUpdate(AddListBox), new object[] { Text + ": " + msg });
+                Console.WriteLine(msg);
+            }
+        }
+        public void Send(string data)
+        {
+            byte[] msg = Encoding.UTF8.GetBytes(data);
+            foreach (var item in FormCommunicate.listSckClient)
+            {
+                item.Send(msg, 0, msg.Length, SocketFlags.None);
+            }
         }
     }
 }
