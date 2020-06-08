@@ -12,16 +12,24 @@ namespace InternetCafeServer
 {
     public partial class ControlClient : UserControl
     {
-        public FormChat chat;
+        public FormChatServer formChat;
         public ControlClient()
         {
             InitializeComponent();
-            chat = new FormChat(this.button1.Text);
+        }
+
+        public ControlClient(string name) : this()
+        {
+            button1.Text = name;
+            formChat = new FormChatServer(button1.Text);
+            formChat.Show();
+            formChat.Hide();
+            FormCommunicate.listClientName.Add(formChat);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            chat.Show();
+            formChat.Show();
         }
     }
 }

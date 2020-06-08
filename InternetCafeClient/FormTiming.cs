@@ -15,7 +15,7 @@ namespace InternetCafeClient
     public partial class FormTiming : Form
     {
         //test
-        private FormCommunicate communicate;
+        private FormChat formChat;
         private FormLogin loginForm;
         private string username;
         private string pass;
@@ -33,14 +33,16 @@ namespace InternetCafeClient
         EndPoint epreceiveserver = new IPEndPoint(IPAddress.Any, 0);
         EndPoint epserver = new IPEndPoint(IPAddress.Any, 999);
 
-
+        //public static Socket sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public FormTiming(string username, String Pass)
         {
             InitializeComponent();
             this.username = username;
             this.pass = Pass;
             groupBox1.Text = username;
-            communicate = new FormCommunicate();
+            formChat = new FormChat();
+            formChat.Show();
+            formChat.Hide();
             loginForm = new FormLogin();
 
             GetInfo(username);
@@ -61,7 +63,7 @@ namespace InternetCafeClient
                 }
             }
 
-
+            
         }
 
         private void GetInfo(string username)
@@ -95,7 +97,7 @@ namespace InternetCafeClient
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            communicate.Show();
+            formChat.Show();
         }
         private void foodPicBox_Click(object sender, EventArgs e)
         {
@@ -274,7 +276,7 @@ namespace InternetCafeClient
                 this.money += int.Parse(thongdiep);
                 SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

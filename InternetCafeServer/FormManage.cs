@@ -17,23 +17,26 @@ namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket SckServer, SckClient;
+        Socket sckServerUdp, sckClientUDP;
+        public static Socket sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
         OrderDAO OD = new OrderDAO();
-        FormCommunicate communicate;
+        FormCommunicate formCommunicate;
         byte[] data = new byte[1024];
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
         public FormManage()
         {
 
             InitializeComponent();
-            communicate = new FormCommunicate();
+            formCommunicate = new FormCommunicate();
+            formCommunicate.Show();
+            formCommunicate.Hide();
             Load();
         }
 
-        void Load()
+        new void Load()
         {
             dataGridView1.DataSource = source;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -84,19 +87,27 @@ namespace InternetCafeServer
 
         private void OpenConnection()
         {
+            //Udp
             //tao socket
-            SckServer = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            IPEndPoint ep = new IPEndPoint(IPAddress.Any, 9999);
-            SckServer.Bind(ep);
+            IPEndPoint epUdp = new IPEndPoint(IPAddress.Any, 9999);
+            sckServerUdp.Bind(epUdp);
             //bat dau gui nhan du lieu
-            SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+            sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+
+            //Tcp
+            //sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint epTcp = new IPEndPoint(IPAddress.Any, 9998);
+            sckServerTcp.Bind(epTcp);
+            sckServerTcp.Listen(10);
+            sckServerTcp.BeginAccept(new AsyncCallback(formCommunicate.OnConnected), sckServerTcp);
         }
 
         private void receive(IAsyncResult ar)
         {
             //goi ham endreive
-            int size = SckServer.EndReceiveFrom(ar, ref dep);
+            int size = sckServerUdp.EndReceiveFrom(ar, ref dep);
             //Xu ly du lieu nhan duoc trong data[]
             string thongdiep = Encoding.UTF8.GetString(data, 0, size);
             if (thongdiep.StartsWith("1"))
@@ -104,7 +115,7 @@ namespace InternetCafeServer
                 thongdiep = thongdiep.Substring(1);
                 String[] UAP = thongdiep.Split(' ');
                 int result = UD.GetPass(UAP[0], UAP[1]);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
             }
             else if (thongdiep.StartsWith("2"))
             {
@@ -112,7 +123,7 @@ namespace InternetCafeServer
                 String[] UAP = thongdiep.Split(' ');
                 int result = UD.GetMoney(UAP[0]);
                 TurnOn(UAP[1], UAP[0], result);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
             }
             else if (thongdiep.StartsWith("3"))
             {
@@ -132,7 +143,7 @@ namespace InternetCafeServer
                 List<FoodDTO> list = new List<FoodDTO>();
                 list = FD.Getfood();
                 string result = ConvertToString(list);
-                SckServer.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
+                sckServerUdp.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
             }
             else if (thongdiep.StartsWith("6"))
             {
@@ -146,7 +157,7 @@ namespace InternetCafeServer
                 String[] UAP = thongdiep.Split(' ');
                 Update(UAP[0], UAP[1]);
             }
-            SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+            sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
 
         private void Update(string name, string money)
@@ -178,7 +189,7 @@ namespace InternetCafeServer
 
         private void CommunicateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            communicate.Show();
+            formCommunicate.Show();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -314,11 +325,11 @@ namespace InternetCafeServer
             {
                 //
                 //tao ket noi
-                SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                sckClientUDP = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 //tao cong
                 EndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 999);
                 //bat dau gui du lieu
-                SckClient.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
+                sckClientUDP.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
             }
             else
             {

@@ -49,7 +49,6 @@ namespace InternetCafeClient
                     FoodControl fc = new FoodControl(i) { BackColor = Color.FromArgb(240, 240, 240) };
                     snackPanel.Controls.Add(fc);
                     foodControlsList.Add(fc);
-                    Console.WriteLine(i.name + i.type);
                 }
             }
         }

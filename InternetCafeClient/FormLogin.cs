@@ -41,7 +41,6 @@ namespace InternetCafeClient
             realpass = AcceptLogin(usernameHandler, pass);
             if (GetInfo(usernameHandler) == 0)
                 realpass = "2";
-            Console.WriteLine(realpass);
             if (realpass == "1")
             {
                 this.Hide();
