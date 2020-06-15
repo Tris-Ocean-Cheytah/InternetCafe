@@ -40,7 +40,7 @@ namespace InternetCafeServer
             Userbinding();
             loadlistviewfood();
         }
-        //con gà
+     
         internal void SetPassAndUser(string username, string pass)
         {
             this.Username = username;
