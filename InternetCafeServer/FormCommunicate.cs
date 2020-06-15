@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,11 @@ namespace InternetCafeServer
 {
     public partial class FormCommunicate : Form
     {
-        public byte[] data = new byte[1024];
-        public static List<FormChatServer> listClientName = new List<FormChatServer>();
-        static public List<Socket> listSckClient = new List<Socket>();
-        List<ControlClient> listControl = new List<ControlClient>();
-        public static TextBox txtMsgServer = new TextBox();
+        public static List<FormChatServer> listFormChat = new List<FormChatServer>();
+        public static List<Socket> listSckClient = new List<Socket>();
+        public static List<string> listClientName = new List<string>();
+        private List<ControlClient> listControl = new List<ControlClient>();
+        private byte[] data = new byte[1024];
         public FormCommunicate()
         {
             InitializeComponent();
@@ -28,21 +29,27 @@ namespace InternetCafeServer
                 control.Enabled = false;
                 flowLayoutPanel1.Controls.Add(control);
                 listControl.Add(control);
+                listClientName.Add(name);
+                listSckClient.Add(new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp));
             }
         }
 
         public void OnConnected(IAsyncResult ar)
         {
             Socket clientTest = FormManage.sckServerTcp.EndAccept(ar);
-            listSckClient.Add(clientTest);
+
+            Console.WriteLine(((IPEndPoint)clientTest.RemoteEndPoint).Address.ToString());
+
             int n = clientTest.Receive(data, 0, data.Length, SocketFlags.None);
             string msg = Encoding.ASCII.GetString(data, 0, n);
             Console.WriteLine(msg);
             for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
             {
-                if (msg.StartsWith(listClientName[i].Text))
+                if (msg.StartsWith(listClientName[i]))
                 {
                     flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusEnable), new object[] { i });
+                    listControl[i].Invoke(new FormUpdate(CreateForm), new object[] { i });
+                    listSckClient[i] = clientTest;
                 }
             }
             try
@@ -68,6 +75,10 @@ namespace InternetCafeServer
         {
             listControl[i].formChat.Hide();
         }
+        void CreateForm(int i)
+        {
+            listControl[i].CreateFormChat();
+        }
 
 
         private void OnDataReceived(IAsyncResult ar)
@@ -83,12 +94,12 @@ namespace InternetCafeServer
                 else
                 {
                     string msg = Encoding.UTF8.GetString(data, 0, size);
-                    for (int i = 0; i < listClientName.Count; i++)
+                    for (int i = 0; i < listFormChat.Count; i++)
                     {
-                        if (msg.StartsWith(listClientName[i].Text))
+                        if (msg.StartsWith(listFormChat[i].Text))
                         {
-                            listClientName[i].ShowMess(msg);
-                            string split = msg.Substring(listClientName[i].Text.Length, msg.Length - listClientName[i].Text.Length);
+                            listFormChat[i].ShowMess(msg);
+                            string split = msg.Substring(listFormChat[i].Text.Length, msg.Length - listFormChat[i].Text.Length);
                             if (split.Equals("#out#"))
                             {
                                 flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusDisable), new object[] { i });

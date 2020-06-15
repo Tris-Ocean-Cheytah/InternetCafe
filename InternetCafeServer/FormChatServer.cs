@@ -50,6 +50,7 @@ namespace InternetCafeServer
         delegate void FormUpdate(string s);
         void SetTopMostTrue()
         {
+            Show();
             TopMost = true;
         }
         void SetTopMostFalse()
@@ -78,9 +79,10 @@ namespace InternetCafeServer
         public void Send(string data)
         {
             byte[] msg = Encoding.UTF8.GetBytes(data);
-            foreach (var item in FormCommunicate.listSckClient)
+            for (int i = 0; i < FormCommunicate.listClientName.Count; i++)
             {
-                item.Send(msg, 0, msg.Length, SocketFlags.None);
+                if(this.Text.Equals(FormCommunicate.listClientName[i]))
+                    FormCommunicate.listSckClient[i].Send(msg, 0, msg.Length, SocketFlags.None);
             }
         }
     }
