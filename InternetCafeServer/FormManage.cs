@@ -1,17 +1,11 @@
-﻿using System;
+﻿using InternetCafeServer.DAO;
+using InternetCafeServer.DTO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using InternetCafeServer.DAO;
-using InternetCafeServer.DTO;
-using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
@@ -25,9 +19,11 @@ namespace InternetCafeServer
         FormCommunicate formCommunicate;
         byte[] data = new byte[1024];
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
+        private string Username;
+        private string Password;
+
         public FormManage()
         {
-
             InitializeComponent();
             formCommunicate = new FormCommunicate();
             formCommunicate.Show();
@@ -43,6 +39,12 @@ namespace InternetCafeServer
             Getalluser();
             Userbinding();
             loadlistviewfood();
+        }
+     
+        internal void SetPassAndUser(string username, string pass)
+        {
+            this.Username = username;
+            this.Password = pass;
         }
 
         private void loadlistviewfood()
@@ -258,7 +260,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[1].Text == name)
+                        if (listViewClient.Items[i].SubItems[0].Text == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "ON";
                             listViewClient.Items[i].SubItems[3].Text = username;
@@ -278,7 +280,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[0].Text.ToString() == name)
+                        if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "OFF";
                             listViewClient.Items[i].SubItems[3].Text = "";
@@ -324,6 +326,13 @@ namespace InternetCafeServer
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void ButChangePass_Click(object sender, EventArgs e)
+        {
+            FormSetPass formSet;
+            formSet = new FormSetPass(this.Username,this.Password);
+            formSet.Show();
         }
 
         private void butAddMoney_Click(object sender, EventArgs e)

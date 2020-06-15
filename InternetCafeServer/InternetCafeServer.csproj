@@ -96,6 +96,12 @@
     <Compile Include="FormManage.Designer.cs">
       <DependentUpon>FormManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetPass.Designer.cs">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlClient.resx">
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormManage.resx">
       <DependentUpon>FormManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetPass.resx">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
