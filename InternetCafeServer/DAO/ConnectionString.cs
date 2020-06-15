@@ -8,6 +8,6 @@ namespace InternetCafeServer.DAO
 {
     class ConnectionString
     {
-        public static string connectionstring = @"Data Source=MAY1\CHEYTAH;Initial Catalog=Internet;Integrated Security=True";
+        public static string connectionstring = @"Data Source=MAY1\SQLEXPRESS;Initial Catalog=Internet;Integrated Security=True";
     }
 }

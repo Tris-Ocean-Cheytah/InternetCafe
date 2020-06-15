@@ -60,11 +60,11 @@
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\TimeDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="FormLogin.cs">
+    <Compile Include="FormLoginServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="FormLoginServer.Designer.cs">
+      <DependentUpon>FormLoginServer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddFood.cs">
       <SubType>Form</SubType>
@@ -113,8 +113,8 @@
     <EmbeddedResource Include="FormCommunicate.resx">
       <DependentUpon>FormCommunicate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FormLoginServer.resx">
+      <DependentUpon>FormLoginServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormManage.resx">
       <DependentUpon>FormManage.cs</DependentUpon>

@@ -11,11 +11,11 @@ using System.Windows.Forms;
 using InternetCafeServer.DAO;
 namespace InternetCafeServer
 {
-    public partial class FormLogin : Form
+    public partial class FormLoginServer : Form
     {
         UserDAO UD = new UserDAO();
         FormManage formManage;
-        public FormLogin()
+        public FormLoginServer()
         {
             InitializeComponent();
         }
@@ -33,7 +33,9 @@ namespace InternetCafeServer
             if(realpass=="1" && usernameHandler=="admin")
             {
                 formManage = new FormManage();
-                formManage.Show();
+                this.Hide();
+                formManage.ShowDialog();
+                this.Show();
             }
             else
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

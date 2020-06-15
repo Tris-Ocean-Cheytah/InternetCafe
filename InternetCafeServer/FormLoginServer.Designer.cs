@@ -1,6 +1,6 @@
 ﻿namespace InternetCafeServer
 {
-    partial class FormLogin
+    partial class FormLoginServer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLoginServer));
             this.TxtUsername = new System.Windows.Forms.TextBox();
             this.Txtpassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,22 +38,25 @@
             // 
             // TxtUsername
             // 
-            this.TxtUsername.Location = new System.Drawing.Point(259, 126);
+            this.TxtUsername.Location = new System.Drawing.Point(127, 38);
+            this.TxtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtUsername.Name = "TxtUsername";
-            this.TxtUsername.Size = new System.Drawing.Size(219, 22);
+            this.TxtUsername.Size = new System.Drawing.Size(151, 23);
             this.TxtUsername.TabIndex = 0;
             // 
             // Txtpassword
             // 
-            this.Txtpassword.Location = new System.Drawing.Point(259, 195);
+            this.Txtpassword.Location = new System.Drawing.Point(127, 82);
+            this.Txtpassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txtpassword.Name = "Txtpassword";
-            this.Txtpassword.Size = new System.Drawing.Size(219, 22);
+            this.Txtpassword.Size = new System.Drawing.Size(151, 23);
             this.Txtpassword.TabIndex = 1;
+            this.Txtpassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 126);
+            this.label1.Location = new System.Drawing.Point(48, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 2;
@@ -61,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 195);
+            this.label2.Location = new System.Drawing.Point(48, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 3;
@@ -69,26 +73,35 @@
             // 
             // ButLogin
             // 
-            this.ButLogin.Location = new System.Drawing.Point(289, 258);
+            this.ButLogin.AutoSize = true;
+            this.ButLogin.Location = new System.Drawing.Point(127, 131);
+            this.ButLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButLogin.Name = "ButLogin";
-            this.ButLogin.Size = new System.Drawing.Size(147, 23);
+            this.ButLogin.Size = new System.Drawing.Size(88, 27);
             this.ButLogin.TabIndex = 4;
-            this.ButLogin.Text = "Dang nhap";
+            this.ButLogin.Text = "Đăng nhập";
             this.ButLogin.UseVisualStyleBackColor = true;
             this.ButLogin.Click += new System.EventHandler(this.ButLogin_Click);
             // 
-            // FormLogin
+            // FormLoginServer
             // 
+            this.AcceptButton = this.ButLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(341, 197);
             this.Controls.Add(this.ButLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Txtpassword);
             this.Controls.Add(this.TxtUsername);
-            this.Name = "FormLogin";
-            this.Text = "Dang nhap";
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormLoginServer";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
