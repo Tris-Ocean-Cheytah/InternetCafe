@@ -1,17 +1,11 @@
-﻿using System;
+﻿using InternetCafeServer.DAO;
+using InternetCafeServer.DTO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using InternetCafeServer.DAO;
-using InternetCafeServer.DTO;
-using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
@@ -260,7 +254,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[1].Text == name)
+                        if (listViewClient.Items[i].SubItems[0].Text == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "ON";
                             listViewClient.Items[i].SubItems[3].Text = username;
@@ -280,7 +274,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[0].Text.ToString() == name)
+                        if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "OFF";
                             listViewClient.Items[i].SubItems[3].Text = "";

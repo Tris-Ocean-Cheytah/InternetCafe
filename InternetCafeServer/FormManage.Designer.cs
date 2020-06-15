@@ -240,7 +240,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1164, 561);
@@ -251,9 +251,9 @@
             // 
             this.tabPage2.Controls.Add(this.listViewClient);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1156, 528);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Máy Client";
@@ -274,10 +274,6 @@
             this.listViewClient.FullRowSelect = true;
             this.listViewClient.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewClient.HideSelection = false;
-            listViewItem1.UseItemStyleForSubItems = false;
-            listViewItem2.UseItemStyleForSubItems = false;
-            listViewItem12.Checked = true;
-            listViewItem12.StateImageIndex = 1;
             this.listViewClient.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -300,7 +296,7 @@
             listViewItem19,
             listViewItem20});
             this.listViewClient.Location = new System.Drawing.Point(4, 4);
-            this.listViewClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewClient.Margin = new System.Windows.Forms.Padding(4);
             this.listViewClient.Name = "listViewClient";
             this.listViewClient.Size = new System.Drawing.Size(1148, 520);
             this.listViewClient.TabIndex = 3;
@@ -363,9 +359,9 @@
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1156, 528);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Người dùng";
@@ -381,7 +377,7 @@
             this.panel3.Controls.Add(this.butAddMoney);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(261, 59);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(891, 465);
             this.panel3.TabIndex = 0;
@@ -402,9 +398,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(891, 369);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
@@ -534,7 +530,7 @@
             // 
             this.txtAddMoney.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtAddMoney.Location = new System.Drawing.Point(677, 383);
-            this.txtAddMoney.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddMoney.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddMoney.Name = "txtAddMoney";
             this.txtAddMoney.Size = new System.Drawing.Size(189, 26);
             this.txtAddMoney.TabIndex = 13;
@@ -542,7 +538,7 @@
             // btnDel
             // 
             this.btnDel.Location = new System.Drawing.Point(235, 388);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(107, 44);
             this.btnDel.TabIndex = 5;
@@ -553,7 +549,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(73, 388);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(107, 44);
             this.btnAdd.TabIndex = 4;
@@ -574,7 +570,7 @@
             // butAddMoney
             // 
             this.butAddMoney.Location = new System.Drawing.Point(635, 418);
-            this.butAddMoney.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butAddMoney.Margin = new System.Windows.Forms.Padding(4);
             this.butAddMoney.Name = "butAddMoney";
             this.butAddMoney.Size = new System.Drawing.Size(107, 44);
             this.butAddMoney.TabIndex = 2;
@@ -588,7 +584,7 @@
             this.panel2.Controls.Add(this.butfind);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(261, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(891, 55);
             this.panel2.TabIndex = 0;
@@ -596,7 +592,7 @@
             // txtFind
             // 
             this.txtFind.Location = new System.Drawing.Point(503, 15);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(269, 26);
             this.txtFind.TabIndex = 1;
@@ -604,7 +600,7 @@
             // butfind
             // 
             this.butfind.Location = new System.Drawing.Point(781, 6);
-            this.butfind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butfind.Margin = new System.Windows.Forms.Padding(4);
             this.butfind.Name = "butfind";
             this.butfind.Size = new System.Drawing.Size(100, 44);
             this.butfind.TabIndex = 0;
@@ -617,7 +613,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(257, 520);
             this.panel1.TabIndex = 3;
@@ -639,7 +635,7 @@
             this.tien});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
@@ -698,9 +694,9 @@
             // 
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1156, 528);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Đặt món";
@@ -711,7 +707,7 @@
             this.panel4.Controls.Add(this.listViewFood);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(4, 4);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1148, 520);
             this.panel4.TabIndex = 0;
@@ -727,7 +723,7 @@
             this.listViewFood.HideSelection = false;
             this.listViewFood.LabelWrap = false;
             this.listViewFood.Location = new System.Drawing.Point(0, 0);
-            this.listViewFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewFood.Margin = new System.Windows.Forms.Padding(4);
             this.listViewFood.Name = "listViewFood";
             this.listViewFood.Size = new System.Drawing.Size(1148, 520);
             this.listViewFood.TabIndex = 4;
@@ -758,7 +754,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormManage";
             this.Text = "Quản lý";

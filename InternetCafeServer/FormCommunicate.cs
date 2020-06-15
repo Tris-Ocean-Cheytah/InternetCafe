@@ -115,7 +115,11 @@ namespace InternetCafeServer
                 CloseClient(client);
             }
         }
-
+        //tutu de t suy nghi 1 ti da
+        // cho t test thử ok ????????
+        //no dang bi loi
+        //de t suy nghi xem suwa ntn da.
+        //loi phan hien thi
         public void CloseClient(Socket client)
         {
             client.Close();
