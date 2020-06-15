@@ -11,8 +11,7 @@ namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket sckServerUdp, sckClientUDP;
-        public static Socket sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        Socket sckServerUdp, sckClientUdp;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
@@ -81,6 +80,7 @@ namespace InternetCafeServer
 
         private void OpenConnection()
         {
+
             //Udp
             //tao socket
             sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -90,69 +90,72 @@ namespace InternetCafeServer
             //bat dau gui nhan du lieu
             sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
 
-            //Tcp
-            //sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint epTcp = new IPEndPoint(IPAddress.Any, 9998);
-            sckServerTcp.Bind(epTcp);
-            sckServerTcp.Listen(10);
-            sckServerTcp.BeginAccept(new AsyncCallback(formCommunicate.OnConnected), sckServerTcp);
+
         }
 
         private void receive(IAsyncResult ar)
         {
-            //goi ham endreive
-            int size = sckServerUdp.EndReceiveFrom(ar, ref dep);
-            //Xu ly du lieu nhan duoc trong data[]
-            string thongdiep = Encoding.UTF8.GetString(data, 0, size);
-            if (thongdiep.StartsWith("1"))
+            try
             {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                int result = UD.GetPass(UAP[0], UAP[1]);
-                sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+
+                //goi ham endreive
+                int size = sckServerUdp.EndReceiveFrom(ar, ref dep);
+                //Xu ly du lieu nhan duoc trong data[]
+                string thongdiep = Encoding.UTF8.GetString(data, 0, size);
+                if (thongdiep.StartsWith("1"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    int result = UD.GetPass(UAP[0], UAP[1]);
+                    sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("2"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    int result = UD.GetMoney(UAP[0]);
+                    TurnOn(UAP[1], UAP[0], result);
+                    sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("3"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    UD.Changebalance(UAP[0], UAP[1]);
+                    TurnOff(UAP[2]);
+                }
+                else if (thongdiep.StartsWith("4"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    UD.Changepass(UAP[0], UAP[1]);
+                }
+                else if (thongdiep.StartsWith("5"))
+                {
+                    List<FoodDTO> list = new List<FoodDTO>();
+                    list = FD.Getfood();
+                    string result = ConvertToString(list);
+                    sckServerUdp.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("6"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    OrderDTO order = OD.Convertstringtoorder(thongdiep);
+                    addlistviewfood(order);
+                }
+                else if (thongdiep.StartsWith("7"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    Update(UAP[0], UAP[1]);
+                    sckServerUdp.SendTo(Encoding.UTF8.GetBytes("continue"), dep);
+                }
+                sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
             }
-            else if (thongdiep.StartsWith("2"))
+            catch (Exception)
             {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                int result = UD.GetMoney(UAP[0]);
-                TurnOn(UAP[1], UAP[0], result);
-                sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+
             }
-            else if (thongdiep.StartsWith("3"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                UD.Changebalance(UAP[0], UAP[1]);
-                TurnOff(UAP[2]);
-            }
-            else if (thongdiep.StartsWith("4"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                UD.Changepass(UAP[0], UAP[1]);
-            }
-            else if (thongdiep.StartsWith("5"))
-            {
-                List<FoodDTO> list = new List<FoodDTO>();
-                list = FD.Getfood();
-                string result = ConvertToString(list);
-                sckServerUdp.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
-            }
-            else if (thongdiep.StartsWith("6"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                OrderDTO order = OD.Convertstringtoorder(thongdiep);
-                addlistviewfood(order);
-            }
-            else if (thongdiep.StartsWith("7"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                Update(UAP[0], UAP[1]);
-                sckServerUdp.SendTo(Encoding.UTF8.GetBytes("continue"), dep);
-            }
-            sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
 
         private void Update(string name, string money)
@@ -180,11 +183,6 @@ namespace InternetCafeServer
                     }
                 });
             }
-        }
-
-        private void CommunicateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formCommunicate.Show();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -306,6 +304,22 @@ namespace InternetCafeServer
             return time;
         }
 
+        private void btnCommunicate_Click(object sender, EventArgs e)
+        {
+            formCommunicate.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void FormManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
         private void butAddMoney_Click(object sender, EventArgs e)
         {
             int check = 0;
@@ -320,11 +334,11 @@ namespace InternetCafeServer
             {
                 //
                 //tao ket noi
-                sckClientUDP = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                sckClientUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 //tao cong
                 EndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 999);
                 //bat dau gui du lieu
-                sckClientUDP.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
+                sckClientUdp.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
             }
             else
             {

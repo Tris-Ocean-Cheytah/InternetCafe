@@ -29,11 +29,14 @@ namespace InternetCafeClient
         {
             try
             {
-                string msg = txtChat.Text;
-                listBox.Invoke(new UpdateForm(AddListBox), new object[] { name + ": " + txtChat.Text });
-                byte[] mess = Encoding.UTF8.GetBytes(name + msg);
-                sckClientTcp.BeginSend(mess, 0, mess.Length, SocketFlags.None, new AsyncCallback(OnDataSent), null);
-                txtChat.Clear();
+                if (txtChat.Text != "")
+                {
+                    string msg = txtChat.Text;
+                    listBox.Invoke(new UpdateForm(AddListBox), new object[] { name + ": " + txtChat.Text });
+                    byte[] mess = Encoding.UTF8.GetBytes(name + msg);
+                    sckClientTcp.BeginSend(mess, 0, mess.Length, SocketFlags.None, new AsyncCallback(OnDataSent), null);
+                    txtChat.Clear();
+                }
             }
             catch (SocketException)
             {
@@ -116,7 +119,7 @@ namespace InternetCafeClient
                 listBox.Invoke(new UpdateForm(ClearListBox), new object[] { mess });
                 Invoke(new UpdateForm(HideChat), new object[] { mess });
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }

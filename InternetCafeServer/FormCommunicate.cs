@@ -14,6 +14,7 @@ namespace InternetCafeServer
 {
     public partial class FormCommunicate : Form
     {
+        public Socket sckServerTcp;
         public static List<FormChatServer> listFormChat = new List<FormChatServer>();
         public static List<Socket> listSckClient = new List<Socket>();
         public static List<string> listClientName = new List<string>();
@@ -22,6 +23,18 @@ namespace InternetCafeServer
         public FormCommunicate()
         {
             InitializeComponent();
+            try
+            {
+                sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                IPEndPoint epTcp = new IPEndPoint(IPAddress.Any, 9998);
+                sckServerTcp.Bind(epTcp);
+                sckServerTcp.Listen(10);
+                sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), sckServerTcp);
+            }
+            catch (SocketException)
+            {
+                sckServerTcp.Close();
+            }
             for (int i = 0; i < 20; i++)
             {
                 string name = "MAY" + (i + 1);
@@ -31,36 +44,45 @@ namespace InternetCafeServer
                 listControl.Add(control);
                 listClientName.Add(name);
                 listSckClient.Add(new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp));
+
             }
         }
 
         public void OnConnected(IAsyncResult ar)
         {
-            Socket clientTest = FormManage.sckServerTcp.EndAccept(ar);
-
-            Console.WriteLine(((IPEndPoint)clientTest.RemoteEndPoint).Address.ToString());
-
-            int n = clientTest.Receive(data, 0, data.Length, SocketFlags.None);
-            string msg = Encoding.ASCII.GetString(data, 0, n);
-            Console.WriteLine(msg);
-            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
-            {
-                if (msg.StartsWith(listClientName[i]))
-                {
-                    flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusEnable), new object[] { i });
-                    listControl[i].Invoke(new FormUpdate(CreateForm), new object[] { i });
-                    listSckClient[i] = clientTest;
-                }
-            }
             try
             {
-                FormManage.sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), FormManage.sckServerTcp);
-                clientTest.BeginReceive(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataReceived), clientTest);
+                Socket clientTest = sckServerTcp.EndAccept(ar);
+
+                Console.WriteLine(((IPEndPoint)clientTest.RemoteEndPoint).Address.ToString());
+
+                int n = clientTest.Receive(data, 0, data.Length, SocketFlags.None);
+                string msg = Encoding.ASCII.GetString(data, 0, n);
+                Console.WriteLine(msg);
+                for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
+                {
+                    if (msg.StartsWith(listClientName[i]))
+                    {
+                        flowLayoutPanel1.Invoke(new FormUpdate(ChangeStatusEnable), new object[] { i });
+                        listControl[i].Invoke(new FormUpdate(CreateForm), new object[] { i });
+                        listSckClient[i] = clientTest;
+                    }
+                }
+                try
+                {
+                    sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), sckServerTcp);
+                    clientTest.BeginReceive(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataReceived), clientTest);
+                }
+                catch (SocketException)
+                {
+                    CloseClient(clientTest);
+                }
             }
-            catch (SocketException)
+            catch (ObjectDisposedException)
             {
-                CloseClient(clientTest);
+
             }
+
         }
         delegate void FormUpdate(int i);
         void ChangeStatusEnable(int i)
