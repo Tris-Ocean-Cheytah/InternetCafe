@@ -26,10 +26,13 @@ namespace InternetCafeServer
 
         private void sendMessBtn_Click(object sender, EventArgs e)
         {
-            listBox.Items.Add("Server: " + txtChat.Text);
-            string msg = Text + txtChat.Text;
-            Send(msg);
-            txtChat.Clear();
+            if (txtChat.Text != "")
+            {
+                listBox.Items.Add("Server: " + txtChat.Text);
+                string msg = Text + txtChat.Text;
+                Send(msg);
+                txtChat.Clear();
+            }
         }
 
         private void FormChat_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,11 +81,14 @@ namespace InternetCafeServer
         }
         public void Send(string data)
         {
-            byte[] msg = Encoding.UTF8.GetBytes(data);
-            for (int i = 0; i < FormCommunicate.listClientName.Count; i++)
+            if (txtChat.Text != "")
             {
-                if(this.Text.Equals(FormCommunicate.listClientName[i]))
-                    FormCommunicate.listSckClient[i].Send(msg, 0, msg.Length, SocketFlags.None);
+                byte[] msg = Encoding.UTF8.GetBytes(data);
+                for (int i = 0; i < FormCommunicate.listClientName.Count; i++)
+                {
+                    if (this.Text.Equals(FormCommunicate.listClientName[i]))
+                        FormCommunicate.listSckClient[i].Send(msg, 0, msg.Length, SocketFlags.None);
+                }
             }
         }
     }

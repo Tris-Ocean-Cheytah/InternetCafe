@@ -18,6 +18,7 @@ namespace InternetCafeServer
         public FormLoginServer()
         {
             InitializeComponent();
+            formManage = new FormManage();
         }
 
         private void ButLogin_Click(object sender, EventArgs e)
@@ -32,7 +33,8 @@ namespace InternetCafeServer
             string realpass = UD.GetPass(usernameHandler, password).ToString();
             if(realpass=="1" && usernameHandler=="admin")
             {
-                formManage = new FormManage();
+                TxtUsername.Clear();
+                Txtpassword.Clear();
                 this.Hide();
                 formManage.ShowDialog();
                 this.Show();
