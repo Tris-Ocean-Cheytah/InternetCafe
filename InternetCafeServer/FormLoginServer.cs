@@ -19,9 +19,6 @@ namespace InternetCafeServer
         {
             InitializeComponent();
             formManage = new FormManage();
-            //đây là vấn đè đó :v
-            // nhung ma de o day
-            //ko lay dc pass de cho vao form manga
         }
 
         private void ButLogin_Click(object sender, EventArgs e)
