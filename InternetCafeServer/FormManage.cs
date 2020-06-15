@@ -19,9 +19,11 @@ namespace InternetCafeServer
         FormCommunicate formCommunicate;
         byte[] data = new byte[1024];
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
+        private string Username;
+        private string Password;
+
         public FormManage()
         {
-
             InitializeComponent();
             formCommunicate = new FormCommunicate();
             formCommunicate.Show();
@@ -37,6 +39,12 @@ namespace InternetCafeServer
             Getalluser();
             Userbinding();
             loadlistviewfood();
+        }
+        //con gà
+        internal void SetPassAndUser(string username, string pass)
+        {
+            this.Username = username;
+            this.Password = pass;
         }
 
         private void loadlistviewfood()
@@ -318,6 +326,13 @@ namespace InternetCafeServer
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void ButChangePass_Click(object sender, EventArgs e)
+        {
+            FormSetPass formSet;
+            formSet = new FormSetPass(this.Username,this.Password);
+            formSet.Show();
         }
 
         private void butAddMoney_Click(object sender, EventArgs e)

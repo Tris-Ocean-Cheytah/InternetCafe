@@ -19,6 +19,9 @@ namespace InternetCafeServer
         {
             InitializeComponent();
             formManage = new FormManage();
+            //đây là vấn đè đó :v
+            // nhung ma de o day
+            //ko lay dc pass de cho vao form manga
         }
 
         private void ButLogin_Click(object sender, EventArgs e)
@@ -31,8 +34,9 @@ namespace InternetCafeServer
             }
             String password = EncryptPassword(Txtpassword.Text);
             string realpass = UD.GetPass(usernameHandler, password).ToString();
-            if(realpass=="1" && usernameHandler=="admin")
+            if (realpass == "1" && usernameHandler == "admin")
             {
+                formManage.SetPassAndUser(TxtUsername.Text, Txtpassword.Text);
                 TxtUsername.Clear();
                 Txtpassword.Clear();
                 this.Hide();
