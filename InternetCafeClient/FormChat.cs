@@ -108,11 +108,18 @@ namespace InternetCafeClient
 
         public void LogOut()
         {
-            string mess = name + "#out#";
-            byte[] temp = Encoding.UTF8.GetBytes(mess);
-            sckClientTcp.Send(temp, 0, temp.Length, SocketFlags.None);
-            listBox.Invoke(new UpdateForm(ClearListBox), new object[] { mess });
-            Invoke(new UpdateForm(HideChat), new object[] { mess });
+            try
+            {
+                string mess = name + "#out#";
+                byte[] temp = Encoding.UTF8.GetBytes(mess);
+                sckClientTcp.Send(temp, 0, temp.Length, SocketFlags.None);
+                listBox.Invoke(new UpdateForm(ClearListBox), new object[] { mess });
+                Invoke(new UpdateForm(HideChat), new object[] { mess });
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
     }

@@ -156,6 +156,7 @@ namespace InternetCafeServer
                 thongdiep = thongdiep.Substring(1);
                 String[] UAP = thongdiep.Split(' ');
                 Update(UAP[0], UAP[1]);
+                sckServerUdp.SendTo(Encoding.UTF8.GetBytes("continue"), dep);
             }
             sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
