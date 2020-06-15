@@ -254,6 +254,15 @@ namespace InternetCafeClient
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + this.money), ep);
+            try
+            {
+                int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
+                string result = Encoding.ASCII.GetString(data, 0, size);
+            }
+            catch(Exception)
+            {
+                logoutPicBox_Click(null, null);
+            }
         }
         private void OpenConnection()
         {
