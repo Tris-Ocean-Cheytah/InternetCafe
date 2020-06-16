@@ -40,7 +40,7 @@ namespace InternetCafeServer
             Userbinding();
             loadlistviewfood();
         }
-     
+
         internal void SetPassAndUser(string username, string pass)
         {
             this.Username = username;
@@ -122,7 +122,7 @@ namespace InternetCafeServer
                     thongdiep = thongdiep.Substring(1);
                     String[] UAP = thongdiep.Split(' ');
                     int result = UD.GetMoney(UAP[0]);
-                    
+
                     TurnOn(UAP[1], UAP[0], result);
                     sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
                 }
@@ -332,7 +332,7 @@ namespace InternetCafeServer
         private void ButChangePass_Click(object sender, EventArgs e)
         {
             FormSetPass formSet;
-            formSet = new FormSetPass(this.Username,this.Password);
+            formSet = new FormSetPass(this.Username, this.Password);
             formSet.Show();
         }
 
@@ -349,6 +349,16 @@ namespace InternetCafeServer
             if (check == 1)
             {
                 //đây là phần gửi tiền tăng thêm qua TCP
+                string s = "#money#" + txtUsername.Text + "*" + txtAddMoney.Text;
+                byte[] msg = Encoding.UTF8.GetBytes(s);
+                for (int i = 0; i < listViewClient.Items.Count; i++)
+                {
+                    Console.WriteLine(listViewClient.Items[i].SubItems[2].Text);
+                    if (listViewClient.Items[i].SubItems[2].Text == "ON")
+                    {
+                        FormCommunicate.listSckClient[i].Send(msg, 0, msg.Length, SocketFlags.None);
+                    }
+                }
             }
             else
             {
@@ -356,6 +366,8 @@ namespace InternetCafeServer
                 money += int.Parse(txtAddMoney.Text);
                 UD.Changebalance(txtUsername.Text, money.ToString());
             }
+            txtAddMoney.Clear();
+            MessageBox.Show("Thêm tiền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }

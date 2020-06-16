@@ -21,7 +21,7 @@ namespace InternetCafeClient
         {
             InitializeComponent();
             sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9998);
+            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
             sckClientTcp.BeginConnect(epTcp, new AsyncCallback(OnConnected), null);
         }
 
@@ -65,6 +65,20 @@ namespace InternetCafeClient
                 int size = sckClientTcp.EndReceive(ar);
                 string temp = Encoding.UTF8.GetString(data, 0, size);
                 Console.WriteLine(temp);
+                if (temp.StartsWith("#money#"))
+                {
+                    string msg = temp.Substring("#money#".Length);
+                    string[] info = msg.Split('*');
+                    Console.WriteLine(info[1]);
+                    if (info[0].Equals(FormTiming.tempName))
+                    {
+                        FormTiming.money += int.Parse(info[1]);
+                        FormTiming.TransferToTime();
+
+                        FormTiming.TienConLai.Invoke(new UpdateForm(ChangeMoney), new object[] { FormTiming.money.ToString() });
+                    }
+
+                }
                 if (temp.StartsWith(name))
                 {
                     string msg = "";
@@ -83,7 +97,6 @@ namespace InternetCafeClient
 
         }
 
-
         private void OnDataSent(IAsyncResult ar)
         {
             int size = sckClientTcp.EndSend(ar);
@@ -91,6 +104,11 @@ namespace InternetCafeClient
         }
 
         delegate void UpdateForm(string s);
+
+        void ChangeMoney(string s)
+        {
+            FormTiming.TienConLai.Text = s;
+        }
         void HideChat(string s)
         {
             Hide();

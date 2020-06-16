@@ -19,23 +19,25 @@ namespace InternetCafeClient
         private FormLogin loginForm;
         private string username;
         private string pass;
-        Socket SckClient, SckServer;
+        Socket SckClient;
         EndPoint ep;
-        private int money;
-        private int gio;
-        private int phut;
-        private int giay;
         private int gio2;
         private int phut2;
         private int giay2;
         byte[] data = new byte[1024];
         byte[] data1 = new byte[1024];
+        public static int money;
+        public static string tempName;
+        public static int gio;
+        public static int phut;
+        public static int giay;
 
         //public static Socket sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public FormTiming(string username, String Pass)
         {
             InitializeComponent();
             this.username = username;
+            tempName = this.username;
             this.pass = Pass;
             groupBox1.Text = username;
             formChat = new FormChat();
@@ -44,7 +46,7 @@ namespace InternetCafeClient
             loginForm = new FormLogin();
 
             GetInfo(username);
-            TienConLai.Text = this.money.ToString();
+            TienConLai.Text = money.ToString();
             TransferToTime();
             timer1.Enabled = true;
             timer2.Enabled = true;
@@ -59,8 +61,6 @@ namespace InternetCafeClient
                     return;
                 }
             }
-
-            
         }
 
         private void GetInfo(string username)
@@ -68,20 +68,20 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username + " " + Dns.GetHostName()), ep);
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data, 0, size);
-            this.money = int.Parse(result);
+            money = int.Parse(result);
         }
         private void ChangeBalance(string username, int AB)
         {
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username + " " + AB.ToString() + " " + Dns.GetHostName()), ep);
         }
@@ -109,7 +109,6 @@ namespace InternetCafeClient
             timer3.Enabled = false;
             timer2.Enabled = false;
             timer1.Enabled = false;
-            SckServer.Close();
             SckClient.Close();
             this.Hide();
             loginForm.Show();
@@ -141,7 +140,7 @@ namespace InternetCafeClient
         {
             toolTip1.Show("Đặt lại mật khẩu", keyPicBx);
         }
-        public void TransferToTime()
+        public static void TransferToTime()
         {
             int du;
             gio = money / 18000;
@@ -239,7 +238,6 @@ namespace InternetCafeClient
 
         private void Timer3_Tick(object sender, EventArgs e)
         {
-
             Updatestat();
         }
 
@@ -248,9 +246,9 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"),9999);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"),9999);
             //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + this.money), ep);
+            SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + money), ep);
             try
             {
                 int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
@@ -261,6 +259,5 @@ namespace InternetCafeClient
                 logoutPicBox_Click(null, null);
             }
         }
-        
     }
 }
