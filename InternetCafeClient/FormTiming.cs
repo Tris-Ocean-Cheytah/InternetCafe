@@ -30,8 +30,6 @@ namespace InternetCafeClient
         private int giay2;
         byte[] data = new byte[1024];
         byte[] data1 = new byte[1024];
-        EndPoint epreceiveserver = new IPEndPoint(IPAddress.Any, 0);
-        EndPoint epserver = new IPEndPoint(IPAddress.Any, 999);
 
         //public static Socket sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public FormTiming(string username, String Pass)
@@ -48,7 +46,6 @@ namespace InternetCafeClient
             GetInfo(username);
             TienConLai.Text = this.money.ToString();
             TransferToTime();
-            OpenConnection();
             timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
@@ -264,31 +261,6 @@ namespace InternetCafeClient
                 logoutPicBox_Click(null, null);
             }
         }
-        private void OpenConnection()
-        {
-            //tao socket
-            SckServer = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            //bind
-            SckServer.Bind(epserver);
-            //bat dau gui nhan du lieu
-            SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
-        }
-
-        private void receive(IAsyncResult ar)
-        {
-            //goi ham endreive
-            try
-            {
-                int size = SckServer.EndReceiveFrom(ar, ref epreceiveserver);
-                //Xu ly du lieu nhan duoc trong data[]
-                string thongdiep = Encoding.ASCII.GetString(data1, 0, size);
-                this.money += int.Parse(thongdiep);
-                SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
-            }
-            catch (Exception)
-            {
-
-            }
-        }
+        
     }
 }

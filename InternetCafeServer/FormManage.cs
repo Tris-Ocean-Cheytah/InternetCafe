@@ -11,7 +11,7 @@ namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket sckServerUdp, sckClientUdp;
+        Socket sckServerUdp;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
@@ -348,13 +348,7 @@ namespace InternetCafeServer
             }
             if (check == 1)
             {
-                //
-                //tao ket noi
-                sckClientUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                //tao cong
-                EndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 999);
-                //bat dau gui du lieu
-                sckClientUdp.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
+                //đây là phần gửi tiền tăng thêm qua TCP
             }
             else
             {
