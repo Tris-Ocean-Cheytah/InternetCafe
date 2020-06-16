@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace InternetCafeServer
 {
-    class User
+    class UserDTO
     {
         public string username;
         public string password;
@@ -17,12 +17,12 @@ namespace InternetCafeServer
         public string cmnd;
         public string phonenumber;
 
-        public User()
+        public UserDTO()
         {
 
         }
 
-        public User(string username, string password, string sodu, string ten, string namsinh, string cmnd, string phonenumber)
+        public UserDTO(string username, string password, string sodu, string ten, string namsinh, string cmnd, string phonenumber)
         {
             this.username = username;
             this.password = password;

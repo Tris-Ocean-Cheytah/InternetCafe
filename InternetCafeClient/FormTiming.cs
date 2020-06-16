@@ -15,13 +15,11 @@ namespace InternetCafeClient
     public partial class FormTiming : Form
     {
         //test
-        private FormCommunicate communicate;
-        private FormOrder order;
+        private FormChat formChat;
         private FormLogin loginForm;
-        private FormSetPass formSet;
         private string username;
         private string pass;
-        Socket SckClient,SckServer;
+        Socket SckClient, SckServer;
         EndPoint ep;
         private int money;
         private int gio;
@@ -35,17 +33,18 @@ namespace InternetCafeClient
         EndPoint epreceiveserver = new IPEndPoint(IPAddress.Any, 0);
         EndPoint epserver = new IPEndPoint(IPAddress.Any, 999);
 
-
+        //public static Socket sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public FormTiming(string username, String Pass)
         {
             InitializeComponent();
             this.username = username;
             this.pass = Pass;
             groupBox1.Text = username;
-            communicate = new FormCommunicate();
-            order = new FormOrder(this.username);
+            formChat = new FormChat();
+            formChat.Show();
+            formChat.Hide();
             loginForm = new FormLogin();
-            formSet = new FormSetPass(pass,username);
+
             GetInfo(username);
             TienConLai.Text = this.money.ToString();
             TransferToTime();
@@ -63,8 +62,8 @@ namespace InternetCafeClient
                     return;
                 }
             }
-            
 
+            
         }
 
         private void GetInfo(string username)
@@ -74,34 +73,36 @@ namespace InternetCafeClient
             //tao cong
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username+" "+Dns.GetHostName()), ep);
+            SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username + " " + Dns.GetHostName()), ep);
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data, 0, size);
             this.money = int.Parse(result);
         }
-        private void ChangeBalance(string username,int AB)
+        private void ChangeBalance(string username, int AB)
         {
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username+" "+AB.ToString()+" "+Dns.GetHostName()), ep);
+            SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username + " " + AB.ToString() + " " + Dns.GetHostName()), ep);
         }
 
         private void TimingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Bạn không được phép tắt", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            MessageBox.Show("Bạn không được phép tắt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             e.Cancel = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            communicate.Show();
+            formChat.Show();
         }
         private void foodPicBox_Click(object sender, EventArgs e)
         {
+            FormOrder order;
+            order = new FormOrder(this.username);
             order.Show();
         }
 
@@ -113,8 +114,9 @@ namespace InternetCafeClient
             timer1.Enabled = false;
             SckServer.Close();
             SckClient.Close();
-            this.Hide();  
+            this.Hide();
             loginForm.Show();
+            formChat.LogOut();
         }
         private void messPicBox_MouseEnter(object sender, EventArgs e)
         {
@@ -133,6 +135,8 @@ namespace InternetCafeClient
 
         private void keyPicBx_Click(object sender, EventArgs e)
         {
+            FormSetPass formSet;
+            formSet = new FormSetPass(pass, username);
             formSet.Show();
         }
 
@@ -145,27 +149,29 @@ namespace InternetCafeClient
             int du;
             gio = money / 18000;
             du = money - gio * 18000;
-            phut = du / (18000/60);
-            du = du-phut*(18000/60);
+            phut = du / (18000 / 60);
+            du = du - phut * (18000 / 60);
             giay = du / (18000 / 3600);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            if (gio <= 0 && phut <= 0 && giay <= 0)
+            {
+                logoutPicBox_Click(null, null);
+                MessageBox.Show("Tài khoản của bạn đã hết tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             giay--;
-            if (giay < 1)
+            if (giay < 0)
             {
                 giay = 59;
                 phut--;
             }
-            if (phut < 1)
+            if (phut < 0)
             {
                 phut = 59;
-                gio--;
-            }
-            if (gio == 0 && phut==0 &&giay==0)
-            {
-                logoutPicBox_Click(null,null);
+                if (gio > 0)
+                    gio--;
             }
             if (giay < 10)
             {
@@ -200,7 +206,7 @@ namespace InternetCafeClient
             if (phut2 > 59)
             {
                 phut2 = 0;
-                gio++;
+                gio2++;
             }
 
             if (giay2 < 10)
@@ -227,8 +233,11 @@ namespace InternetCafeClient
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            money -= (18000/ 3600);
-            TienConLai.Text = money.ToString();
+            if (money > 0)
+            {
+                money -= (18000 / 3600);
+                TienConLai.Text = money.ToString();
+            }
         }
 
         private void Timer3_Tick(object sender, EventArgs e)
@@ -242,16 +251,24 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"),9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + this.money), ep);
+            try
+            {
+                int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
+                string result = Encoding.ASCII.GetString(data, 0, size);
+            }
+            catch(Exception)
+            {
+                logoutPicBox_Click(null, null);
+            }
         }
         private void OpenConnection()
         {
             //tao socket
             SckServer = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            
             SckServer.Bind(epserver);
             //bat dau gui nhan du lieu
             SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
@@ -268,10 +285,10 @@ namespace InternetCafeClient
                 this.money += int.Parse(thongdiep);
                 SckServer.BeginReceiveFrom(data1, 0, 1024, SocketFlags.None, ref epreceiveserver, new AsyncCallback(receive), null);
             }
-            catch(Exception e)
+            catch (Exception)
             {
 
-            }           
+            }
         }
     }
 }

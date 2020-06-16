@@ -1,39 +1,37 @@
-﻿using System;
+﻿using InternetCafeServer.DAO;
+using InternetCafeServer.DTO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using InternetCafeServer.DAO;
-using InternetCafeServer.DTO;
-using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace InternetCafeServer
 {
     public partial class FormManage : Form
     {
-        Socket SckServer,SckClient;
+        Socket sckServerUdp, sckClientUdp;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
         OrderDAO OD = new OrderDAO();
-        FormCommunicate communicate;
+        FormCommunicate formCommunicate;
         byte[] data = new byte[1024];
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
+        private string Username;
+        private string Password;
+
         public FormManage()
         {
-
             InitializeComponent();
-            communicate = new FormCommunicate();
+            formCommunicate = new FormCommunicate();
+            formCommunicate.Show();
+            formCommunicate.Hide();
             Load();
         }
 
-        void Load()
+        new void Load()
         {
             dataGridView1.DataSource = source;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -41,6 +39,12 @@ namespace InternetCafeServer
             Getalluser();
             Userbinding();
             loadlistviewfood();
+        }
+     
+        internal void SetPassAndUser(string username, string pass)
+        {
+            this.Username = username;
+            this.Password = pass;
         }
 
         private void loadlistviewfood()
@@ -52,13 +56,18 @@ namespace InternetCafeServer
             listViewFood.Columns.Add("Tổng giá", 100);
 
         }
-        private void addlistviewfood(Order order)
+        private void addlistviewfood(OrderDTO order)
         {
             ListViewItem item = new ListViewItem();
             item.Text = order.name;
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.username });
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.food });
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = order.price });
+            listViewFood.Invoke(new ControlUpdate(AddListFood), new object[] { item });
+        }
+        delegate void ControlUpdate(ListViewItem item);
+        void AddListFood(ListViewItem item)
+        {
             listViewFood.Items.Add(item);
         }
 
@@ -79,74 +88,88 @@ namespace InternetCafeServer
 
         private void OpenConnection()
         {
+
+            //Udp
             //tao socket
-            SckServer = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            IPEndPoint ep = new IPEndPoint(IPAddress.Any, 9999);
-            SckServer.Bind(ep);
+            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            sckServerUdp.Bind(epUdp);
             //bat dau gui nhan du lieu
-            SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+            sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
+
+
         }
 
         private void receive(IAsyncResult ar)
         {
-            //goi ham endreive
-            int size = SckServer.EndReceiveFrom(ar, ref dep);
-            //Xu ly du lieu nhan duoc trong data[]
-            string thongdiep = Encoding.ASCII.GetString(data, 0, size);
-            if (thongdiep.StartsWith("1"))
+            try
             {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                int result = UD.GetPass(UAP[0], UAP[1]);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+
+                //goi ham endreive
+                int size = sckServerUdp.EndReceiveFrom(ar, ref dep);
+                //Xu ly du lieu nhan duoc trong data[]
+                string thongdiep = Encoding.UTF8.GetString(data, 0, size);
+                if (thongdiep.StartsWith("1"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    int result = UD.GetPass(UAP[0], UAP[1]);
+                    sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("2"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    int result = UD.GetMoney(UAP[0]);
+                    
+                    TurnOn(UAP[1], UAP[0], result);
+                    sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("3"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    UD.Changebalance(UAP[0], UAP[1]);
+                    TurnOff(UAP[2]);
+                }
+                else if (thongdiep.StartsWith("4"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    UD.Changepass(UAP[0], UAP[1]);
+                }
+                else if (thongdiep.StartsWith("5"))
+                {
+                    List<FoodDTO> list = new List<FoodDTO>();
+                    list = FD.Getfood();
+                    string result = ConvertToString(list);
+                    sckServerUdp.SendTo(Encoding.UTF8.GetBytes(result.ToString()), dep);
+                }
+                else if (thongdiep.StartsWith("6"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    OrderDTO order = OD.Convertstringtoorder(thongdiep);
+                    addlistviewfood(order);
+                }
+                else if (thongdiep.StartsWith("7"))
+                {
+                    thongdiep = thongdiep.Substring(1);
+                    String[] UAP = thongdiep.Split(' ');
+                    Update(UAP[0], UAP[1]);
+                    sckServerUdp.SendTo(Encoding.UTF8.GetBytes("continue"), dep);
+                }
+                sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
             }
-            else if (thongdiep.StartsWith("2"))
+            catch (Exception)
             {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                int result = UD.GetMoney(UAP[0]);
-                TurnOn(UAP[1], UAP[0], result);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
+
             }
-            else if (thongdiep.StartsWith("3"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                UD.Changebalance(UAP[0], UAP[1]);
-                TurnOff(UAP[2]);
-            }
-            else if (thongdiep.StartsWith("4"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                UD.Changepass(UAP[0], UAP[1]);
-            }
-            else if (thongdiep.StartsWith("5"))
-            {
-                List<Food> list = new List<Food>();
-                list = FD.Getfood();
-                string result = ConvertToString(list);
-                SckServer.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
-            }
-            else if (thongdiep.StartsWith("6"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                Order order = OD.Convertstringtoorder(thongdiep);
-                addlistviewfood(order);
-            }
-            else if (thongdiep.StartsWith("7"))
-            {
-                thongdiep = thongdiep.Substring(1);
-                String[] UAP = thongdiep.Split(' ');
-                Update(UAP[0], UAP[1]);
-            }
-            SckServer.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
         }
 
         private void Update(string name, string money)
         {
-            Time time = TransferToTime(Convert.ToInt32(money));
+            TimeDTO time = TransferToTime(Convert.ToInt32(money));
             //for (int i = 0; i < listViewClient.Items.Count; i++)
             //{
             //    if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
@@ -169,11 +192,6 @@ namespace InternetCafeServer
                     }
                 });
             }
-        }
-
-        private void CommunicateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            communicate.Show();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -210,7 +228,7 @@ namespace InternetCafeServer
         {
             Getalluser();
         }
-        public string ConvertToString(List<Food> list)
+        public string ConvertToString(List<FoodDTO> list)
         {
             string result = "";
             for (int i = 0; i < list.Count; i++)
@@ -226,7 +244,7 @@ namespace InternetCafeServer
         }
         private void TurnOn(string name, string username, int money)
         {
-            Time time = TransferToTime(money);
+            TimeDTO time = TransferToTime(money);
             //for (int i = 0; i < listViewClient.Items.Count; i++)
             //{
             //    if (listViewClient.Items[i].SubItems[0].Text == name)
@@ -243,7 +261,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[1].Text == name)
+                        if (listViewClient.Items[i].SubItems[0].Text == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "ON";
                             listViewClient.Items[i].SubItems[3].Text = username;
@@ -263,7 +281,7 @@ namespace InternetCafeServer
                 {
                     for (int i = 0; i < listViewClient.Items.Count; i++)
                     {
-                        if (listViewClient.Items[i].SubItems[0].Text.ToString() == name)
+                        if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
                         {
                             listViewClient.Items[i].SubItems[2].Text = "OFF";
                             listViewClient.Items[i].SubItems[3].Text = "";
@@ -283,9 +301,9 @@ namespace InternetCafeServer
                 });
             }
         }
-        private Time TransferToTime(int money)
+        private TimeDTO TransferToTime(int money)
         {
-            Time time = new Time();
+            TimeDTO time = new TimeDTO();
             int du;
             time.hour = money / 18000;
             du = money - time.hour * 18000;
@@ -293,6 +311,29 @@ namespace InternetCafeServer
             du = du - time.minute * (18000 / 60);
             time.second = du / (18000 / 3600);
             return time;
+        }
+
+        private void btnCommunicate_Click(object sender, EventArgs e)
+        {
+            formCommunicate.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void FormManage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void ButChangePass_Click(object sender, EventArgs e)
+        {
+            FormSetPass formSet;
+            formSet = new FormSetPass(this.Username,this.Password);
+            formSet.Show();
         }
 
         private void butAddMoney_Click(object sender, EventArgs e)
@@ -305,14 +346,15 @@ namespace InternetCafeServer
                     check = 1;
                 }
             }
-            if(check==1)
+            if (check == 1)
             {
+                //
                 //tao ket noi
-                SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                sckClientUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 //tao cong
                 EndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 999);
                 //bat dau gui du lieu
-                SckClient.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
+                sckClientUdp.SendTo(Encoding.ASCII.GetBytes(txtAddMoney.Text), ep);
             }
             else
             {

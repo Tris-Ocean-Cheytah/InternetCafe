@@ -7,19 +7,19 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace InternetCafeServer
 {
-    public class Food
+    public class FoodDTO
     {
-        public static List<Food> listFood = new List<Food>();
+        public static List<FoodDTO> listFood = new List<FoodDTO>();
         public string name;
         public string price;
         public string type;
         public int amount;
-        public Food()
+        public FoodDTO()
         {
             this.amount = 0;
         }
 
-        public Food(string name, string type, string price) : this()
+        public FoodDTO(string name, string type, string price) : this()
         {
             this.type = type;
             this.name = name;
@@ -46,7 +46,7 @@ namespace InternetCafeServer
         //                string Name = (string)read["TenMonAn"];
         //                string Type = (string)read["LoaiMonAn"];
         //                string Price = (string)read["DonGia"];
-        //                Food add = new Food(Name, Type, Price);
+        //                FoodDTO add = new FoodDTO(Name, Type, Price);
         //                listFood.Add(add);
         //            }
         //            connection.Close();

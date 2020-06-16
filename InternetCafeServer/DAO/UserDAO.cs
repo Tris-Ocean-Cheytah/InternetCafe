@@ -11,7 +11,7 @@ namespace InternetCafeServer.DAO
 {
     class UserDAO
     {
-        public void AddUser(User user)
+        public void AddUser(UserDTO user)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace InternetCafeServer.DAO
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
@@ -39,18 +39,18 @@ namespace InternetCafeServer.DAO
             }
             
         }
-        public int GetPass(String username, String Pass_word)
+        public int GetPass(string username, string password)
         {
             int i = 0;
             try
             {
-                String query = "SELECT count(*) FROM Thanh_Vien WHERE User_name=@User_name AND Pass_word=@Pass_word";
+                string query = "SELECT count(*) FROM Thanh_Vien WHERE User_name=@User_name AND Pass_word=@Pass_word";
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("User_name", username);
-                    cmd.Parameters.AddWithValue("Pass_word", Pass_word);
+                    cmd.Parameters.AddWithValue("Pass_word", password);
                     i = (int)cmd.ExecuteScalar();
                     connection.Close();
                 }
@@ -94,7 +94,7 @@ namespace InternetCafeServer.DAO
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                MessageBox.Show("xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception)
             {

@@ -33,9 +33,12 @@
             // 
             // button1
             // 
+            this.button1.BackgroundImage = global::InternetCafeServer.Properties.Resources.monitor;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 73);
+            this.button1.Size = new System.Drawing.Size(103, 95);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -45,10 +48,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Margin = new System.Windows.Forms.Padding(10);
             this.Name = "ControlClient";
-            this.Size = new System.Drawing.Size(87, 79);
+            this.Size = new System.Drawing.Size(109, 101);
             this.ResumeLayout(false);
 
         }

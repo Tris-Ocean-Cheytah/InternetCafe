@@ -10,21 +10,19 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
-
-namespace InternetCafeClient
+using InternetCafeServer.DAO;
+namespace InternetCafeServer
 {
     public partial class FormSetPass : Form
     {
-        private string pass;
-        private string username;
-        Socket SckClient;
-        EndPoint ep;
-
-        public FormSetPass(string pass, string username)
+        public string pass;
+        public string username="admin";
+        UserDAO UD = new UserDAO();
+        public FormSetPass(string username,string pass)
         {
-            InitializeComponent();
-            this.pass = pass;
+            this.pass = EncryptPassword(pass);
             this.username = username;
+            InitializeComponent();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -54,18 +52,14 @@ namespace InternetCafeClient
                 else
                 {
                     MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
         }
 
         private void SetPassword()
         {
-            //tao ket noi
-            SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
-            //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("4" + username + " " + pass), ep);
+            UD.Changepass(username, pass);
         }
 
         private string EncryptPassword(string pass)

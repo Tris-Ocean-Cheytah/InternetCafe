@@ -25,7 +25,7 @@ namespace InternetCafeClient.DAO
             SckClient.SendTo(Encoding.ASCII.GetBytes("5"), ep);
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
-            string result = Encoding.ASCII.GetString(data, 0, size);
+            string result = Encoding.UTF8.GetString(data, 0, size);
             return result;
         }
         public List<FoodDTO> ConvertToListFood(string result)

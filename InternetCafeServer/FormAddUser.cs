@@ -37,9 +37,7 @@ namespace InternetCafeServer
         {
             
             string pass = EncryptPassword(txtPass.Text);
-            ur.AddUser(new User(txtUsername.Text, pass,  txtMoney.Text, txtName.Text, txtDate.Text, txtID.Text,txtPhoneNum.Text));
-               
-            
+            ur.AddUser(new UserDTO(txtUsername.Text, pass,  txtMoney.Text, txtName.Text, txtDate.Text, txtID.Text,txtPhoneNum.Text));
         }
     }
 }

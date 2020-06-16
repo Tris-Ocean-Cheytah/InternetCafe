@@ -1,6 +1,6 @@
-﻿namespace InternetCafeClient
+﻿namespace InternetCafeServer
 {
-    partial class FormCommunicate
+    partial class FormChatServer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommunicate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChatServer));
             this.sendMessBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtChat = new System.Windows.Forms.TextBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // sendMessBtn
@@ -48,38 +48,39 @@
             this.sendMessBtn.UseVisualStyleBackColor = false;
             this.sendMessBtn.Click += new System.EventHandler(this.sendMessBtn_Click);
             // 
-            // textBox1
+            // txtChat
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 234);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 24);
-            this.textBox1.TabIndex = 1;
+            this.txtChat.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChat.Location = new System.Drawing.Point(12, 234);
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(269, 24);
+            this.txtChat.TabIndex = 1;
             // 
-            // richTextBox1
+            // listBox
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(344, 205);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 20;
+            this.listBox.Location = new System.Drawing.Point(12, 12);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(344, 204);
+            this.listBox.TabIndex = 2;
             // 
-            // FormCommunicate
+            // FormChatServer
             // 
+            this.AcceptButton = this.sendMessBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 270);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.txtChat);
             this.Controls.Add(this.sendMessBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormCommunicate";
+            this.Name = "FormChatServer";
             this.Text = "Giao tiếp";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCommunicate_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChat_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +89,7 @@
         #endregion
 
         private System.Windows.Forms.Button sendMessBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtChat;
+        private System.Windows.Forms.ListBox listBox;
     }
 }

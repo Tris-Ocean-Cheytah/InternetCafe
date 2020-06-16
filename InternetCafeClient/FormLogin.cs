@@ -15,7 +15,7 @@ namespace InternetCafeClient
 {
     public partial class FormLogin : Form
     {
-        private string pass="";
+        private string pass = "";
         private string realpass;
         private string username = "";
         FormTiming timingForm;
@@ -33,33 +33,56 @@ namespace InternetCafeClient
         {
             UserDTO user = new UserDTO();
             string usernameHandler = "";
-            foreach(char i in userTxtBx.Text)
+            foreach (char i in userTxtBx.Text)
             {
                 if (i != ' ')
                     usernameHandler += i;
             }
             realpass = AcceptLogin(usernameHandler, pass);
+
+            //if (GetInfo(usernameHandler) == 0)
+            //    realpass = "2";
             if (realpass == "1")
             {
-                this.Hide();
-                timingForm = new FormTiming(userTxtBx.Text, pass);
-                timingForm.Show();
+                if (GetInfo(usernameHandler) == 0)
+                {
+                    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.Hide();
+                    timingForm = new FormTiming(userTxtBx.Text, pass);
+                    timingForm.Show();
+                }
             }
-            else
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            //else if (realpass == "2")
+            //    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (realpass.Equals("error"))
+                MessageBox.Show("Không nhận phản hồi từ server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (realpass == "0")
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private string AcceptLogin(string username, string pass)
         {
-            //tao ket noi
-            SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
-            //bat dau gui du lieu
-            SckClient.SendTo(Encoding.ASCII.GetBytes("1"+username+" "+ pass), ep);
-            // xu ly du lieu nhan duoc
-            int size=SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
-            string result = Encoding.ASCII.GetString(data,0,  size);
+            string result = "";
+            try
+            {
+                //tao ket noi
+                SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                //tao cong
+                ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+                //bat dau gui du lieu
+                SckClient.SendTo(Encoding.ASCII.GetBytes("1" + username + " " + pass), ep);
+                // xu ly du lieu nhan duoc
+                int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
+                result = Encoding.ASCII.GetString(data, 0, size);
+
+            }
+            catch (SocketException)
+            {
+                result = "error";
+            }
             return result;
         }
 
@@ -84,5 +107,22 @@ namespace InternetCafeClient
         {
             pass = EncryptPassword(passTxtBx.Text);
         }
+
+        private int GetInfo(string username)
+        {
+            //tao ket noi
+            SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //tao cong
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            //bat dau gui du lieu
+            SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username + " " + Dns.GetHostName()), ep);
+            // xu ly du lieu nhan duoc
+            int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
+            string result = Encoding.ASCII.GetString(data, 0, size);
+            int money = int.Parse(result);
+            return money;
+        }
     }
 }
+
+
