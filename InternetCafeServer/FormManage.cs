@@ -93,7 +93,7 @@ namespace InternetCafeServer
             //tao socket
             sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            IPEndPoint epUdp = new IPEndPoint(IPAddress.Any, 9999);
+            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             sckServerUdp.Bind(epUdp);
             //bat dau gui nhan du lieu
             sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
@@ -122,6 +122,7 @@ namespace InternetCafeServer
                     thongdiep = thongdiep.Substring(1);
                     String[] UAP = thongdiep.Split(' ');
                     int result = UD.GetMoney(UAP[0]);
+                    
                     TurnOn(UAP[1], UAP[0], result);
                     sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
                 }

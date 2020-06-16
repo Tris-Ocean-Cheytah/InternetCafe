@@ -39,19 +39,27 @@ namespace InternetCafeClient
                     usernameHandler += i;
             }
             realpass = AcceptLogin(usernameHandler, pass);
-            if (GetInfo(usernameHandler) == 0)
-                realpass = "2";
+
+            //if (GetInfo(usernameHandler) == 0)
+            //    realpass = "2";
             if (realpass == "1")
             {
-                this.Hide();
-                timingForm = new FormTiming(userTxtBx.Text, pass);
-                timingForm.Show();
+                if (GetInfo(usernameHandler) == 0)
+                {
+                    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.Hide();
+                    timingForm = new FormTiming(userTxtBx.Text, pass);
+                    timingForm.Show();
+                }
             }
-            else if(realpass=="2")
-                MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if(realpass.Equals("error"))
+            //else if (realpass == "2")
+            //    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (realpass.Equals("error"))
                 MessageBox.Show("Không nhận phản hồi từ server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
+            else if (realpass == "0")
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
@@ -69,6 +77,7 @@ namespace InternetCafeClient
                 // xu ly du lieu nhan duoc
                 int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
                 result = Encoding.ASCII.GetString(data, 0, size);
+
             }
             catch (SocketException)
             {

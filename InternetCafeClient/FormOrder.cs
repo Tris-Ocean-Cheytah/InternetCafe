@@ -65,32 +65,38 @@ namespace InternetCafeClient
 
         private void acceptPicBx_Click(object sender, EventArgs e)
         {
-            bool checkEmptyCart = true;
-            string order = "";
-            int price = 0;
-            foreach (FoodDTO food in listfood)
+            DialogResult dr = MessageBox.Show("Bạn đã chắc chắn muốn đặt các món đã chọn không ?", "Thông báo", MessageBoxButtons.YesNo,
+        MessageBoxIcon.Information);
+            if(dr == DialogResult.Yes)
             {
-                if (food.amount != 0)
-                    checkEmptyCart = false;
-            }
-            if (checkEmptyCart)
-            {
-                MessageBox.Show("Bạn chưa đặt món ăn nào", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string noti=notification();
-                transferordertostring(order, price);
-                MessageBox.Show(noti, "Đặt món thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                for (int i = 0, j = 0; i < listfood.Count; i++, j++)
+                bool checkEmptyCart = true;
+                string order = "";
+                int price = 0;
+                foreach (FoodDTO food in listfood)
                 {
-                    if (listfood[i].amount != 0)
+                    if (food.amount != 0)
+                        checkEmptyCart = false;
+                }
+                if (checkEmptyCart)
+                {
+                    MessageBox.Show("Bạn chưa đặt món ăn nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    string noti = notification();
+                    transferordertostring(order, price);
+                    MessageBox.Show(noti, "Đặt món thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    for (int i = 0, j = 0; i < listfood.Count; i++, j++)
                     {
-                        listfood[i].amount = 0;
-                        foodControlsList[i].amoutUpDown.Value = 0;
+                        if (listfood[i].amount != 0)
+                        {
+                            listfood[i].amount = 0;
+                            foodControlsList[i].amoutUpDown.Value = 0;
+                        }
                     }
                 }
             }
+            
         }
 
         private string notification()
@@ -106,10 +112,10 @@ namespace InternetCafeClient
             return noti;
         }
 
-        private void transferordertostring(string order,int price)
+        private void transferordertostring(string order, int price)
         {
             string name = Dns.GetHostName();
-            string result=string.Format("6"+name+"*"+this.username+"*");
+            string result = string.Format("6" + name + "*" + this.username + "*");
             foreach (FoodDTO food in listfood)
             {
                 if (food.amount != 0)
@@ -128,12 +134,17 @@ namespace InternetCafeClient
         }
         private void cancelPicBx_Click(object sender, EventArgs e)
         {
-            for (int i = 0, j = 0; i < listfood.Count; i++, j++)
+            DialogResult dr = MessageBox.Show("Bạn có muốn hủy tất cả các món đã chọn không ?", "Thông báo", MessageBoxButtons.YesNo,
+        MessageBoxIcon.Information);
+            if (dr == DialogResult.Yes)
             {
-                if (listfood[i].amount != 0)
+                for (int i = 0, j = 0; i < listfood.Count; i++, j++)
                 {
-                    listfood[i].amount = 0;
-                    foodControlsList[i].amoutUpDown.Value = 0;
+                    if (listfood[i].amount != 0)
+                    {
+                        listfood[i].amount = 0;
+                        foodControlsList[i].amoutUpDown.Value = 0;
+                    }
                 }
             }
         }
