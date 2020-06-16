@@ -21,16 +21,15 @@ namespace InternetCafeServer
         public ControlClient(string name) : this()
         {
             button1.Text = name;
-            
+            formChat = new FormChatServer(button1.Text);
+            FormCommunicate.listFormChat.Add(formChat);
         }
 
         public void CreateFormChat()
         {
-            formChat = new FormChatServer(button1.Text);
             formChat.CreateControl();
             formChat.Show();
             formChat.Hide();
-            FormCommunicate.listFormChat.Add(formChat);
         }
 
         private void button1_Click(object sender, EventArgs e)
