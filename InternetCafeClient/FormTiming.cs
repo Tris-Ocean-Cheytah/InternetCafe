@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 
 namespace InternetCafeClient
 {
@@ -116,6 +117,9 @@ namespace InternetCafeClient
             loginForm.Show();
             formChat.LogOut();
         }
+
+        
+
         private void messPicBox_MouseEnter(object sender, EventArgs e)
         {
             toolTip1.Show("Nhắn tin", messPicBox);
@@ -258,8 +262,6 @@ namespace InternetCafeClient
             }
             catch (Exception)
             {
-                logoutPicBox_Click(null, null);
-                MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

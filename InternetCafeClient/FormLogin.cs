@@ -18,7 +18,7 @@ namespace InternetCafeClient
         private string pass = "";
         private string realpass;
         private string username = "";
-        FormTiming timingForm;
+        public static FormTiming timingForm;
         Socket SckClient;
         EndPoint ep;
         byte[] data = new byte[1024];
