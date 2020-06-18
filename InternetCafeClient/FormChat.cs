@@ -21,7 +21,7 @@ namespace InternetCafeClient
         {
             InitializeComponent();
             sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9998);
             sckClientTcp.BeginConnect(epTcp, new AsyncCallback(OnConnected), null);
         }
 
@@ -91,6 +91,10 @@ namespace InternetCafeClient
                 sckClientTcp.BeginReceive(data, 0, data.Length, SocketFlags.None, new AsyncCallback(OnDataReceived), null);
             }
             catch (SocketException)
+            {
+                sckClientTcp.Close();
+            }
+            catch (ObjectDisposedException)
             {
                 sckClientTcp.Close();
             }

@@ -45,7 +45,7 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(81, 34);
             this.btnConfirm.TabIndex = 0;
-            this.btnConfirm.Text = "Xác nhận";
+            this.btnConfirm.Text = "Đồng ý";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 

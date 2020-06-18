@@ -32,10 +32,12 @@ namespace InternetCafeClient
         public static int phut;
         public static int giay;
 
-        //public static Socket sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        public FormTiming(string username, String Pass)
+        public FormTiming()
         {
             InitializeComponent();
+        }
+        public FormTiming(string username, String Pass) : this()
+        {
             this.username = username;
             tempName = this.username;
             this.pass = Pass;
@@ -68,7 +70,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username + " " + Dns.GetHostName()), ep);
             // xu ly du lieu nhan duoc
@@ -81,7 +83,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username + " " + AB.ToString() + " " + Dns.GetHostName()), ep);
         }
@@ -103,7 +105,7 @@ namespace InternetCafeClient
             order.Show();
         }
 
-        private void logoutPicBox_Click(object sender, EventArgs e)
+        public void logoutPicBox_Click(object sender, EventArgs e)
         {
             ChangeBalance(this.username, money);
             timer3.Enabled = false;
@@ -246,7 +248,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"),9999);
+            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + money), ep);
             try
@@ -254,9 +256,10 @@ namespace InternetCafeClient
                 int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
                 string result = Encoding.ASCII.GetString(data, 0, size);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 logoutPicBox_Click(null, null);
+                MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

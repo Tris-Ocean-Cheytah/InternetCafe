@@ -27,7 +27,7 @@ namespace InternetCafeServer
             {
                 sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 //đây
-                IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9998);
                 sckServerTcp.Bind(epTcp);
                 sckServerTcp.Listen(10);
                 sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), sckServerTcp);

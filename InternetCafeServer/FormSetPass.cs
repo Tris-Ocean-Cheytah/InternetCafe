@@ -43,6 +43,9 @@ namespace InternetCafeServer
                         pass = encryptConfirmPass;
                         MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         SetPassword();
+                        txtOldPass.Clear();
+                        txtNewPass.Clear();
+                        txtConfirmPass.Clear();
                     }
                     else
                     {

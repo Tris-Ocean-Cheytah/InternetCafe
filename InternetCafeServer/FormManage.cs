@@ -93,7 +93,7 @@ namespace InternetCafeServer
             //tao socket
             sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
             sckServerUdp.Bind(epUdp);
             //bat dau gui nhan du lieu
             sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);
@@ -354,7 +354,7 @@ namespace InternetCafeServer
                 for (int i = 0; i < listViewClient.Items.Count; i++)
                 {
                     Console.WriteLine(listViewClient.Items[i].SubItems[2].Text);
-                    if (listViewClient.Items[i].SubItems[2].Text == "ON")
+                    if (listViewClient.Items[i].SubItems[3].Text.Equals(txtUsername.Text))
                     {
                         FormCommunicate.listSckClient[i].Send(msg, 0, msg.Length, SocketFlags.None);
                     }
