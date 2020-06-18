@@ -262,6 +262,8 @@ namespace InternetCafeClient
             }
             catch (Exception)
             {
+                logoutPicBox_Click(null, null);
+                MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
