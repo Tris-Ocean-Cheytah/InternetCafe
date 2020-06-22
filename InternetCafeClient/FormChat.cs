@@ -56,6 +56,11 @@ namespace InternetCafeClient
             {
                 sckClientTcp.Close();
             }
+            catch (ObjectDisposedException)
+            {
+                FormLogin.timingForm.logoutPicBox_Click(null, null);
+                MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void OnDataReceived(IAsyncResult ar)
@@ -96,7 +101,6 @@ namespace InternetCafeClient
             }
             catch (ObjectDisposedException)
             {
-                sckClientTcp.Close();
                 FormLogin.timingForm.logoutPicBox_Click(null, null);
                 MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

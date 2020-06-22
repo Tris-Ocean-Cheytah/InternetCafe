@@ -122,8 +122,8 @@ namespace InternetCafeServer
                     thongdiep = thongdiep.Substring(1);
                     String[] UAP = thongdiep.Split(' ');
                     int result = UD.GetMoney(UAP[0]);
-
-                    TurnOn(UAP[1], UAP[0], result);
+                    if (result > 0)
+                        TurnOn(UAP[1], UAP[0], result);
                     sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
                 }
                 else if (thongdiep.StartsWith("3"))

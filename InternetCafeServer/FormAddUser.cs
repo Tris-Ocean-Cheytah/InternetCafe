@@ -19,7 +19,7 @@ namespace InternetCafeServer
         public FormAddUser()
         {
             InitializeComponent();
-            
+
         }
         private string EncryptPassword(string pass)
         {
@@ -35,9 +35,17 @@ namespace InternetCafeServer
 
         private void BtnAddUser_Click(object sender, EventArgs e)
         {
-            
-            string pass = EncryptPassword(txtPass.Text);
-            ur.AddUser(new UserDTO(txtUsername.Text, pass,  txtMoney.Text, txtName.Text, txtDate.Text, txtID.Text,txtPhoneNum.Text));
+            if (txtUsername.Text.Equals("") || txtPass.Text.Equals("") || txtMoney.Text.Equals("") || txtName.Text.Equals("") ||
+                txtDate.Text.Equals("") || txtID.Text.Equals("") || txtPhoneNum.Text.Equals(""))
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string pass = EncryptPassword(txtPass.Text);
+                ur.AddUser(new UserDTO(txtUsername.Text, pass, txtMoney.Text, txtName.Text, txtDate.Text, txtID.Text, txtPhoneNum.Text));
+            }
+
         }
     }
 }

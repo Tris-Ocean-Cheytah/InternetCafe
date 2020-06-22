@@ -46,7 +46,7 @@ namespace InternetCafeClient
             {
                 if (GetInfo(usernameHandler) == 0)
                 {
-                    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tài khoản không đủ tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
