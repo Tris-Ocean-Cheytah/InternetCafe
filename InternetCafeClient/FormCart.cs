@@ -27,7 +27,7 @@ namespace InternetCafeClient
 
         private void cancelPicBx_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bạn có muốn hủy tất cả các món đã chọn không ?", "Thông báo", MessageBoxButtons.YesNo,
+            DialogResult dr = MessageBox.Show("Bạn có muốn hủy các món đã chọn?", "Thông báo", MessageBoxButtons.YesNo,
                                                 MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
@@ -38,7 +38,7 @@ namespace InternetCafeClient
 
         private void acceptPicBx_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bạn đã chắc chắn muốn đặt các món đã chọn không ?", "Thông báo", MessageBoxButtons.YesNo,
+            DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn đặt món", "Thông báo", MessageBoxButtons.YesNo,
                                                 MessageBoxIcon.Information);
             if (dr == DialogResult.Yes)
             {
@@ -51,21 +51,21 @@ namespace InternetCafeClient
                     string order = "";
                     int price = 0;
                     TransferOrderToString(order, price);
-                    MessageBox.Show("Đặt món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     listFoodCart.Clear();
                     flowPnlCart.Controls.Clear();
+                    MessageBox.Show("Đặt món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void cancelPicBx_MouseEnter(object sender, EventArgs e)
         {
-            toolTip1.Show("Hủy tất cả các món", cancelPicBx);
+            //toolTip1.Show("Hủy tất cả các món", cancelPicBx);
         }
 
         private void acceptPicBx_MouseEnter(object sender, EventArgs e)
         {
-            toolTip1.Show("Đặt món", cancelPicBx);
+            //toolTip1.Show("Đặt món", cancelPicBx);
         }
 
         private void TransferOrderToString(string order, int price)

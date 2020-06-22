@@ -49,7 +49,7 @@ namespace InternetCafeClient
                 FormCart.listFoodCart.Add(foodCart);
                 FormCart.flowPnlCart.Controls.Add(foodCart);
             }
-            MessageBox.Show("Đặt món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Đã đưa vào giỏ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

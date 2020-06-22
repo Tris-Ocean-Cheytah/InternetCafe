@@ -25,8 +25,13 @@ namespace InternetCafeClient
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            FormCart.listFoodCart.Remove(this);
-            FormCart.flowPnlCart.Controls.Remove(this);
+            DialogResult dr = MessageBox.Show("Bạn muốn hủy món?", "Thông báo", MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Information);
+            if (dr == DialogResult.Yes)
+            {
+                FormCart.listFoodCart.Remove(this);
+                FormCart.flowPnlCart.Controls.Remove(this);
+            }
         }
     }
 }
