@@ -41,15 +41,12 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cancelPicBx = new System.Windows.Forms.PictureBox();
-            this.acceptPicBx = new System.Windows.Forms.PictureBox();
+            this.btnCart = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -57,15 +54,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancelPicBx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptPicBx)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -79,7 +72,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1005, 449);
+            this.tabControl1.Size = new System.Drawing.Size(801, 449);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -90,7 +83,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(997, 421);
+            this.tabPage1.Size = new System.Drawing.Size(793, 421);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Món chính";
             // 
@@ -102,9 +95,8 @@
             this.mainFoodPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFoodPanel.Location = new System.Drawing.Point(3, 3);
             this.mainFoodPanel.Name = "mainFoodPanel";
-            this.mainFoodPanel.Size = new System.Drawing.Size(991, 415);
+            this.mainFoodPanel.Size = new System.Drawing.Size(787, 415);
             this.mainFoodPanel.TabIndex = 5;
-            this.mainFoodPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainFoodPanel1_Paint);
             // 
             // tabPage4
             // 
@@ -113,7 +105,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(997, 421);
+            this.tabPage4.Size = new System.Drawing.Size(793, 421);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Đồ uống";
             // 
@@ -125,7 +117,7 @@
             this.drinkPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drinkPanel.Location = new System.Drawing.Point(3, 3);
             this.drinkPanel.Name = "drinkPanel";
-            this.drinkPanel.Size = new System.Drawing.Size(991, 415);
+            this.drinkPanel.Size = new System.Drawing.Size(787, 415);
             this.drinkPanel.TabIndex = 4;
             // 
             // tabPage2
@@ -135,7 +127,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(997, 421);
+            this.tabPage2.Size = new System.Drawing.Size(793, 421);
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "Ăn nhẹ";
             // 
@@ -147,13 +139,13 @@
             this.snackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.snackPanel.Location = new System.Drawing.Point(3, 3);
             this.snackPanel.Name = "snackPanel";
-            this.snackPanel.Size = new System.Drawing.Size(991, 415);
+            this.snackPanel.Size = new System.Drawing.Size(787, 415);
             this.snackPanel.TabIndex = 3;
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::InternetCafeClient.Properties.Resources.food_and_restaurant;
-            this.pictureBox10.Location = new System.Drawing.Point(776, 465);
+            this.pictureBox10.Location = new System.Drawing.Point(607, 465);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(42, 39);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,7 +155,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::InternetCafeClient.Properties.Resources.fry_noodles;
-            this.pictureBox9.Location = new System.Drawing.Point(687, 451);
+            this.pictureBox9.Location = new System.Drawing.Point(518, 451);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(42, 39);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,22 +165,12 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::InternetCafeClient.Properties.Resources.fast_food;
-            this.pictureBox8.Location = new System.Drawing.Point(513, 451);
+            this.pictureBox8.Location = new System.Drawing.Point(344, 451);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(42, 39);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::InternetCafeClient.Properties.Resources.coke;
-            this.pictureBox7.Location = new System.Drawing.Point(423, 465);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(42, 39);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 14;
-            this.pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -199,16 +181,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 10;
             this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::InternetCafeClient.Properties.Resources.noodle;
-            this.pictureBox5.Location = new System.Drawing.Point(334, 451);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(42, 39);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -233,7 +205,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::InternetCafeClient.Properties.Resources.drink;
-            this.pictureBox2.Location = new System.Drawing.Point(598, 465);
+            this.pictureBox2.Location = new System.Drawing.Point(429, 465);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,53 +222,37 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // cancelPicBx
+            // btnCart
             // 
-            this.cancelPicBx.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.cancelPicBx.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelPicBx.Image = global::InternetCafeClient.Properties.Resources.cancel;
-            this.cancelPicBx.Location = new System.Drawing.Point(901, 455);
-            this.cancelPicBx.Name = "cancelPicBx";
-            this.cancelPicBx.Size = new System.Drawing.Size(43, 40);
-            this.cancelPicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cancelPicBx.TabIndex = 5;
-            this.cancelPicBx.TabStop = false;
-            this.cancelPicBx.Click += new System.EventHandler(this.cancelPicBx_Click);
-            this.cancelPicBx.MouseEnter += new System.EventHandler(this.cancelPicBx_MouseEnter);
-            // 
-            // acceptPicBx
-            // 
-            this.acceptPicBx.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.acceptPicBx.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.acceptPicBx.Image = global::InternetCafeClient.Properties.Resources.accept;
-            this.acceptPicBx.Location = new System.Drawing.Point(950, 455);
-            this.acceptPicBx.Name = "acceptPicBx";
-            this.acceptPicBx.Size = new System.Drawing.Size(43, 40);
-            this.acceptPicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.acceptPicBx.TabIndex = 4;
-            this.acceptPicBx.TabStop = false;
-            this.acceptPicBx.Click += new System.EventHandler(this.acceptPicBx_Click);
-            this.acceptPicBx.MouseEnter += new System.EventHandler(this.acceptPicBx_MouseEnter);
+            this.btnCart.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCart.BackgroundImage = global::InternetCafeClient.Properties.Resources.cart;
+            this.btnCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCart.Location = new System.Drawing.Point(737, 451);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(50, 50);
+            this.btnCart.TabIndex = 18;
+            this.btnCart.UseVisualStyleBackColor = false;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
+            this.btnCart.MouseEnter += new System.EventHandler(this.btnCart_MouseEnter);
             // 
             // FormOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1005, 507);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(801, 507);
+            this.Controls.Add(this.btnCart);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cancelPicBx);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.acceptPicBx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormOrder";
@@ -310,15 +266,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cancelPicBx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptPicBx)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,8 +280,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox acceptPicBx;
-        private System.Windows.Forms.PictureBox cancelPicBx;
         private System.Windows.Forms.FlowLayoutPanel drinkPanel;
         private System.Windows.Forms.FlowLayoutPanel snackPanel;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -337,12 +287,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.FlowLayoutPanel mainFoodPanel;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.FlowLayoutPanel mainFoodPanel;
+        private System.Windows.Forms.Button btnCart;
     }
 }

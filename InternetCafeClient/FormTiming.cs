@@ -18,6 +18,7 @@ namespace InternetCafeClient
         //test
         private FormChat formChat;
         private FormLogin loginForm;
+        private FormOrder order;
         private string username;
         private string pass;
         Socket SckClient;
@@ -47,7 +48,7 @@ namespace InternetCafeClient
             formChat.Show();
             formChat.Hide();
             loginForm = new FormLogin();
-
+            order = new FormOrder(this.username);
             GetInfo(username);
             TienConLai.Text = money.ToString();
             TransferToTime();
@@ -101,8 +102,6 @@ namespace InternetCafeClient
         }
         private void foodPicBox_Click(object sender, EventArgs e)
         {
-            FormOrder order;
-            order = new FormOrder(this.username);
             order.Show();
         }
 

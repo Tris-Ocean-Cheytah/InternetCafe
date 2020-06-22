@@ -55,7 +55,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlFoodCart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlFoodCart.Designer.cs">
+      <DependentUpon>ControlFoodCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\FoodDAO.cs" />
+    <Compile Include="FormCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCart.Designer.cs">
+      <DependentUpon>FormCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +82,11 @@
     </Compile>
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\FoodDTO.cs" />
-    <Compile Include="FoodControl.cs">
+    <Compile Include="ControlFoodOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FoodControl.Designer.cs">
-      <DependentUpon>FoodControl.cs</DependentUpon>
+    <Compile Include="ControlFoodOrder.Designer.cs">
+      <DependentUpon>ControlFoodOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -96,11 +108,17 @@
     <Compile Include="FormTiming.Designer.cs">
       <DependentUpon>FormTiming.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlFoodCart.resx">
+      <DependentUpon>ControlFoodCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCart.resx">
+      <DependentUpon>FormCart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChat.resx">
       <DependentUpon>FormChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FoodControl.resx">
-      <DependentUpon>FoodControl.cs</DependentUpon>
+    <EmbeddedResource Include="ControlFoodOrder.resx">
+      <DependentUpon>ControlFoodOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -201,6 +219,14 @@
   <ItemGroup>
     <None Include="pictures\security.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="pictures\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\cart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
