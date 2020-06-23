@@ -220,8 +220,13 @@ namespace InternetCafeServer
 
         private void BtnDel_Click(object sender, EventArgs e)
         {
-            UD.DelUser(txtUsername.Text);
-            Getalluser();
+            DialogResult dr = MessageBox.Show("Bạn xóa người dùng này?", "Thông báo", MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Information);
+            if (dr == DialogResult.Yes)
+            {
+                UD.DelUser(txtUsername.Text);
+                Getalluser();
+            }
         }
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
