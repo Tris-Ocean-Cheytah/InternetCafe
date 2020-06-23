@@ -79,13 +79,13 @@ namespace InternetCafeClient
                     {
                         FormTiming.money += int.Parse(info[1]);
                         FormTiming.TransferToTime();
-
                         FormTiming.TienConLai.Invoke(new UpdateForm(ChangeMoney), new object[] { FormTiming.money.ToString() });
                     }
 
                 }
                 if (temp.StartsWith(name))
                 {
+                    this.Invoke(new StatusUpdate(Show));
                     string msg = "";
                     for (int i = name.Length; i < temp.Length; i++)
                     {
@@ -107,6 +107,11 @@ namespace InternetCafeClient
 
         }
 
+        delegate void StatusUpdate();
+        void ShowFormChat()
+        {
+            Show();
+        }
         private void OnDataSent(IAsyncResult ar)
         {
             int size = sckClientTcp.EndSend(ar);

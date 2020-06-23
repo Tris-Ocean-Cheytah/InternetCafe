@@ -278,7 +278,7 @@ namespace InternetCafeClient
         private void btnView_Click(object sender, EventArgs e)
         {
             FormInfo inf1 = new FormInfo(this.username,this.cmnd,this.namsinh, this.sdt,money);
-            inf1.Show();
+            inf1.ShowDialog();
         }
     }
 }
