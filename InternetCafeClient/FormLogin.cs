@@ -119,7 +119,8 @@ namespace InternetCafeClient
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data, 0, size);
-            int money = int.Parse(result);
+            String[] UAP = result.Split(' ');
+            int money = int.Parse(UAP[0]);
             return money;
         }
     }
