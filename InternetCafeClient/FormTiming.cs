@@ -265,5 +265,10 @@ namespace InternetCafeClient
                 MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
