@@ -48,6 +48,7 @@ namespace InternetCafeClient
             formChat.Show();
             formChat.Hide();
             loginForm = new FormLogin();
+
             order = new FormOrder(this.username);
             GetInfo(username);
             TienConLai.Text = money.ToString();
