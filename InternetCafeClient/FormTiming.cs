@@ -20,6 +20,9 @@ namespace InternetCafeClient
         private FormLogin loginForm;
         private FormOrder order;
         private string username;
+        private string cmnd;
+        private string namsinh;
+        private string sdt;
         private string pass;
         Socket SckClient;
         EndPoint ep;
@@ -79,7 +82,12 @@ namespace InternetCafeClient
             // xu ly du lieu nhan duoc
             int size = SckClient.ReceiveFrom(data, 0, 1024, SocketFlags.None, ref ep);
             string result = Encoding.ASCII.GetString(data, 0, size);
-            money = int.Parse(result);
+            String[] UAP = result.Split(' ');
+            this.cmnd = UAP[1];
+            this.sdt = UAP[2];
+            this.namsinh = UAP[3];
+            money = int.Parse(UAP[0]);
+
         }
         private void ChangeBalance(string username, int AB)
         {
@@ -269,7 +277,8 @@ namespace InternetCafeClient
 
         private void btnView_Click(object sender, EventArgs e)
         {
-
+            FormInfo inf1 = new FormInfo(this.username,this.cmnd,this.namsinh, this.sdt,money);
+            inf1.Show();
         }
     }
 }

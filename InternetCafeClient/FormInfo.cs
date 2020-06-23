@@ -12,9 +12,13 @@ namespace InternetCafeClient
 {
     public partial class FormInfo : Form
     {
-        public FormInfo()
+        public FormInfo(string un,string cmnd,string ns,string sdt,int money)
         {
-            InitializeComponent();
+            textBox1.Text = un;
+            textBox2.Text = cmnd;
+            textBox3.Text = ns;
+            textBox4.Text = sdt;
+            textBox5.Text = money.ToString();
         }
     }
 }
