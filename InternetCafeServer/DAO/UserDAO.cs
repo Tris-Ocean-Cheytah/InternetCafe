@@ -177,5 +177,31 @@ namespace InternetCafeServer.DAO
             }
             return money;
         }
+        public string findinfo(string user)
+        {
+            string result="";
+            try
+            {
+                String query = "SELECT * FROM Thanh_Vien WHERE @user=User_name";
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionstring))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("user", user);
+                    SqlDataReader read = cmd.ExecuteReader();
+                    string cmnd = (string)read["Citizen_identification"];
+                    string sdt = (string)read["Phone_number"];
+                    string ns = (string)read["Year_of_birth"];
+                    connection.Close();
+                    result = string.Format(cmnd + " " + sdt+" "+ns);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("không thể lấy thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return result;
+        }
     }
 }
