@@ -46,16 +46,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ControlClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlClient.Designer.cs">
+      <DependentUpon>ControlClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\ConnectionString.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\FoodDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\TimeDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="FormLoginServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormLoginServer.Designer.cs">
+      <DependentUpon>FormLoginServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddFood.Designer.cs">
+      <DependentUpon>FormAddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChatServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChatServer.Designer.cs">
+      <DependentUpon>FormChatServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCommunicate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCommunicate.Designer.cs">
+      <DependentUpon>FormCommunicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManage.Designer.cs">
+      <DependentUpon>FormManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetPass.Designer.cs">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ControlClient.resx">
+      <DependentUpon>ControlClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddFood.resx">
+      <DependentUpon>FormAddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChatServer.resx">
+      <DependentUpon>FormChatServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCommunicate.resx">
+      <DependentUpon>FormCommunicate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginServer.resx">
+      <DependentUpon>FormLoginServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManage.resx">
+      <DependentUpon>FormManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetPass.resx">
+      <DependentUpon>FormSetPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +136,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,7 +152,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="pictures\" />
+    <None Include="pictures\tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\type.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\monitor2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
