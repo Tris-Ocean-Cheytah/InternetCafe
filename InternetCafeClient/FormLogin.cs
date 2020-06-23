@@ -61,6 +61,8 @@ namespace InternetCafeClient
                 MessageBox.Show("Không nhận phản hồi từ server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (realpass == "0")
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (realpass == "3")
+                MessageBox.Show("tài khoản đang được đăng nhập tại máy khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private string AcceptLogin(string username, string pass)

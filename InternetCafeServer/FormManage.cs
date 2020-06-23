@@ -12,6 +12,7 @@ namespace InternetCafeServer
     public partial class FormManage : Form
     {
         Socket sckServerUdp;
+        List<string> may;
         BindingSource source = new BindingSource();
         UserDAO UD = new UserDAO();
         FoodDAO FD = new FoodDAO();
@@ -115,6 +116,8 @@ namespace InternetCafeServer
                     thongdiep = thongdiep.Substring(1);
                     String[] UAP = thongdiep.Split(' ');
                     int result = UD.GetPass(UAP[0], UAP[1]);
+                    if (may.Contains(UAP[0]))
+                        result = 3;
                     sckServerUdp.SendTo(Encoding.ASCII.GetBytes(result.ToString()), dep);
                 }
                 else if (thongdiep.StartsWith("2"))
@@ -269,6 +272,7 @@ namespace InternetCafeServer
                             listViewClient.Items[i].SubItems[3].Text = username;
                             listViewClient.Items[i].SubItems[4].Text = time.hour.ToString() + "h" + time.minute.ToString() + "m";
                             listViewClient.Items[i].SubItems[5].Text = money.ToString();
+                            may.Add(username);
                         }
                     }
                 });
@@ -285,6 +289,7 @@ namespace InternetCafeServer
                     {
                         if (listViewClient.Items[i].SubItems[1].Text.ToString() == name)
                         {
+                            may.Remove(listViewClient.Items[i].SubItems[3].Text.ToString());
                             listViewClient.Items[i].SubItems[2].Text = "OFF";
                             listViewClient.Items[i].SubItems[3].Text = "";
                             listViewClient.Items[i].SubItems[4].Text = "";
