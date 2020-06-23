@@ -48,6 +48,7 @@ namespace InternetCafeClient
             formChat.Show();
             formChat.Hide();
             loginForm = new FormLogin();
+
             order = new FormOrder(this.username);
             GetInfo(username);
             TienConLai.Text = money.ToString();
@@ -264,6 +265,11 @@ namespace InternetCafeClient
                 logoutPicBox_Click(null, null);
                 MessageBox.Show("Không nhận phản hồi từ Server", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -392,9 +392,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(42, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 17);
+            this.label7.Size = new System.Drawing.Size(48, 17);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Căn cước công dân";
+            this.label7.Text = "CMND";
             // 
             // txtID
             // 

@@ -58,6 +58,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.btnView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -160,7 +161,7 @@
             this.panel1.Controls.Add(this.GioDaSuDung);
             this.panel1.Location = new System.Drawing.Point(157, 98);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Padding = new System.Windows.Forms.Padding(2);
             this.panel1.Size = new System.Drawing.Size(111, 23);
             this.panel1.TabIndex = 22;
             // 
@@ -369,12 +370,24 @@
             this.timer3.Interval = 10000;
             this.timer3.Tick += new System.EventHandler(this.Timer3_Tick);
             // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(133, 565);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(154, 28);
+            this.btnView.TabIndex = 12;
+            this.btnView.Text = "Thông tin tài khoản";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
             // FormTiming
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(299, 567);
+            this.ClientSize = new System.Drawing.Size(299, 599);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.keyPicBx);
             this.Controls.Add(this.logoutPicBox);
             this.Controls.Add(this.foodPicBox);
@@ -411,7 +424,6 @@
         private System.Windows.Forms.Label lblUseTimeFee;
         private System.Windows.Forms.TextBox perHourTxtBox;
         private System.Windows.Forms.Label label2;
-        public static System.Windows.Forms.TextBox TienConLai;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -434,5 +446,7 @@
         private System.Windows.Forms.Label PhutDaSuDung;
         private System.Windows.Forms.Label GioDaSuDung;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Button btnView;
+        public static System.Windows.Forms.TextBox TienConLai;
     }
 }
