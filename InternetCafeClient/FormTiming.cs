@@ -121,11 +121,15 @@ namespace InternetCafeClient
             timer2.Enabled = false;
             timer1.Enabled = false;
             SckClient.Close();
-            this.Hide();
+            this.Invoke(new UpdateForm(HideForm)); 
             loginForm.Show();
             formChat.LogOut();
         }
-
+        delegate void UpdateForm();
+        void HideForm()
+        {
+            this.Hide();
+        }
         
 
         private void messPicBox_MouseEnter(object sender, EventArgs e)
@@ -278,7 +282,7 @@ namespace InternetCafeClient
         private void btnView_Click(object sender, EventArgs e)
         {
             FormInfo inf1 = new FormInfo(this.username,this.cmnd,this.namsinh, this.sdt,money);
-            inf1.Show();
+            inf1.ShowDialog();
         }
     }
 }
