@@ -14,14 +14,15 @@ namespace InternetCafeClient
 {
     public partial class FormChat : Form
     {
-        private string name = Dns.GetHostName();
         public Socket sckClientTcp;
-        private byte[] data = new byte[1024];
+        private readonly string name = Dns.GetHostName();
+        private readonly byte[] data = new byte[1024];
+        private readonly string ip = Constant.IP_ADDRESS;
         public FormChat()
         {
             InitializeComponent();
             sckClientTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9998);
+            IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse(ip), 9998);
             sckClientTcp.BeginConnect(epTcp, new AsyncCallback(OnConnected), null);
         }
 

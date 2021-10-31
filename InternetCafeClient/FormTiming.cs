@@ -32,6 +32,7 @@ namespace InternetCafeClient
         public static int gio;
         public static int phut;
         public static int giay;
+        private string ip = Constant.IP_ADDRESS;
 
         public FormTiming()
         {
@@ -71,7 +72,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse(ip), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("2" + username + " " + Dns.GetHostName()), ep);
             // xu ly du lieu nhan duoc
@@ -84,7 +85,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse(ip), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("3" + username + " " + AB.ToString() + " " + Dns.GetHostName()), ep);
         }
@@ -252,7 +253,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse(ip), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.ASCII.GetBytes("7" + Dns.GetHostName() + " " + money), ep);
             try

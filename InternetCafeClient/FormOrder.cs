@@ -21,7 +21,7 @@ namespace InternetCafeClient
         List<FoodDTO> listfood = new List<FoodDTO>();
         FoodDAO FP = new FoodDAO();
         private string username;
-
+        private readonly string ip = Constant.IP_ADDRESS;
         public FormOrder(string username)
         {
             this.username = username;
@@ -128,7 +128,7 @@ namespace InternetCafeClient
             //tao ket noi
             SckClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //tao cong
-            ep = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            ep = new IPEndPoint(IPAddress.Parse(ip), 9999);
             //bat dau gui du lieu
             SckClient.SendTo(Encoding.UTF8.GetBytes(result), ep);
         }

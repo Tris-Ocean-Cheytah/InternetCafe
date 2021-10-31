@@ -21,6 +21,7 @@ namespace InternetCafeServer
         EndPoint dep = new IPEndPoint(IPAddress.Any, 0);
         private string Username;
         private string Password;
+        private string ip = Constant.IP_ADDRESS;
 
         public FormManage()
         {
@@ -93,7 +94,7 @@ namespace InternetCafeServer
             //tao socket
             sckServerUdp = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //bind
-            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9999);
+            IPEndPoint epUdp = new IPEndPoint(IPAddress.Parse(ip), 9999);
             sckServerUdp.Bind(epUdp);
             //bat dau gui nhan du lieu
             sckServerUdp.BeginReceiveFrom(data, 0, 1024, SocketFlags.None, ref dep, new AsyncCallback(receive), null);

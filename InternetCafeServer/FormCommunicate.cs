@@ -20,6 +20,7 @@ namespace InternetCafeServer
         public static List<string> listClientName = new List<string>();
         private List<ControlClient> listControl = new List<ControlClient>();
         private byte[] data = new byte[1024];
+        private string ip = Constant.IP_ADDRESS;
         public FormCommunicate()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace InternetCafeServer
             {
                 sckServerTcp = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 //đây
-                IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse("25.81.81.59"), 9998);
+                IPEndPoint epTcp = new IPEndPoint(IPAddress.Parse(ip), 9998);
                 sckServerTcp.Bind(epTcp);
                 sckServerTcp.Listen(10);
                 sckServerTcp.BeginAccept(new AsyncCallback(OnConnected), sckServerTcp);
